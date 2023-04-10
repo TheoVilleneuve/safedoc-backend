@@ -1,0 +1,29 @@
+[
+    {
+        "value": "femme cisgenre"
+    },
+    {
+        "value": "homme cisgenre"
+    },
+    {
+        "value":"femme trans"
+    },
+    {
+        "value":"homme trans"
+    },
+    {
+        "value":"personne intersexe"
+    },
+    {
+        "value":"personne non-binaire"
+    },
+    {
+        "value":"je ne me reconnais dans aucune catégorie"
+    },
+    {
+        "value":"je ne souhaite pas me défnir"
+    },
+    {
+        "value":"En questionnement"
+    }
+]
