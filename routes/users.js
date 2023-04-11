@@ -19,9 +19,9 @@ router.get('/all', async (req, res) => {
 
 // Route get one specficic user
 
-router.get('/user/:id', async (req, res) => {
+router.get('/user/:token', async (req, res) => {
   try {
-    const user = await User.findById(req.params.id);
+    const user = await User.findOne(req.params.token);
     if (user) {
       res.json({ result: true, user: user});
     } else {
@@ -35,7 +35,6 @@ router.get('/user/:id', async (req, res) => {
 
 
 // SiGN UP
-
 router.post('/signup', (req, res) => {
   if (!checkBody(req.body, ['username', 'password', 'email'])) {
     res.json({ result: false, error: 'Missing or empty fields' });
@@ -45,6 +44,13 @@ router.post('/signup', (req, res) => {
   // Check if the user has not already been registered
   User.findOne({ username: req.body.username }).then(data => {
     if (data === null) {
+      // Validate email format
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(req.body.email)) {
+        res.json({ result: false, error: 'Invalid email format' });
+        return;
+      }
+
       const hash = bcrypt.hashSync(req.body.password, 10);
 
       const newUser = new User({
@@ -74,8 +80,8 @@ router.post('/signup', (req, res) => {
   });
 });
 
-// SIGN IN
 
+// SIGN IN
 router.post('/signin', (req, res) => {
   console.log(req.body)
    if (!checkBody(req.body, ['usernameOrEmail', 'password'])) {
@@ -89,7 +95,8 @@ router.post('/signin', (req, res) => {
       { username: usernameOrEmail },
       { email: usernameOrEmail }
     ]
-  }).then(data => {
+  }).then(data => { 
+    console.log(data)
     if (data && bcrypt.compareSync(password, data.password)) {
       res.json({ result: true, token: data.token });
     } else {

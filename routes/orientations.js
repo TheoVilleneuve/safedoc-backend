@@ -1,19 +1,19 @@
 var express = require('express');
 var router = express.Router();
 require('../models/connection');
-const { checkBody } = require('../modules/checkBody');
-const uid2 = require('uid2');
-const bcrypt = require('bcrypt');
-const Orientation = require('../models/orientations2');
+const Orientation = require('../models/orientations');
+const app = express();
 
-
-router.get('/orientations', async (req, res) => {
+// Route to get all orientations
+app.get('/orientations', async (req, res) => {
   try {
     const orientations = await Orientation.find();
-    res.json({result: true, orientations: orientations});
+    res.json(orientations);
   } catch (error) {
-    res.status(500).json({ result: false, error: "An error occurred while retrieving orientations" });
+    console.error(error);
+    res.status(500).json({ error: 'Failed to retrieve orientations' });
   }
 });
+
 
 module.exports = router;
