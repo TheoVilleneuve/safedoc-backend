@@ -9,7 +9,7 @@ require('./models/connection');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-// var doctorsRouter = require('./routes/doctors');
+var doctorsRouter = require('./routes/doctors');
 
 var app = express();
 const cors = require('cors');
@@ -23,6 +23,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-// app.use('/doctors', doctorsRouter);
+app.use('/doctors', doctorsRouter);
 
 module.exports = app;
