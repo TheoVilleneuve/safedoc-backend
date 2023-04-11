@@ -1,0 +1,105 @@
+[{
+    "_id": {
+      "$oid": "64269d757ac1fc9ba098537f"
+    },
+    "username": "VZ",
+    "password": "Favorite Place 1",
+    "email": "uyhvv@yahoo.com",
+    "city": "yaoundé",
+    "orientation": "bisexuel.le",
+    "gender": "male",
+    "token": "abc345",
+    "doctor": "Dr.vaca",
+    "__v": 0
+  },{
+    "_id": {
+      "$oid": "64269e947ac1fc9ba0985383"
+    },
+    "username": "VA",
+    "password": "Favorite Place 35",
+    "email": "uyhvv@gmail.com",
+    "city": "parisi",
+    "orientation": "bisexuel.le",
+    "gender": "female",
+    "token": "abc545",
+    "doctor": "Dr.tyuo",
+    "__v": 0
+  },{
+    "_id": {
+      "$oid": "64269e9e7ac1fc9ba0985387"
+    },
+    "username": "Alexandre",
+    "password": "Favorite Place 90",
+    "email": "sgsgfs@yahoo.com",
+    "city": "Parigo",
+    "orientation": "bisexuel.le",
+    "gender": "female",
+    "token": "abc045",
+    "doctor": "Dr.weah",
+    "__v": 0
+  },{
+    "_id": {
+      "$oid": "64269ea17ac1fc9ba098538a"
+    },
+    "username": "Marina",
+    "password": "Favorite Place 46",
+    "email": "sdfvsgvsv@yahoo.com",
+    "city": "francia",
+    "orientation": "bisexuel.le",
+    "gender": "male",
+    "token": "qbc 23423",
+    "doctor": "Dr.rollo",
+    "__v": 0
+  },{
+    "_id": {
+      "$oid": "64269ea47ac1fc9ba098538d"
+    },
+    "username": "Maurice",
+    "password": "Favorite",
+    "email": "refge@yahoo.com",
+    "city": "Marseille",
+    "orientation": "gay",
+    "gender": "female",
+    "token": "abc345",
+    "doctor": "Dr.rtyu",
+    "__v": 0
+  },{
+    "_id": {
+      "$oid": "64269ff77ac1fc9ba0985390"
+    },
+    "username": "Maori",
+    "password": "Favorite 1",
+    "email": "efgbdg@yahoo.com",
+    "city": "Nantes",
+    "orientation": "pansexual.le",
+    "gender": "male",
+    "token": "ete453",
+    "doctor": "Dr.cacard",
+    "__v": 0
+  },{
+    "_id": {
+      "$oid": "64269ff97ac1fc9ba0985393"
+    },
+    "username": "Allia",
+    "password": "Place 1",
+    "email": "sfrgsgsgf@yahoo.com",
+    "city": "lolaloland",
+    "orientation": "pansexue.le",
+    "gender": "male",
+    "token": "abc395",
+    "doctor": "Dr.ouioui",
+    "__v": 0
+  },{
+    "_id": {
+      "$oid": "64269ffb7ac1fc9ba0985396"
+    },
+    "username": "Alex",
+    "password": "dfghfs Place 1",
+    "email": "jmnhfgbg@yahoo.com",
+    "city": "Lille",
+    "orientation": "pansexuel.le",
+    "gender": "male",
+    "token": "abc3534",
+    "doctor": "Dr.465",
+    "__v": 0
+  }]
