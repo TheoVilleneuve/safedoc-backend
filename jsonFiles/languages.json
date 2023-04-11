@@ -1,0 +1,12 @@
+[
+    {"value": "français", "translation": "français"},
+    {"value": "english", "translation": "anglais"},
+    {"value": "español", "translation": "espagnol"},
+    {"value": "deutsch", "translation": "allemand"},
+    {"value": "italiano", "translation": "italien"},
+    {"value": "中文", "translation": "mandarin"},
+    {"value": "日本語", "translation": "japonais"},
+    {"value": "Русский", "translation": "russe"},
+    {"value": "العربية", "translation": "arabe"},
+    {"value": "Português", "translation": "portuguais"}
+]
