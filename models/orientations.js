@@ -4,6 +4,6 @@ const orientationSchema = mongoose.Schema({
     value: String,
   });
   
-  const Orientation = mongoose.model('users', orientationSchema);
+  const Orientation = mongoose.model('orientations', orientationSchema);
   
   module.exports = Orientation;
