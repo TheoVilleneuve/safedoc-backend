@@ -1,105 +1,463 @@
 [{
-    "_id": {
-      "$oid": "64269d757ac1fc9ba098537f"
-    },
-    "username": "VZ",
-    "password": "Favorite Place 1",
-    "email": "uyhvv@yahoo.com",
-    "city": "yaoundé",
-    "orientation": "bisexuel.le",
-    "gender": "male",
-    "token": "abc345",
-    "doctor": "Dr.vaca",
-    "__v": 0
-  },{
-    "_id": {
-      "$oid": "64269e947ac1fc9ba0985383"
-    },
-    "username": "VA",
-    "password": "Favorite Place 35",
-    "email": "uyhvv@gmail.com",
-    "city": "parisi",
-    "orientation": "bisexuel.le",
-    "gender": "female",
-    "token": "abc545",
-    "doctor": "Dr.tyuo",
-    "__v": 0
-  },{
-    "_id": {
-      "$oid": "64269e9e7ac1fc9ba0985387"
-    },
-    "username": "Alexandre",
-    "password": "Favorite Place 90",
-    "email": "sgsgfs@yahoo.com",
-    "city": "Parigo",
-    "orientation": "bisexuel.le",
-    "gender": "female",
-    "token": "abc045",
-    "doctor": "Dr.weah",
-    "__v": 0
-  },{
-    "_id": {
-      "$oid": "64269ea17ac1fc9ba098538a"
-    },
-    "username": "Marina",
-    "password": "Favorite Place 46",
-    "email": "sdfvsgvsv@yahoo.com",
-    "city": "francia",
-    "orientation": "bisexuel.le",
-    "gender": "male",
-    "token": "qbc 23423",
-    "doctor": "Dr.rollo",
-    "__v": 0
-  },{
-    "_id": {
-      "$oid": "64269ea47ac1fc9ba098538d"
-    },
-    "username": "Maurice",
-    "password": "Favorite",
-    "email": "refge@yahoo.com",
-    "city": "Marseille",
-    "orientation": "gay",
-    "gender": "female",
-    "token": "abc345",
-    "doctor": "Dr.rtyu",
-    "__v": 0
-  },{
-    "_id": {
-      "$oid": "64269ff77ac1fc9ba0985390"
-    },
-    "username": "Maori",
-    "password": "Favorite 1",
-    "email": "efgbdg@yahoo.com",
-    "city": "Nantes",
-    "orientation": "pansexual.le",
-    "gender": "male",
-    "token": "ete453",
-    "doctor": "Dr.cacard",
-    "__v": 0
-  },{
-    "_id": {
-      "$oid": "64269ff97ac1fc9ba0985393"
-    },
-    "username": "Allia",
-    "password": "Place 1",
-    "email": "sfrgsgsgf@yahoo.com",
-    "city": "lolaloland",
-    "orientation": "pansexue.le",
-    "gender": "male",
-    "token": "abc395",
-    "doctor": "Dr.ouioui",
-    "__v": 0
-  },{
-    "_id": {
-      "$oid": "64269ffb7ac1fc9ba0985396"
-    },
-    "username": "Alex",
-    "password": "dfghfs Place 1",
-    "email": "jmnhfgbg@yahoo.com",
-    "city": "Lille",
-    "orientation": "pansexuel.le",
-    "gender": "male",
-    "token": "abc3534",
-    "doctor": "Dr.465",
-    "__v": 0
-  }]
+  "_id": {
+    "$oid": "643404d86cf6d105748e6f23"
+  },
+  "username": "user4",
+  "password": "password4",
+  "email": "user4@example.com",
+  "city": "New York",
+  "orientation": "heterosexual",
+  "gender": "male",
+  "token": "abc123",
+  "doctor": "Dr. Smith",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "643404d86cf6d105748e6f24"
+  },
+  "username": "user5",
+  "password": "password5",
+  "email": "user5@example.com",
+  "city": "New York",
+  "orientation": "heterosexual",
+  "gender": "male",
+  "token": "abc123",
+  "doctor": "Dr. Smith",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "643404d86cf6d105748e6f25"
+  },
+  "username": "user6",
+  "password": "password6",
+  "email": "user6@example.com",
+  "city": "New York",
+  "orientation": "heterosexual",
+  "gender": "male",
+  "token": "abc123",
+  "doctor": "Dr. Smith",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "643404d86cf6d105748e6f21"
+  },
+  "username": "user2",
+  "password": "password2",
+  "email": "user2@example.com",
+  "city": "New York",
+  "orientation": "heterosexual",
+  "gender": "male",
+  "token": "abc123",
+  "doctor": "Dr. Smith",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "643404d86cf6d105748e6f26"
+  },
+  "username": "user7",
+  "password": "password7",
+  "email": "user7@example.com",
+  "city": "New York",
+  "orientation": "heterosexual",
+  "gender": "male",
+  "token": "abc123",
+  "doctor": "Dr. Smith",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "643404d86cf6d105748e6f22"
+  },
+  "username": "user3",
+  "password": "password3",
+  "email": "user3@example.com",
+  "city": "New York",
+  "orientation": "heterosexual",
+  "gender": "male",
+  "token": "abc123",
+  "doctor": "Dr. Smith",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "643404d86cf6d105748e6f29"
+  },
+  "username": "user10",
+  "password": "password10",
+  "email": "user10@example.com",
+  "city": "New York",
+  "orientation": "heterosexual",
+  "gender": "male",
+  "token": "abc123",
+  "doctor": "Dr. Smith",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "643404d86cf6d105748e6f27"
+  },
+  "username": "user8",
+  "password": "password8",
+  "email": "user8@example.com",
+  "city": "New York",
+  "orientation": "heterosexual",
+  "gender": "male",
+  "token": "abc123",
+  "doctor": "Dr. Smith",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "643404d86cf6d105748e6f28"
+  },
+  "username": "user9",
+  "password": "password9",
+  "email": "user9@example.com",
+  "city": "New York",
+  "orientation": "heterosexual",
+  "gender": "male",
+  "token": "abc123",
+  "doctor": "Dr. Smith",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64269d757ac1fc9ba098537f"
+  },
+  "username": "VZ",
+  "password": "Favorite Place 1",
+  "email": "uyhvv@yahoo.com",
+  "city": "yaoundé",
+  "orientation": "bisexuel.le",
+  "gender": "male",
+  "token": "abc345",
+  "doctor": "Dr.vaca",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64269e947ac1fc9ba0985383"
+  },
+  "username": "VA",
+  "password": "Favorite Place 35",
+  "email": "uyhvv@gmail.com",
+  "city": "parisi",
+  "orientation": "bisexuel.le",
+  "gender": "female",
+  "token": "abc545",
+  "doctor": "Dr.tyuo",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64269e9e7ac1fc9ba0985387"
+  },
+  "username": "Alexandre",
+  "password": "Favorite Place 90",
+  "email": "sgsgfs@yahoo.com",
+  "city": "Parigo",
+  "orientation": "bisexuel.le",
+  "gender": "female",
+  "token": "abc045",
+  "doctor": "Dr.weah",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64269ea17ac1fc9ba098538a"
+  },
+  "username": "Marina",
+  "password": "Favorite Place 46",
+  "email": "sdfvsgvsv@yahoo.com",
+  "city": "francia",
+  "orientation": "bisexuel.le",
+  "gender": "male",
+  "token": "qbc 23423",
+  "doctor": "Dr.rollo",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64269ea47ac1fc9ba098538d"
+  },
+  "username": "Maurice",
+  "password": "Favorite",
+  "email": "refge@yahoo.com",
+  "city": "Marseille",
+  "orientation": "gay",
+  "gender": "female",
+  "token": "abc345",
+  "doctor": "Dr.rtyu",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64269ff77ac1fc9ba0985390"
+  },
+  "username": "Maori",
+  "password": "Favorite 1",
+  "email": "efgbdg@yahoo.com",
+  "city": "Nantes",
+  "orientation": "pansexual.le",
+  "gender": "male",
+  "token": "ete453",
+  "doctor": "Dr.cacard",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64269ff97ac1fc9ba0985393"
+  },
+  "username": "Allia",
+  "password": "Place 1",
+  "email": "sfrgsgsgf@yahoo.com",
+  "city": "lolaloland",
+  "orientation": "pansexue.le",
+  "gender": "male",
+  "token": "abc395",
+  "doctor": "Dr.ouioui",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64269ffb7ac1fc9ba0985396"
+  },
+  "username": "Alex",
+  "password": "dfghfs Place 1",
+  "email": "jmnhfgbg@yahoo.com",
+  "city": "Lille",
+  "orientation": "pansexuel.le",
+  "gender": "male",
+  "token": "abc3534",
+  "doctor": "Dr.465",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64342126fb92f32387ca7b2d"
+  },
+  "username": "Olivier",
+  "password": "$2b$10$7fPfxoG6bkv3dZGjW2KM1OQ1LfFPhsTUY5J1FXD5ldOFnLQa7TAQi",
+  "email": "oliveier@yahoo.com",
+  "city": "Paris",
+  "orientation": "gay",
+  "gender": "male",
+  "token": "6Hmz6RM8ay0CJ_hkOtR0GYzWyZBrbGkd",
+  "doctor": "dr.kim",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64342d9b48935dd17a3a00eb"
+  },
+  "username": "mattias",
+  "password": "$2b$10$tbPfT27YkMi2GKmK4VGmNePUZs7TmUiT5R1MWuc0E3Dl1/Aqu.njK",
+  "email": "fdshf@yahoo.com",
+  "city": "Paris",
+  "orientation": "gay",
+  "token": "_QXyMeOqqVcRcuWtFd6cUQdLgNzvS7zS",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6435116930b1279df7689486"
+  },
+  "username": "Victor",
+  "password": "$2b$10$yre8SbTLe6zVgAzDQHK25elidDrlE7QQVDSjufuru.oFAs9vGNlTG",
+  "city": "Montreuil",
+  "orientation": "null",
+  "gender": "cis male",
+  "token": "h7novWUrBiMZKuyTJ6XIh3W3SDGm4xhQ",
+  "doctor": "grtre456858656",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6435131a30b1279df768948a"
+  },
+  "username": "Victor1",
+  "password": "$2b$10$nY3e1Wu7Vsu7YCTyP5156OH83p1xih8OzOcPSe2SCfts8jrD2CdtK",
+  "city": "Montreuil",
+  "orientation": "null",
+  "gender": "cis male",
+  "token": "LYVsymvegUJZIKI-RkluKu162D1ZMuDJ",
+  "doctor": "grtre456858656",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6435131f30b1279df768948d"
+  },
+  "username": "Victor2",
+  "password": "$2b$10$z3leUG6kFi7Nywb8v99F2Oq6vejt0ohYWaK/fIqHRWR4c4IoGmP9S",
+  "city": "Montreuil",
+  "orientation": "null",
+  "gender": "cis male",
+  "token": "gqy-K_Ixr_lFQ-qozK2yoVY1XDek0Kpf",
+  "doctor": "grtre456858656",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6435132330b1279df7689490"
+  },
+  "username": "Victor3",
+  "password": "$2b$10$9w2eaTEkE5SYS1ZyqpXgWuuHj7I88ZG1jOTVm6P6Rd8QpOaJ/2dou",
+  "city": "Montreuil",
+  "orientation": "null",
+  "gender": "cis male",
+  "token": "nRP-TXdJrm6DAKNLWNK1s2QIk5XyHq19",
+  "doctor": "grtre456858656",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64351f56e2aca719c004dc7f"
+  },
+  "username": "TheGreatMark",
+  "password": "$2b$10$4Xj79LfpvIEP.dz6fiG7euY4U9nvVez9AEjtzt93.U.vFqymEKJtq",
+  "email": "rfgsg@yahoo.com",
+  "city": "Paris",
+  "orientation": "gay",
+  "gender": "male",
+  "token": "aSH4bWv_-nO7W_bTcbGFCDJZKmHLI40m",
+  "doctor": "dr.koo",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "643532fa0d3a6bfc74149002"
+  },
+  "username": "alex1",
+  "password": "$2b$10$K3SFjWVKUk4Q5q3h6LXqw.sS3kjEVVbAIVbb9qRJ3T9g8III.ad4y",
+  "email": "123@gmail.com",
+  "token": "C2bcY3SXf0OBRdRxwBnstuGiUHmL_yCo",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6435336c0d3a6bfc74149005"
+  },
+  "username": "alex44",
+  "password": "$2b$10$LPM8lE/KayvBrv6Hgsc8KeVqwnIDcIVS42xPq35qJ2MeiJc7.7yRW",
+  "email": "1234@gmail.com",
+  "city": "",
+  "orientation": "",
+  "token": "gpKEP853NNsqjLoru7dddMk7FZXHcmvc",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6435555a91a4da57fa6f6472"
+  },
+  "username": "juju",
+  "password": "$2b$10$vG894xREsMJ39Nt1b6QO2OztVJfWNUAtyIcdfVXbvZ9gcVqyEBIm6",
+  "email": "juju@gmail.com",
+  "token": "284znP_eZZQGL8QSewi1kTOducOViIUg",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6435565991a4da57fa6f6475"
+  },
+  "username": "Julien",
+  "password": "$2b$10$UNP8iGIqGXNhoMa0oCfs9OapLn2SQjYnBy/DwwZWtdoDtF8UnZX4i",
+  "email": "Julien@gmail.com",
+  "token": "ZsZ2dkwyU8g0m1HvpAUYuNbYv7h9rdQu",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6435568a91a4da57fa6f6478"
+  },
+  "username": "Theo",
+  "password": "$2b$10$0SaMTmVLtOHSw9VPCkmzRulgbAKdS3ZV2LthKcYPeAsN0uApDR27y",
+  "email": "Theo@gmail.com",
+  "token": "VTPLOUMkqMFywUsT6rsK4LaBUvbMg1W4",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6435570991a4da57fa6f647c"
+  },
+  "username": "AlexF",
+  "password": "$2b$10$tfTRoOPaDyKQ3ZeLa1GI9OsfURixyBajCNw.cUrAo3WLHXaDTGGUW",
+  "email": "Alex@yahooo.fr",
+  "token": "T6YUIHr-YEBkS7_Od68DVum1oKYm5Zdw",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6435573d91a4da57fa6f6480"
+  },
+  "username": "jujuD",
+  "password": "$2b$10$IkoYm7lw9DdgMyyoosn4p.IsxBxe7tpQtf..tVOq9/4JHcPK9tJDW",
+  "email": "Juju@gmail.com",
+  "token": "r8yLcVjwGMBStZHeRQ6fFrvt_vsvSFYd",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6435574f91a4da57fa6f6483"
+  },
+  "username": "jujuDg",
+  "password": "$2b$10$9Jpl2mJ3ApFuep2ZQEWGSOroBGn74Uuy416j/QDWagwcPUtdFszfq",
+  "email": "Juju@gmail.com",
+  "token": "A0j6H1YS9kLD06RGL5pOSAi5fUmY3W5S",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64355bcd1dbf49c48712c501"
+  },
+  "username": "capsule",
+  "password": "$2b$10$p.4/l0YYL7l20uwoUpCqueMXZdbjrKT3z9CKFd6iCegre3PIyobN2",
+  "email": "Capsule@gmail.com",
+  "token": "hJ7lcK75Oz4jRT40xmUn0G_H1RVhESY1",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64355caa1dbf49c48712c505"
+  },
+  "username": "capsule2",
+  "password": "$2b$10$CzZaJxMlo7WHRDxlkSvcmOtiRKNjdv3XsbwazmDKdf4uVUPBd5HNm",
+  "email": "capsule2@gmail.com",
+  "token": "4tvrZGBL6zsZ-ptzQ-98Q6bqdLrVloJm",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64355dfb1dbf49c48712c514"
+  },
+  "username": "capsule3",
+  "password": "$2b$10$rgSgapF8.KpGRnZl41qbA.QjuQLlshi09Tk1FLhVfejO5aMHW8hwS",
+  "email": "capsule3@gmaim.com",
+  "token": "Law2tZi521ceLC3nM2Zexl3eP2n3M88w",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "643560171dbf49c48712c51c"
+  },
+  "username": "theo2",
+  "password": "$2b$10$viHUjQnNIFuKuGgm0477COr7y4SOiIKSV4BzWjuWVMJe8OiXP0Q6.",
+  "email": "theo2@gmail.com",
+  "token": "_rUuAEP6lSGMOxec6y43qRaIR8IbbHYk",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "643563611dbf49c48712c531"
+  },
+  "username": "juju3",
+  "password": "$2b$10$4THw8ydtOrW7rCgd647wDerY2ShY4BBF5hU.RBpMNM8zM9YhB2zvK",
+  "email": "juju3",
+  "token": "X98VduglY45xUanM2t7jnPoroUtKHKjN",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "643563ef1dbf49c48712c534"
+  },
+  "username": "juju4",
+  "password": "$2b$10$8mrdNsEQ0WynsQVxiv9MCuerdsPPA6uWbtyWJ0aiTcITSQZ1AnOz2",
+  "email": "Juju4",
+  "token": "HzCmmyEaA1nZZRL0_bxckSS_IkHXX2iM",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "643564581dbf49c48712c537"
+  },
+  "username": "juju5",
+  "password": "$2b$10$t6eZbZ6dJkpIL7IKhaRM4uFpioVZ9ggdKoTVPWZzY/tEdDq47R1AG",
+  "email": "Juju5",
+  "token": "-yKOqeebhDK4Cm9C1OevNv1nFryxLPPm",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64356e6b1dbf49c48712c53c"
+  },
+  "username": "capsule2@gmail.com",
+  "password": "$2b$10$9YXqG2tJixVIC2ivM3vyn.GwsgJhS78i8yvybwc4SAcGVaOYnSLu2",
+  "email": "capsule2@gmail.com",
+  "orientation": "lesbienne",
+  "token": "j2T-_1mjmM5nbOeGRRxjCer8KHeinX0M",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "643584a51dbf49c48712c546"
+  },
+  "username": "Jujuu",
+  "password": "$2b$10$VEp/7vtoMaQY0PgIfDeEAuLA/zfMDEZWqDRBcS2qSKV569UZ0MHpC",
+  "email": "Jujuu@gmail.com",
+  "token": "qGdW20NDUV-V927Y1X3xR5dLqJNpZr1j",
+  "__v": 0
+}]

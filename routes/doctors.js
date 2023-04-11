@@ -6,11 +6,27 @@ const { checkBody } = require('../modules/checkBody');
 
 // GET /doctors
 
+router.get('/', (req,res) => {
+    Doctor.find()
+    .then(data => {
+        res.json({result: true, doctors: data});
+    })
+})
+
+// GET /doctors/:id
+
+router.get('/:id', (req,res) => {
+    Doctor.findOne({_id: req.params.id})
+    .then(data => {
+        res.json({result: true, doctors: data});
+    })
+})
+
 // POST /doctors/create : create 5 fictive doctors
 
 router.post('/create', (req, res) => {
     for (let i = 0; i < 5; i++) {
-        const newDoctor = new Doctor ({
+        const newDoctor = new Doctor({
             firstname: `Denis${i}`,
             lastname: "Denis",
             email: `denis${i}@mail.com`,
@@ -50,7 +66,7 @@ router.post('/add', (req, res) => {
     }
     // Check if the doctor has not already been added
     // Create doctor
-    const newDoctor = new Doctor ({
+    const newDoctor = new Doctor({
         firstname: req.body.firstname,
         lastname: request.body.lastname,
         email: req.body.email,
@@ -72,13 +88,22 @@ router.post('/add', (req, res) => {
     });
     // Add doctor to DB
     newDoctor.save()
-    .then()
+        .then()
 });
 
-// DELETE /doctors/all
+// DELETE /doctors/delete/all 
 
-router.delete('/all', (req,res) => {
-    Doctor.deleteMany({ })
+router.delete('/all', (req, res) => {
+    Doctor.deleteMany({})
+        .then(data => {
+            if (data) {
+                res.json({ result: true, message: "Collection doctors successfully deleted" });
+            } else {
+                res.json({ result: false, error: "Failed to delete collection doctors" });
+            }
+        })
 });
+
+// DELETE /doctors/delete/:id
 
 module.exports = router;
