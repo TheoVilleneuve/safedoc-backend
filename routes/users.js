@@ -8,18 +8,18 @@ const bcrypt = require('bcrypt');
 
 // Route GET all users
 
-router.get('/users/all', async (req, res) => {
+router.get('/all', async (req, res) => {
   try {
     const users = await User.find();
-    res.json(users);
+    res.json({ result: true, users: users });
   } catch (error) {
-    res.json({ error: "An error occurred while retrieving users" });
+    res.json({result: false, error: "An error occurred while retrieving users" });
   }
 });
 
 // Route get one specficic user
 
-router.get('/users/:id', async (req, res) => {
+router.get('/user/:id', async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
     if (user) {
@@ -37,7 +37,7 @@ router.get('/users/:id', async (req, res) => {
 // SiGN UP
 
 router.post('/signup', (req, res) => {
-  if (!checkBody(req.body, ['username', 'password', 'email', 'city', 'orientation', 'gender', 'doctor'])) {
+  if (!checkBody(req.body, ['username', 'password', 'email'])) {
     res.json({ result: false, error: 'Missing or empty fields' });
     return;
   }
