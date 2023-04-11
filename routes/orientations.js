@@ -4,7 +4,7 @@ require('../models/connection');
 const { checkBody } = require('../modules/checkBody');
 const uid2 = require('uid2');
 const bcrypt = require('bcrypt');
-const Orientation = require('../models/orientation');
+const Orientation = require('../models/orientations2');
 
 
 router.get('/orientations', async (req, res) => {
