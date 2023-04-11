@@ -6,19 +6,41 @@ const { checkBody } = require('../modules/checkBody');
 const uid2 = require('uid2');
 const bcrypt = require('bcrypt');
 
+// Route GET all users
 
-/* GET users listing. */
-router.get('/', function (req, res, next) {
-  res.send('respond with a resource');
+router.get('/users/all', async (req, res) => {
+  try {
+    const users = await User.find();
+    res.json(users);
+  } catch (error) {
+    res.json({ error: "An error occurred while retrieving users" });
+  }
+});
+
+// Route get one specficic user
+
+router.get('/users/:id', async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id);
+    if (user) {
+      res.json(user);
+    } else {
+      res.json({ error: "User not found" });
+    }
+  } catch (error) {
+    res.json({ error: "An error occurred while retrieving the user" });
+  }
 });
 
 
 
+// SiGN UP
+
 router.post('/signup', (req, res) => {
-  // // if (!checkBody(req.body, ['username', 'password', 'email', 'city', 'orientation', 'gender', 'doctor'])) {
-  //   res.json({ result: false, error: 'Missing or empty fields' });
-  //   return;
-  // }
+  if (!checkBody(req.body, ['username', 'password', 'email', 'city', 'orientation', 'gender', 'doctor'])) {
+    res.json({ result: false, error: 'Missing or empty fields' });
+    return;
+  }
 
   // Check if the user has not already been registered
   User.findOne({ username: req.body.username }).then(data => {
@@ -52,10 +74,11 @@ router.post('/signup', (req, res) => {
   });
 });
 
-
+// SIGN IN
 
 router.post('/signin', (req, res) => {
-  if (!checkBody(req.body, ['usernameOrEmail', 'password'])) {
+  console.log(req.body)
+   if (!checkBody(req.body, ['usernameOrEmail', 'password'])) {
     res.json({ result: false, error: 'Missing or empty fields' });
     return;
   }
@@ -97,10 +120,31 @@ router.post('/create', (req, res) => {
 });
 
 // delete the user database
-router.delete('/delete-users', (req, res) => {
-  User.deleteMany();
+router.delete('/delete/all', (req, res) => {
+  User.deleteMany({})
+  .then(data => {
+    if (data) {
+      res.json({ result: true, message: "Collection users successfully deleted"});
+    } else {
+      res.json({ result: false, error: "Failed to delete collection users"});
+    }
+  })
 });
 
 
+// Delete one speficied user from the database 
+
+router.delete('/delete/:token', async (req, res) => {
+  try {
+    const user = await User.findOneAndDelete({ token: req.params.token});
+    if (user) {
+      res.json({ result: true, message: "User successfully deleted"});
+    } else {
+      res.json({ result: false, error: "Failed to delete user"});
+    }
+  } catch (error) {
+    res.json({ result: false, error: "An error occurred while deleting the user"});
+  }
+});
 
 module.exports = router;
