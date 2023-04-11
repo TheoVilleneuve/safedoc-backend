@@ -23,9 +23,9 @@ router.get('/user/:id', async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
     if (user) {
-      res.json(user);
+      res.json({ result: true, user: user});
     } else {
-      res.json({ error: "User not found" });
+      res.json({result: false, error: "User not found" });
     }
   } catch (error) {
     res.json({ error: "An error occurred while retrieving the user" });
