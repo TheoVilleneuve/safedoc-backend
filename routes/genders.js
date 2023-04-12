@@ -5,7 +5,7 @@ const Gender = require('../models/genders');
 const app = express();
 
 // Route to get all genders
-app.get('/genders', async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const genders = await Gender.find();
     res.json({result : true, genders: genders});
@@ -29,9 +29,6 @@ router.post('/genders', async (req, res) => {
     res.json({ result: false, error: 'Failed to retrieve gender' });
   }
 });
-
-// Route put for Genders
-
 
 
 module.exports = router;

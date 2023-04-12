@@ -8,7 +8,7 @@ const bcrypt = require('bcrypt');
 
 // Route GET all users
 
-router.get('/all', async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const users = await User.find();
     res.json({ result: true, users: users });
@@ -19,7 +19,7 @@ router.get('/all', async (req, res) => {
 
 // Route get one specficic user
 
-router.get('/user/:token', async (req, res) => {
+router.get('/:token', async (req, res) => {
   try {
     const user = await User.findOne(req.params.token);
     if (user) {
@@ -127,7 +127,7 @@ router.post('/create', (req, res) => {
 });
 
 // delete the user database
-router.delete('/delete/all', (req, res) => {
+router.delete('/', (req, res) => {
   User.deleteMany({})
   .then(data => {
     if (data) {
@@ -141,7 +141,7 @@ router.delete('/delete/all', (req, res) => {
 
 // Delete one speficied user from the database 
 
-router.delete('/delete/:token', async (req, res) => {
+router.delete('/:token', async (req, res) => {
   try {
     const user = await User.findOneAndDelete({ token: req.params.token});
     if (user) {
@@ -153,5 +153,40 @@ router.delete('/delete/:token', async (req, res) => {
     res.json({ result: false, error: "An error occurred while deleting the user"});
   }
 });
+
+// Route to modify the user orientation or gender.
+
+router.put('/update/:token', async (req, res) => {
+  try {
+    await User.updateOne({ token: req.params.token }, {
+      orientation: req.body.orientation,
+      gender: req.body.gender,
+    });
+
+    const updatedUser = await User.findOne({ token: req.params.token });
+    res.json({ user: updatedUser });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Server Error" });
+  }
+});
+
+// Route to update orientation
+// router.put('/update/:token', async (req, res) => {
+//   try {
+//     const { id } = req.params;
+//     const { value } = req.body;
+//     const updatedOrientation = await Orientation.findByIdAndUpdate(
+//       id,
+//       { value },
+//       { new: true }
+//     );
+//     res.json({ result: true, orientation: updatedOrientation });
+//   } catch (error) {
+//     console.error(error);
+//     res.json({ result: false, error: 'Failed to update orientation' });
+//   }
+// });
+      
 
 module.exports = router;

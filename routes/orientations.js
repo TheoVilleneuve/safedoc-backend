@@ -33,22 +33,6 @@ router.post('/orientations', async (req, res) => {
   }
 });
 
-// Route to update orientation
 
-router.put('/orientations/:id', async (req, res) => {
-  try {
-    const { id } = req.params;
-    const { value } = req.body;
-    const updatedOrientation = await Orientation.findByIdAndUpdate(
-      id,
-      { value },
-      { new: true }
-    );
-    res.json({ result: true, orientation: updatedOrientation });
-  } catch (error) {
-    console.error(error);
-    res.json({ result: false, error: 'Failed to update orientation' });
-  }
-});
 
 module.exports = router;

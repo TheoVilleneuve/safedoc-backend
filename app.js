@@ -12,7 +12,7 @@ var doctorsRouter = require('./routes/doctors');
 var gendersRouter = require('./routes/genders');
 var languagesRouter = require('./routes/languages');
 var orientationsRouter = require('./routes/orientations');
-var recommandantionsRouter = require('./routes/recommandantions');
+var recommandationsRouter = require('./routes/recommandations');
 var sectorsRouter = require('./routes/sectors');
 var specialtiesRouter = require('./routes/specialties');
 var tagsRouter = require('./routes/tags');
@@ -28,15 +28,15 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/confidentialities', indexRouter);
+app.use('/confidentialities', confidentialitiesRouter);
 app.use('/doctors', doctorsRouter);
 app.use('/genders', gendersRouter);
-app.use('/languages', indexRouter);
+app.use('/languages', languagesRouter);
 app.use('/orientations', orientationsRouter);
-app.use('/recommandations', indexRouter);
-app.use('/sectors', indexRouter);
-app.use('/specialties', indexRouter);
-app.use('/tags', indexRouter);
+app.use('/recommandations', recommandationsRouter);
+app.use('/sectors', sectorsRouter);
+app.use('/specialties', specialtiesRouter);
+app.use('/tags', tagsRouter);
 app.use('/users', usersRouter);
 
 
