@@ -4,16 +4,14 @@ require('../models/connection');
 const Gender = require('../models/genders');
 const app = express();
 
-// Route to get all genders
-router.get('/', async (req, res) => {
-  try {
-    const genders = await Gender.find();
-    res.json({result : true, genders: genders});
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ result: false, error: 'Failed to retrieve genders' });
-  }
-});
+// GET /genders
+
+router.get('/', (req,res) => {
+  Gender.find()
+  .then(data => {
+      res.json({result: true, genders: data});
+  })
+})
 
 // Route Post for Genders
 

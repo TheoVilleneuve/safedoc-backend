@@ -22,40 +22,6 @@ router.get('/:id', (req,res) => {
     })
 })
 
-// POST /doctors/create : create 5 fictive doctors
-
-router.post('/create', (req, res) => {
-    for (let i = 0; i < 5; i++) {
-        const newDoctor = new Doctor({
-            firstname: `Denis${i}`,
-            lastname: "Denis",
-            email: `denis${i}@mail.com`,
-            phone: "33 666 66 66 66",
-            location: {
-                address: {
-                    number: "1",
-                    typeOfRoute: "rue",
-                    route: "de Stockholm",
-                    zipCode: "75008",
-                    city: "Paris",
-                    department: "Ile-de-France"
-                },
-                coordinates: {
-                    latitude: 48.85657481132444,
-                    longitude: 2.35664611342782
-                }
-            },
-            // sector: "",
-            // recommandations: ["", "", ""],
-            // specialties: ["médecin généraliste", "pneumologue"],
-            // languages: ["français, anglais"],
-            // tags: ["gay-friendly, tiers-payant"],
-            // confidentialityLevel: 0
-        });
-        newDoctor.save();
-    }
-});
-
 // POST /doctors/add
 
 router.post('/add', (req, res) => {
@@ -93,7 +59,7 @@ router.post('/add', (req, res) => {
 
 // DELETE /doctors/delete/all 
 
-router.delete('/all', (req, res) => {
+router.delete('/', (req, res) => {
     Doctor.deleteMany({})
         .then(data => {
             if (data) {
