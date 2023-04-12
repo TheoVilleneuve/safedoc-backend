@@ -30,7 +30,7 @@ const doctorSchema = mongoose.Schema({
     specialties: [{ type: mongoose.Schema.Types.ObjectId, ref: 'specialties' }],
     languages: [{ type: mongoose.Schema.Types.ObjectId, ref: 'languages' }],
     tags: [{ type: mongoose.Schema.Types.ObjectId, ref: 'tags' }],
-    confidentialityLevel: { type: mongoose.Schema.Types.ObjectId, ref: 'confidentialityLevels' }
+    confidentiality: { type: mongoose.Schema.Types.ObjectId, ref: 'confidentialities' }
 });
 
 const Doctor = mongoose.model('doctors', doctorSchema);

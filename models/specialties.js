@@ -4,6 +4,6 @@ const specialtiesSchema = mongoose.Schema({
     value: String,
 })
 
-const Specialty = mongoose.model('specialties', specialtiesSchema);
+const Speciality = mongoose.model('specialties', specialtiesSchema);
 
-module.exports = Specialty;
+module.exports = Speciality;

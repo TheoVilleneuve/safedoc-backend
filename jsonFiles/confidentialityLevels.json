@@ -1,6 +1,0 @@
-[
-    {"value": 0, "description": "public"},
-    {"value": 1, "description": "only accessible to members"},
-    {"value": 2, "description": "only via mail"},  
-    {"value": 3, "description": "no display"}   
-]

@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-const Speciality = require('../models/specialties');
+const Confidentiality = require('../models/confidentialities');
 const { checkBody } = require('../modules/checkBody');
 
 // 
