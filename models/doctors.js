@@ -10,8 +10,8 @@ const adressSchema = mongoose.Schema({
 });
 
 const coordinatesSchema = mongoose.Schema({
-    latitude: String,
-    longitude: String
+    latitude: Number,
+    longitude: Number
 });
 
 const locationSchema = mongoose.Schema({
