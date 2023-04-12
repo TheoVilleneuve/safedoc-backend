@@ -1,12 +1,13 @@
 var express = require('express');
 var router = express.Router();
-require('../models/connection');
+
 const User = require('../models/users');
+
 const { checkBody } = require('../modules/checkBody');
 const uid2 = require('uid2');
 const bcrypt = require('bcrypt');
 
-// Route GET all users
+// GET /users
 
 router.get('/', async (req, res) => {
   try {
@@ -17,7 +18,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Route get one specficic user
+// GET /users/:token
 
 router.get('/:token', async (req, res) => {
   try {
@@ -32,15 +33,13 @@ router.get('/:token', async (req, res) => {
   }
 });
 
+// GET /users/signup
 
-
-// SiGN UP
 router.post('/signup', (req, res) => {
   if (!checkBody(req.body, ['username', 'password', 'email'])) {
     res.json({ result: false, error: 'Missing or empty fields' });
     return;
   }
-
   // Check if the user has not already been registered
   User.findOne({ username: req.body.username }).then(data => {
     if (data === null) {
@@ -62,6 +61,7 @@ router.post('/signup', (req, res) => {
         gender: req.body.gender,
         doctor: req.body.doctor,
         token: uid2(32),
+        isAdmin: false
       });
 
       newUser.save().then(newDoc => {
@@ -80,11 +80,10 @@ router.post('/signup', (req, res) => {
   });
 });
 
+// POST /users/signin 
 
-// SIGN IN
 router.post('/signin', (req, res) => {
-  console.log(req.body)
-   if (!checkBody(req.body, ['usernameOrEmail', 'password'])) {
+  if (!checkBody(req.body, ['usernameOrEmail', 'password'])) {
     res.json({ result: false, error: 'Missing or empty fields' });
     return;
   }
@@ -105,28 +104,8 @@ router.post('/signin', (req, res) => {
   });
 });
 
+// DELETE /users 
 
-// to create 10 users
-router.post('/create', (req, res) => {
-  for (let i = 1; i <= 10; i++) {
-    const newUser = new User({
-      username: `user${i}`,
-      password: `password${i}`,
-      email: `user${i}@example.com`,
-      city: 'New York',
-      orientation: 'heterosexual',
-      gender: 'male',
-      token: 'abc123',
-      doctor: 'Dr. Smith',
-    });
-
-    // Save the new user to the database
-    newUser.save();
-
-  }
-});
-
-// delete the user database
 router.delete('/', (req, res) => {
   User.deleteMany({})
   .then(data => {
@@ -139,7 +118,7 @@ router.delete('/', (req, res) => {
 });
 
 
-// Delete one speficied user from the database 
+// DELETE /users/:token
 
 router.delete('/:token', async (req, res) => {
   try {
@@ -154,7 +133,7 @@ router.delete('/:token', async (req, res) => {
   }
 });
 
-// Route to modify the user orientation or gender.
+// PUT /users/update/:token
 
 router.put('/update/:token', async (req, res) => {
   try {
@@ -170,23 +149,5 @@ router.put('/update/:token', async (req, res) => {
     res.status(500).json({ message: "Server Error" });
   }
 });
-
-// Route to update orientation
-// router.put('/update/:token', async (req, res) => {
-//   try {
-//     const { id } = req.params;
-//     const { value } = req.body;
-//     const updatedOrientation = await Orientation.findByIdAndUpdate(
-//       id,
-//       { value },
-//       { new: true }
-//     );
-//     res.json({ result: true, orientation: updatedOrientation });
-//   } catch (error) {
-//     console.error(error);
-//     res.json({ result: false, error: 'Failed to update orientation' });
-//   }
-// });
-      
 
 module.exports = router;

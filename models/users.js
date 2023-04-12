@@ -9,6 +9,7 @@ const userSchema = mongoose.Schema({
   gender: String,
   token: String,
   doctor: String,
+  isAdmin: Boolean
 });
 
 const User = mongoose.model('users', userSchema);
