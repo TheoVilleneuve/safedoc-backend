@@ -1,32 +1,17 @@
 var express = require('express');
 var router = express.Router();
-require('../models/connection');
+
 const Gender = require('../models/genders');
-const app = express();
 
 // GET /genders
 
-router.get('/', (req,res) => {
-  Gender.find()
-  .then(data => {
-      res.json({result: true, genders: data});
-  })
-})
-
-// Route Post for Genders
-
-router.post('/genders', async (req, res) => {
+router.get('/', async (req, res) => {
   try {
-    const { id } = req.body;
-    const gender = await Gender.findById(id);
-    if(!gender){
-      return res.json({ result: false, error: 'Gender not found' });
-    }
-    res.json({ result: true, gender: gender });
-  } catch (err) {
-    res.json({ result: false, error: 'Failed to retrieve gender' });
+    const genders = await Gender.find();
+    res.json({ result: true, genders: genders });
+  } catch (error) {
+    res.json({result: false, error: "An error occurred while retrieving genders" });
   }
 });
-
 
 module.exports = router;
