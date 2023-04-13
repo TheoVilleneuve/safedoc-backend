@@ -7,30 +7,15 @@
         "address": "19 Rue de la Pompe, 75116 Paris",
         "latitude": 48.865358,
         "longitude": 2.280123,
-<<<<<<< HEAD
-        "sector": 1,
-=======
         "sector": {
             "value": 1,
             "description": "conventionné secteur 1"
         },
->>>>>>> 872e8cc6ac6544ad310c505e440de45663049146
         "specialties": [
             "Dermatology",
             "Cosmetic Surgery"
         ],
         "languages": [
-<<<<<<< HEAD
-            "French",
-            "English"
-        ],
-        "tags": [
-            "trans-friendly",
-            "gay-friendly",
-            "accessibilite pmr"
-        ],
-        "confidentiality": 2
-=======
             {"value": "French", "translation": "français"},
             {"value": "English", "translation": "anglais"}
         ],
@@ -43,7 +28,6 @@
             "value": 0,
             "description": "public"
         }
->>>>>>> 872e8cc6ac6544ad310c505e440de45663049146
     },
     {
         "firstname": "Jean",
@@ -59,16 +43,6 @@
             "Optometry"
         ],
         "languages": [
-<<<<<<< HEAD
-            "French"
-        ],
-        "tags": [
-            "lesbinne-friendly",
-            "accessibilite pmr",
-            "gay-friendly"
-        ],
-        "confidentiality": 1
-=======
             {"value": "French", "translation": "français"},
             {"value": "English", "translation": "anglais"}
         ],
@@ -81,7 +55,6 @@
             "value": 0,
             "description": "public"
         }
->>>>>>> 872e8cc6ac6544ad310c505e440de45663049146
     },
     {
         "firstname": "Camille",
@@ -97,18 +70,6 @@
             "Psychotherapy"
         ],
         "languages": [
-<<<<<<< HEAD
-            "French",
-            "Spanish"
-        ],
-        "tags": [
-            "accessibilite pmr",
-            "trans-friendly",
-            "lesbienne-friendly"
-        ],
-        "confidentiality": 3
-    },
-=======
             {"value": "French", "translation": "français"},
             {"value": "English", "translation": "anglais"}
         ],
@@ -121,7 +82,6 @@
             "value": 2,
             "description": "only via mail"
         }    },
->>>>>>> 872e8cc6ac6544ad310c505e440de45663049146
     {
         "firstname": "Pierre",
         "lastname": "Leroy",
@@ -136,18 +96,6 @@
             "Internal Medicine"
         ],
         "languages": [
-<<<<<<< HEAD
-            "French",
-            "English"
-        ],
-        "tags": [
-            "accessibilite pmr",
-            "lesbienne",
-            "gay-friendly"
-        ],
-        "confidentiality": 2
-    },
-=======
             {"value": "French", "translation": "français"},
             {"value": "English", "translation": "anglais"}
         ],
@@ -160,7 +108,6 @@
             "value": 2,
             "description": "only via mail"
         }    },
->>>>>>> 872e8cc6ac6544ad310c505e440de45663049146
     {
         "firstname": "Julie",
         "lastname": "Girard",
@@ -175,17 +122,6 @@
             "Neonatology"
         ],
         "languages": [
-<<<<<<< HEAD
-            "French"
-        ],
-        "tags": [
-            "gay-friendly",
-            "gay-friendly",
-            "trans-friendly"
-        ],
-        "confidentiality": 1
-    },
-=======
             {"value": "French", "translation": "français"},
             {"value": "English", "translation": "anglais"}
         ],
@@ -198,7 +134,6 @@
             "value": 2,
             "description": "only via mail"
         }    },
->>>>>>> 872e8cc6ac6544ad310c505e440de45663049146
     {
         "firstname": "Marie",
         "lastname": "Dufour",
@@ -213,18 +148,6 @@
             "Obstetrics"
         ],
         "languages": [
-<<<<<<< HEAD
-            "French",
-            "English"
-        ],
-        "tags": [
-            "lisbienne-friendly",
-            "gay-friendly",
-            "accessibilite pmr"
-        ],
-        "confidentiality": 3
-    },
-=======
             {"value": "French", "translation": "français"},
             {"value": "English", "translation": "anglais"}
         ],
@@ -237,7 +160,6 @@
             "value": 2,
             "description": "only via mail"
         }    },
->>>>>>> 872e8cc6ac6544ad310c505e440de45663049146
     {
         "firstname": "Antoine",
         "lastname": "Dubois",
@@ -252,18 +174,6 @@
             "Sleep Medicine"
         ],
         "languages": [
-<<<<<<< HEAD
-            "French",
-            "Spanish"
-        ],
-        "tags": [
-            "accessibilite pmr",
-            "gay-friendly",
-            "trans-friendly"
-        ],
-        "confidentiality": 2
-    },
-=======
             {"value": "French", "translation": "français"},
             {"value": "English", "translation": "anglais"}
         ],
@@ -276,7 +186,6 @@
             "value": 2,
             "description": "only via mail"
         }    },
->>>>>>> 872e8cc6ac6544ad310c505e440de45663049146
     {
         "firstname": "Emilie",
         "lastname": "Petit",
@@ -291,18 +200,6 @@
             "Orthodontics"
         ],
         "languages": [
-<<<<<<< HEAD
-            "French",
-            "English"
-        ],
-        "tags": [
-            "accessibilite pmr",
-            "gay-friendly",
-            "trans-friendly"
-        ],
-        "confidentiality": 1
-    },
-=======
             {"value": "French", "translation": "français"},
             {"value": "English", "translation": "anglais"}
         ],
@@ -315,7 +212,6 @@
             "value": 1,
             "description": "only accessible to members"
         }    },
->>>>>>> 872e8cc6ac6544ad310c505e440de45663049146
     {
         "firstname": "Lucas",
         "lastname": "Moreau",
@@ -330,18 +226,6 @@
             "Sports Medicine"
         ],
         "languages": [
-<<<<<<< HEAD
-            "French",
-            "German"
-        ],
-        "tags": [
-            "liesbienne-friendly",
-            "gay-friendly",
-            "suivi prep"
-        ],
-        "confidentiality": 3
-    },
-=======
             {"value": "French", "translation": "français"},
             {"value": "English", "translation": "anglais"}
         ],
@@ -354,7 +238,6 @@
             "value": 1,
             "description": "only accessible to members"
         }    },
->>>>>>> 872e8cc6ac6544ad310c505e440de45663049146
     {
         "firstname": "Aurélie",
         "lastname": "Rousseau",
@@ -369,18 +252,6 @@
             "Allergology"
         ],
         "languages": [
-<<<<<<< HEAD
-            "French",
-            "Spanish"
-        ],
-        "tags": [
-            "Trans-friendly",
-            "gay-friendly",
-            "suivi prep"
-        ],
-        "confidentiality": 2
-    }
-=======
             {"value": "French", "translation": "français"},
             {"value": "English", "translation": "anglais"}
         ],
@@ -393,5 +264,4 @@
             "value": 1,
             "description": "only accessible to members"
         }    }
->>>>>>> 872e8cc6ac6544ad310c505e440de45663049146
 ]
