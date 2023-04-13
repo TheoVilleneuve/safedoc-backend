@@ -7,12 +7,20 @@
         "address": "19 Rue de la Pompe, 75116 Paris",
         "latitude": 48.865358,
         "longitude": 2.280123,
+<<<<<<< HEAD
         "sector": 1,
+=======
+        "sector": {
+            "value": 1,
+            "description": "conventionné secteur 1"
+        },
+>>>>>>> 872e8cc6ac6544ad310c505e440de45663049146
         "specialties": [
             "Dermatology",
             "Cosmetic Surgery"
         ],
         "languages": [
+<<<<<<< HEAD
             "French",
             "English"
         ],
@@ -22,6 +30,20 @@
             "accessibilite pmr"
         ],
         "confidentiality": 2
+=======
+            {"value": "French", "translation": "français"},
+            {"value": "English", "translation": "anglais"}
+        ],
+        "tags": [
+            {"value": "trans-friendly", "category": "friendliness", "selected": 1},
+            {"value": "gay-friendly", "category": "friendliness", "selected": 1},
+            {"value": "accessibilite pmr", "category": "accessability", "selected": 1}
+        ],
+        "confidentiality": {
+            "value": 0,
+            "description": "public"
+        }
+>>>>>>> 872e8cc6ac6544ad310c505e440de45663049146
     },
     {
         "firstname": "Jean",
@@ -37,6 +59,7 @@
             "Optometry"
         ],
         "languages": [
+<<<<<<< HEAD
             "French"
         ],
         "tags": [
@@ -45,6 +68,20 @@
             "gay-friendly"
         ],
         "confidentiality": 1
+=======
+            {"value": "French", "translation": "français"},
+            {"value": "English", "translation": "anglais"}
+        ],
+        "tags": [
+            {"value": "lesbinne-friendly", "category": "friendliness", "selected": 1},
+            {"value": "gay-friendly", "category": "friendliness", "selected": 1},
+            {"value": "accessibilite pmr", "category": "accessability", "selected": 1}
+        ],
+        "confidentiality": {
+            "value": 0,
+            "description": "public"
+        }
+>>>>>>> 872e8cc6ac6544ad310c505e440de45663049146
     },
     {
         "firstname": "Camille",
@@ -60,6 +97,7 @@
             "Psychotherapy"
         ],
         "languages": [
+<<<<<<< HEAD
             "French",
             "Spanish"
         ],
@@ -70,6 +108,20 @@
         ],
         "confidentiality": 3
     },
+=======
+            {"value": "French", "translation": "français"},
+            {"value": "English", "translation": "anglais"}
+        ],
+        "tags": [
+            {"value": "lesbinne-friendly", "category": "friendliness", "selected": 1},
+            {"value": "gay-friendly", "category": "friendliness", "selected": 1},
+            {"value": "accessibilite pmr", "category": "accessability", "selected": 1}
+        ],
+        "confidentiality": {
+            "value": 2,
+            "description": "only via mail"
+        }    },
+>>>>>>> 872e8cc6ac6544ad310c505e440de45663049146
     {
         "firstname": "Pierre",
         "lastname": "Leroy",
@@ -84,6 +136,7 @@
             "Internal Medicine"
         ],
         "languages": [
+<<<<<<< HEAD
             "French",
             "English"
         ],
@@ -94,6 +147,20 @@
         ],
         "confidentiality": 2
     },
+=======
+            {"value": "French", "translation": "français"},
+            {"value": "English", "translation": "anglais"}
+        ],
+        "tags": [
+            {"value": "lesbinne-friendly", "category": "friendliness", "selected": 1},
+            {"value": "gay-friendly", "category": "friendliness", "selected": 1},
+            {"value": "accessibilite pmr", "category": "accessability", "selected": 1}
+        ],
+        "confidentiality": {
+            "value": 2,
+            "description": "only via mail"
+        }    },
+>>>>>>> 872e8cc6ac6544ad310c505e440de45663049146
     {
         "firstname": "Julie",
         "lastname": "Girard",
@@ -108,6 +175,7 @@
             "Neonatology"
         ],
         "languages": [
+<<<<<<< HEAD
             "French"
         ],
         "tags": [
@@ -117,6 +185,20 @@
         ],
         "confidentiality": 1
     },
+=======
+            {"value": "French", "translation": "français"},
+            {"value": "English", "translation": "anglais"}
+        ],
+        "tags": [
+            {"value": "lesbinne-friendly", "category": "friendliness", "selected": 1},
+            {"value": "gay-friendly", "category": "friendliness", "selected": 1},
+            {"value": "accessibilite pmr", "category": "accessability", "selected": 1}
+        ],
+        "confidentiality": {
+            "value": 2,
+            "description": "only via mail"
+        }    },
+>>>>>>> 872e8cc6ac6544ad310c505e440de45663049146
     {
         "firstname": "Marie",
         "lastname": "Dufour",
@@ -131,6 +213,7 @@
             "Obstetrics"
         ],
         "languages": [
+<<<<<<< HEAD
             "French",
             "English"
         ],
@@ -141,6 +224,20 @@
         ],
         "confidentiality": 3
     },
+=======
+            {"value": "French", "translation": "français"},
+            {"value": "English", "translation": "anglais"}
+        ],
+        "tags": [
+            {"value": "lesbinne-friendly", "category": "friendliness", "selected": 1},
+            {"value": "gay-friendly", "category": "friendliness", "selected": 1},
+            {"value": "accessibilite pmr", "category": "accessability", "selected": 1}
+        ],
+        "confidentiality": {
+            "value": 2,
+            "description": "only via mail"
+        }    },
+>>>>>>> 872e8cc6ac6544ad310c505e440de45663049146
     {
         "firstname": "Antoine",
         "lastname": "Dubois",
@@ -155,6 +252,7 @@
             "Sleep Medicine"
         ],
         "languages": [
+<<<<<<< HEAD
             "French",
             "Spanish"
         ],
@@ -165,6 +263,20 @@
         ],
         "confidentiality": 2
     },
+=======
+            {"value": "French", "translation": "français"},
+            {"value": "English", "translation": "anglais"}
+        ],
+        "tags": [
+            {"value": "lesbinne-friendly", "category": "friendliness", "selected": 1},
+            {"value": "gay-friendly", "category": "friendliness", "selected": 1},
+            {"value": "accessibilite pmr", "category": "accessability", "selected": 1}
+        ],
+        "confidentiality": {
+            "value": 2,
+            "description": "only via mail"
+        }    },
+>>>>>>> 872e8cc6ac6544ad310c505e440de45663049146
     {
         "firstname": "Emilie",
         "lastname": "Petit",
@@ -179,6 +291,7 @@
             "Orthodontics"
         ],
         "languages": [
+<<<<<<< HEAD
             "French",
             "English"
         ],
@@ -189,6 +302,20 @@
         ],
         "confidentiality": 1
     },
+=======
+            {"value": "French", "translation": "français"},
+            {"value": "English", "translation": "anglais"}
+        ],
+        "tags": [
+            {"value": "lesbinne-friendly", "category": "friendliness", "selected": 1},
+            {"value": "gay-friendly", "category": "friendliness", "selected": 1},
+            {"value": "accessibilite pmr", "category": "accessability", "selected": 1}
+        ],
+        "confidentiality": {
+            "value": 1,
+            "description": "only accessible to members"
+        }    },
+>>>>>>> 872e8cc6ac6544ad310c505e440de45663049146
     {
         "firstname": "Lucas",
         "lastname": "Moreau",
@@ -203,6 +330,7 @@
             "Sports Medicine"
         ],
         "languages": [
+<<<<<<< HEAD
             "French",
             "German"
         ],
@@ -213,6 +341,20 @@
         ],
         "confidentiality": 3
     },
+=======
+            {"value": "French", "translation": "français"},
+            {"value": "English", "translation": "anglais"}
+        ],
+        "tags": [
+            {"value": "lesbinne-friendly", "category": "friendliness", "selected": 1},
+            {"value": "gay-friendly", "category": "friendliness", "selected": 1},
+            {"value": "accessibilite pmr", "category": "accessability", "selected": 1}
+        ],
+        "confidentiality": {
+            "value": 1,
+            "description": "only accessible to members"
+        }    },
+>>>>>>> 872e8cc6ac6544ad310c505e440de45663049146
     {
         "firstname": "Aurélie",
         "lastname": "Rousseau",
@@ -227,6 +369,7 @@
             "Allergology"
         ],
         "languages": [
+<<<<<<< HEAD
             "French",
             "Spanish"
         ],
@@ -237,4 +380,18 @@
         ],
         "confidentiality": 2
     }
+=======
+            {"value": "French", "translation": "français"},
+            {"value": "English", "translation": "anglais"}
+        ],
+        "tags": [
+            {"value": "lesbinne-friendly", "category": "friendliness", "selected": 1},
+            {"value": "gay-friendly", "category": "friendliness", "selected": 1},
+            {"value": "accessibilite pmr", "category": "accessability", "selected": 1}
+        ],
+        "confidentiality": {
+            "value": 1,
+            "description": "only accessible to members"
+        }    }
+>>>>>>> 872e8cc6ac6544ad310c505e440de45663049146
 ]
