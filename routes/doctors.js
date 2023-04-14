@@ -15,11 +15,11 @@ router.get('/', async (req, res) => {
     }
 });
 
-// GET /doctors/:id
+// GET /doctors/search/:id
 
-router.get('/:id', async (req, res) => {
+router.get('/search/:id', async (req, res) => {
     try {
-        const doctor = await Doctor.findOne({_id: req.params.id});
+        const doctor = await Doctor.findOne({ _id: req.params.id });
         if (doctor) {
             res.json({ result: true, doctor: doctor });
         } else {
@@ -30,9 +30,45 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-// GET / doctors / Search
+// POST /doctors/search
 
-
+router.post('/search', async (req, res) => {
+    try {
+        if (req.body.lastname && req.body.specialties) {
+            const doctors = await Doctor.find({
+                lastname: req.body.lastname,
+                specialties: req.body.specialties
+            });
+            if (doctors.length > 0) {
+                res.json({ result: true, doctors: doctors });
+            } else {
+                res.json({ result: false, error: "No doctor found" });
+            }
+        } else if (req.body.lastname) {
+            const doctors = await Doctor.find({
+                lastname: req.body.lastname
+            });
+            if (doctors.length > 0) {
+                res.json({ result: true, doctors: doctors });
+            } else {
+                res.json({ result: false, error: "No doctor found" });
+            }
+        } else if (req.body.specialties) {
+            const doctors = await Doctor.find({
+                specialties: req.body.specialties
+            });
+            if (doctors.length > 0) {
+                res.json({ result: true, doctors: doctors });
+            } else {
+                res.json({ result: false, error: "No doctor found" });
+            }
+        } else {
+            res.json({ result: false, error: "No search criteria provided" });
+        }
+    } catch (error) {
+        res.json({ error: "An error occurrend while searching for doctors" });
+    }
+});
 
 // POST /doctors/add
 
