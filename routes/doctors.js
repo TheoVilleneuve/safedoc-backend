@@ -30,6 +30,10 @@ router.get('/:id', async (req, res) => {
     }
 });
 
+// GET / doctors / Search
+
+
+
 // POST /doctors/add
 
 router.post('/add', (req, res) => {
@@ -98,9 +102,9 @@ router.post('/add', (req, res) => {
 
 // PUT /doctors/tags/:doctorId
 
-router.put('/tags/:doctorId', async (req, res) => {
+router.put('/tags/:id', async (req, res) => {
     try {
-        const doctorId = req.params.doctorId;
+        const doctorId = req.params.id;
         const tags = req.body.tags; // On récupère les tags depuis le corps de la requête
 
         // On récupère le document doctor correspondant
@@ -141,51 +145,6 @@ router.delete('/', (req, res) => {
                 res.json({ result: false, error: "Failed to delete collection doctors" });
             }
         })
-});
-
-// DELETE /doctors/delete/:id
-// PUT /doctors/tags
-
-
-// router.put('/tags/:id', async (req, res) => {
-//     try {
-//       const { id } = req.params;
-//       const { value, category } = req.body;
-
-//       // Check if doctor exists
-//       const doctor = await Doctor.findById(id);
-//       if (!doctor) {
-//         return res.status(404).json({ error: 'Doctor not found' });
-//       }
-
-//       // Update doctor's tags
-//       const tagIndex = doctor.tags.findIndex(tag => tag._id == req.tag_id);
-//       if (tagIndex < 0) {
-//         return res.status(404).json({ error: 'Tag not found' });
-//       }
-//       doctor.tags[tagIndex].value = value;
-//       doctor.tags[tagIndex].category = category;
-//       await doctor.save();
-
-//       res.json(doctor);
-//     } catch (err) {
-//       console.error(err);
-//       res.status(500).json({ error: 'Server error' });
-//     }
-//   });
-
-router.put('/tags/:id', async (req, res) => {
-    try {
-        await Doctor.updateOne({ _id: req.params.id }, {
-            tags: req.body.tags
-        });
-
-        const updatedDoctor = await Doctor.findOne({ _id: req.params.id });
-        res.json({ user: updatedDoctor });
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ message: "Server Error" });
-    }
 });
 
 module.exports = router;
