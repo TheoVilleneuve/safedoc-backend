@@ -33,12 +33,7 @@ router.get('/:token', async (req, res) => {
   }
 });
 
-
-
-
-
-
-//  POST /users/signup/verify
+// POST /users/signup/verify
 
 router.post('/signup/verify', async (req, res) => {
   try {
@@ -63,8 +58,7 @@ router.post('/signup/verify', async (req, res) => {
   }
 })
 
-
-// GET /users/signup
+// POST /users/signup
 
 router.post('/signup', (req, res) => {
   if (!checkBody(req.body, ['username', 'password', 'email'])) {
@@ -127,7 +121,14 @@ router.post('/signin', (req, res) => {
     ]
   }).then(data => {
     if (data && bcrypt.compareSync(password, data.password)) {
-      res.json({ result: true, token: data.token, username: data.username, email: data.email, orientation: data.orientation, gender: data.gender });
+      res.json({ 
+        result: true, 
+        token: data.token, 
+        username: data.username, 
+        email: data.email, 
+        orientation: data.orientation, 
+        gender: data.gender 
+      });
     } else {
       res.json({ result: false, error: 'User not found or wrong password' });
     }

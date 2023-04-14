@@ -17,12 +17,18 @@ router.get('/', async (req, res) => {
 
 // GET /doctors/:id
 
-router.get('/:id', (req, res) => {
-    Doctor.findOne({ _id: req.params.id })
-        .then(data => {
-            res.json({ result: true, doctors: data });
-        })
-})
+router.get('/:id', async (req, res) => {
+    try {
+        const doctor = await Doctor.findOne({_id: req.params.id});
+        if (doctor) {
+            res.json({ result: true, doctor: doctor });
+        } else {
+            res.json({ result: false, error: "Doctor not found" });
+        }
+    } catch (error) {
+        res.json({ error: "An error occurred while retrieving the doctor" });
+    }
+});
 
 // POST /doctors/add
 
@@ -90,8 +96,7 @@ router.post('/add', (req, res) => {
         })
 });
 
-// PUT /doctors/tags/:id
-
+// PUT /doctors/tags/:doctorId
 
 router.put('/tags/:doctorId', async (req, res) => {
     try {
@@ -137,6 +142,37 @@ router.delete('/', (req, res) => {
             }
         })
 });
+
+// DELETE /doctors/delete/:id
+// PUT /doctors/tags
+
+
+// router.put('/tags/:id', async (req, res) => {
+//     try {
+//       const { id } = req.params;
+//       const { value, category } = req.body;
+
+//       // Check if doctor exists
+//       const doctor = await Doctor.findById(id);
+//       if (!doctor) {
+//         return res.status(404).json({ error: 'Doctor not found' });
+//       }
+
+//       // Update doctor's tags
+//       const tagIndex = doctor.tags.findIndex(tag => tag._id == req.tag_id);
+//       if (tagIndex < 0) {
+//         return res.status(404).json({ error: 'Tag not found' });
+//       }
+//       doctor.tags[tagIndex].value = value;
+//       doctor.tags[tagIndex].category = category;
+//       await doctor.save();
+
+//       res.json(doctor);
+//     } catch (err) {
+//       console.error(err);
+//       res.status(500).json({ error: 'Server error' });
+//     }
+//   });
 
 router.put('/tags/:id', async (req, res) => {
     try {

@@ -12,8 +12,7 @@
             "description": "conventionné secteur 1"
         },
         "specialties": [
-            "Dermatology",
-            "Cosmetic Surgery"
+            "Psychiatre"
         ],
         "languages": [
             {"value": "French", "translation": "français"},
@@ -39,8 +38,8 @@
         "longitude": 2.390466,
         "sector": 3,
         "specialties": [
-            "Ophthalmology",
-            "Optometry"
+            "Ophtalmologue",
+            "Endocrinologue"
         ],
         "languages": [
             {"value": "French", "translation": "français"},
@@ -53,7 +52,7 @@
         ],
         "confidentiality": {
             "value": 0,
-            "description": "public"
+            "description": "only via mail"
         }
     },
     {
@@ -66,8 +65,8 @@
         "longitude": 2.390466,
         "sector": 2,
         "specialties": [
-            "Psychiatry",
-            "Psychotherapy"
+            "Ophtalmologue",
+            "Urologue"
         ],
         "languages": [
             {"value": "French", "translation": "français"},
@@ -81,7 +80,8 @@
         "confidentiality": {
             "value": 2,
             "description": "only via mail"
-        }    },
+        }    
+    },
     {
         "firstname": "Pierre",
         "lastname": "Leroy",
@@ -92,8 +92,8 @@
         "longitude": 2.314382,
         "sector": 1,
         "specialties": [
-            "Cardiology",
-            "Internal Medicine"
+            "Psychiatre",
+            "Endocrinologue"
         ],
         "languages": [
             {"value": "French", "translation": "français"},
@@ -107,7 +107,8 @@
         "confidentiality": {
             "value": 2,
             "description": "only via mail"
-        }    },
+        }    
+    },
     {
         "firstname": "Julie",
         "lastname": "Girard",
@@ -118,8 +119,8 @@
         "longitude": 2.390466,
         "sector": 3,
         "specialties": [
-            "Pediatrics",
-            "Neonatology"
+            "Hématologue",
+            "Neurologue"
         ],
         "languages": [
             {"value": "French", "translation": "français"},
@@ -133,7 +134,8 @@
         "confidentiality": {
             "value": 2,
             "description": "only via mail"
-        }    },
+        }    
+    },
     {
         "firstname": "Marie",
         "lastname": "Dufour",
@@ -144,8 +146,8 @@
         "longitude": 2.329768,
         "sector": 2,
         "specialties": [
-            "Gynecology",
-            "Obstetrics"
+            "Psychiatre",
+            "Cardiologue"
         ],
         "languages": [
             {"value": "French", "translation": "français"},
@@ -159,7 +161,8 @@
         "confidentiality": {
             "value": 2,
             "description": "only via mail"
-        }    },
+        }    
+    },
     {
         "firstname": "Antoine",
         "lastname": "Dubois",
@@ -170,8 +173,8 @@
         "longitude": 2.317216,
         "sector": 1,
         "specialties": [
-            "Neurology",
-            "Sleep Medicine"
+            "Ophtalmologue",
+            "Gynécologue"
         ],
         "languages": [
             {"value": "French", "translation": "français"},
@@ -185,7 +188,8 @@
         "confidentiality": {
             "value": 2,
             "description": "only via mail"
-        }    },
+        }    
+    },
     {
         "firstname": "Emilie",
         "lastname": "Petit",
@@ -196,8 +200,7 @@
         "longitude": 2.290605,
         "sector": 3,
         "specialties": [
-            "Dentistry",
-            "Orthodontics"
+            "Urologue"
         ],
         "languages": [
             {"value": "French", "translation": "français"},
@@ -211,7 +214,8 @@
         "confidentiality": {
             "value": 1,
             "description": "only accessible to members"
-        }    },
+        }    
+    },
     {
         "firstname": "Lucas",
         "lastname": "Moreau",
@@ -222,8 +226,8 @@
         "longitude": 2.313284,
         "sector": 2,
         "specialties": [
-            "Orthopedics",
-            "Sports Medicine"
+            "Dermatologue",
+            "Hématologue"
         ],
         "languages": [
             {"value": "French", "translation": "français"},
@@ -237,7 +241,8 @@
         "confidentiality": {
             "value": 1,
             "description": "only accessible to members"
-        }    },
+        }    
+    },
     {
         "firstname": "Aurélie",
         "lastname": "Rousseau",
@@ -248,8 +253,7 @@
         "longitude": 2.369489,
         "sector": 1,
         "specialties": [
-            "Pulmonology",
-            "Allergology"
+            "Pulmonology"
         ],
         "languages": [
             {"value": "French", "translation": "français"},
@@ -263,5 +267,6 @@
         "confidentiality": {
             "value": 1,
             "description": "only accessible to members"
-        }    }
+        }    
+    }
 ]

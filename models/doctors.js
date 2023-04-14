@@ -19,6 +19,12 @@ const mongoose = require('mongoose');
 //     coordinates: coordinatesSchema
 // });
 
+const tagsSchema = mongoose.Schema({
+    name: String,
+    category: String,
+    selected: Number
+})
+
 const doctorSchema = mongoose.Schema({
     firstname: String,
     lastname: String,
@@ -33,7 +39,8 @@ const doctorSchema = mongoose.Schema({
     // recommandations: ,
     specialties: [String],
     languages: [String],
-    tags: [String],
+    // tags: [String],
+    tags: [tagsSchema],
     confidentiality: Number
 });
 
