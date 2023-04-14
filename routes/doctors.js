@@ -1,10 +1,10 @@
 var express = require('express');
 var router = express.Router();
 
+
 const Doctor = require('../models/doctors');
 const LOCATION_API_KEY = process.env.LOCATION_API_KEY;
 const { checkBody } = require('../modules/checkBody');
-
 // GET /doctors
 
 router.get('/', async (req, res) => {
@@ -60,7 +60,7 @@ router.post('/search', async (req, res) => {
         if (req.body.lastname && req.body.specialties) {
             const doctors = await Doctor.find({
                 lastname: req.body.lastname,
-                specialties: req.body.specialties
+                specialties: req.body.specialties,
             });
             if (doctors.length > 0) {
                 res.json({ result: true, doctors: doctors });

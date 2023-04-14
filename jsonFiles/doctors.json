@@ -203,7 +203,7 @@
       "value": 2,
       "description": "Chirurgie"
     },
-    "specialties": ["Chirurgie orthopédique", "Chirurgie générale"],
+    "specialties": ["orthopédiste", "Neurologue"],
     "languages": [
       { "value": "français", "translation": "French" },
       { "value": "anglais", "translation": "English" }
@@ -229,7 +229,7 @@
       "value": 3,
       "description": "Gynécologie"
     },
-    "specialties": ["Gynécologie obstétrique"],
+    "specialties": ["Gynécologue"],
     "languages": [
       { "value": "français", "translation": "French" },
       { "value": "espagnol", "translation": "Spanish" }
@@ -255,7 +255,7 @@
       "value": 1,
       "description": "Médecine générale"
     },
-    "specialties": ["Médecine générale"],
+    "specialties": ["Médecine généraliste"],
     "languages": [
       { "value": "français", "translation": "French" },
       { "value": "arabe", "translation": "Arabic" }
