@@ -41,13 +41,13 @@ router.post('/search/city', async (req, res) => {
         const data = await response.json();
         
         const filteredData = data.filter((item) => item.type === 'administrative');
-        const result = [];
+        const doctors = [];
         for (let i = 0; i < filteredData.length; i++) {
             const { lat, lon, display_name: name } = filteredData[i];
             const infos = { latitude: lat, longitude: lon, name };
-            result.push(infos);
+            doctors.push(infos);
         }
-        res.json({ results: result });
+        res.json({ result: true, doctors: doctors });
     } catch (error) {
         res.json({ error: "An error occurred while searching for location" });
     }
