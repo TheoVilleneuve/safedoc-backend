@@ -19,14 +19,26 @@ const mongoose = require('mongoose');
 //     coordinates: coordinatesSchema
 // });
 
+const sectorSchema = mongoose.Schema({
+    value: Number,
+    description: String
+})
+
+const languagesSchema = mongoose.Schema({
+    value: String,
+    translation: String
+})
+
 const tagsSchema = mongoose.Schema({
     name: String,
     category: String,
     selected: Number
 })
 
-
-const languages =mo
+const confidentialitySchema = mongoose.Schema({
+    value: Number,
+    description: String
+})
 
 const doctorSchema = mongoose.Schema({
     firstname: String,
@@ -38,13 +50,13 @@ const doctorSchema = mongoose.Schema({
     latitude: Number,
     longitude: Number,
     // coordinatesSchema: coordinatesSchema,
-    sector: Number,
+    sector: sectorSchema,
     // recommandations: ,
     specialties: [String],
-    languages: languagesSchema,
+    languages: [languagesSchema],
     // tags: [String],
     tags: [tagsSchema],
-    confidentiality: Number
+    confidentiality: confidentialitySchema
 });
 
 const Doctor = mongoose.model('doctors', doctorSchema);
