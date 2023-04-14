@@ -25,6 +25,9 @@ const tagsSchema = mongoose.Schema({
     selected: Number
 })
 
+
+const languages =mo
+
 const doctorSchema = mongoose.Schema({
     firstname: String,
     lastname: String,
@@ -38,7 +41,7 @@ const doctorSchema = mongoose.Schema({
     sector: Number,
     // recommandations: ,
     specialties: [String],
-    languages: [String],
+    languages: languagesSchema,
     // tags: [String],
     tags: [tagsSchema],
     confidentiality: Number
