@@ -32,17 +32,41 @@ router.get('/search/:id', async (req, res) => {
 
 // POST /doctors/search
 
-router.post('/search/', async (req, res) => {
+router.post('/search', async (req, res) => {
     try {
-
-        const doctor = await Doctor.findOne({ lastname: req.body.lastname, specialties: req.body.specialties })
-        if (doctor) {
-            res.json({ result: true, doctor: doctor});
+        if (req.body.lastname && req.body.specialties) {
+            const doctors = await Doctor.find({
+                lastname: req.body.lastname,
+                specialties: req.body.specialties
+            });
+            if (doctors.length > 0) {
+                res.json({ result: true, doctors: doctors });
+            } else {
+                res.json({ result: false, error: "No doctor found" });
+            }
+        } else if (req.body.lastname) {
+            const doctors = await Doctor.find({
+                lastname: req.body.lastname
+            });
+            if (doctors.length > 0) {
+                res.json({ result: true, doctors: doctors });
+            } else {
+                res.json({ result: false, error: "No doctor found" });
+            }
+        } else if (req.body.specialties) {
+            const doctors = await Doctor.find({
+                specialties: req.body.specialties
+            });
+            if (doctors.length > 0) {
+                res.json({ result: true, doctors: doctors });
+            } else {
+                res.json({ result: false, error: "No doctor found" });
+            }
         } else {
-            res.json({ result: false, error: "No doctor found"});
+            res.json({ result: false, error: "No search criteria provided" });
         }
     } catch (error) {
-        res.json({ error: "An error occurrend while searching for doctors"});
+        res.json({ error: "An error occurrend while searching for doctors" });
     }
 });
 
