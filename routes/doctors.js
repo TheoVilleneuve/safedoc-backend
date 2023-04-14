@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 const Doctor = require('../models/doctors');
+const LOCATION_API_KEY = process.env.LOCATION_API_KEY;
 const { checkBody } = require('../modules/checkBody');
 
 // GET /doctors
@@ -29,6 +30,28 @@ router.get('/search/:id', async (req, res) => {
         res.json({ error: "An error occurred while retrieving the doctor" });
     }
 });
+
+// POST /doctors/search
+
+router.post('/search/city', async (req, res) => {
+    try {
+        const city = req.body.city;
+        const url = `https://us1.locationiq.com/v1/search?key=${LOCATION_API_KEY}&q=${city}&format=json`;        
+        const response = await fetch(url);
+        const data = await response.json();
+        
+        const filteredData = data.filter((item) => item.type === 'administrative');
+        const result = [];
+        for (let i = 0; i < filteredData.length; i++) {
+            const { lat, lon, display_name: name } = filteredData[i];
+            const infos = { latitude: lat, longitude: lon, name };
+            result.push(infos);
+        }
+        res.json({ results: result });
+    } catch (error) {
+        res.json({ error: "An error occurred while searching for location" });
+    }
+})
 
 // POST /doctors/search
 
@@ -92,7 +115,7 @@ router.post('/add', (req, res) => {
     }
 
     // Check if the doctor has not already been added
-    Doctor.findOne({ firstname: req.body.firstname, lastname: req.body.lastname, "location.address.city": req.body.city })
+    Doctor.findOne({ firstname: req.body.firstname, lastname: req.body.lastname, email: req.body.email })
         // CITY -> ADDRESS
         .then(data => {
             if (data) {
@@ -111,7 +134,7 @@ router.post('/add', (req, res) => {
                     specialties: req.body.specialties,
                     languages: req.body.languages,
                     tags: req.body.tags,
-                    confidentiality: 3
+                    confidentiality: req.body.confidentiality
                     // location: {
                     // address: {
                     // number: req.body.phone,
@@ -136,9 +159,43 @@ router.post('/add', (req, res) => {
         })
 });
 
-// PUT /doctors/tags/:doctorId
+// PUT /doctors/tags/:id
 
 router.put('/tags/:id', async (req, res) => {
+    try {
+        const doctorId = req.params.id;
+        const tags = req.body.tags; // On récupère les tags depuis le corps de la requête
+
+        // On récupère le document doctor correspondant
+        const doctor = await Doctor.findById(doctorId);
+
+        // On parcourt le tableau des tags
+        for (const tag of tags) {
+            const existingTagIndex = doctor.tags.findIndex((t) => t.name === tag.name); // On vérifie si le tag existe déjà dans le champ "tags"
+
+            if (existingTagIndex !== -1) {
+                // Si le tag existe déjà, on met à jour son champ "selected"
+                doctor.tags[existingTagIndex].selected += 1;
+            } else {
+                // Si le tag n'existe pas, on l'ajoute avec un champ "selected" initialisé à 1
+                doctor.tags.push({ name: tag.name, selected: 1 });
+            }
+        }
+
+        // On met à jour le document doctor correspondant avec les tags modifiés
+        const updatedDoctor = await doctor.save();
+
+        // On renvoie le document doctor mis à jour en réponse
+        res.json({ doctor: updatedDoctor });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "Server Error" });
+    }
+});
+
+// PUT /doctors/confidentiality/:id
+
+router.put('/confidentiality/:id', async (req, res) => {
     try {
         const doctorId = req.params.id;
         const tags = req.body.tags; // On récupère les tags depuis le corps de la requête
