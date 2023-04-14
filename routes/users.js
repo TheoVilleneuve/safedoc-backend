@@ -33,7 +33,32 @@ router.get('/:token', async (req, res) => {
   }
 });
 
-// GET /users/signup
+// POST /users/signup/verify
+
+router.post('/signup/verify', async (req, res) => {
+  try {
+
+    await User.findOne({ email: req.body.email})
+    .then(async data => {
+      if (data) {
+        res.json({ result: false, error: "email already in use" });
+      } else {
+        await User.findOne({ username: req.body.username })
+        .then(data => {
+          if (data) {
+            res.json({ result: false, error: "username already in use" });
+          } else {
+            res.json({ result: true, message: "access granted"});
+          }
+        })
+      }
+    })
+  } catch (error) {
+    res.status(500).json({ message: "Server error"})
+  }
+})
+
+// POST /users/signup
 
 router.post('/signup', (req, res) => {
   if (!checkBody(req.body, ['username', 'password', 'email'])) {
@@ -94,10 +119,16 @@ router.post('/signin', (req, res) => {
       { username: usernameOrEmail },
       { email: usernameOrEmail }
     ]
-  }).then(data => { 
-    console.log(data)
+  }).then(data => {
     if (data && bcrypt.compareSync(password, data.password)) {
-      res.json({ result: true, token: data.token });
+      res.json({ 
+        result: true, 
+        token: data.token, 
+        username: data.username, 
+        email: data.email, 
+        orientation: data.orientation, 
+        gender: data.gender 
+      });
     } else {
       res.json({ result: false, error: 'User not found or wrong password' });
     }

@@ -1,12 +1,12 @@
 [
-    {"value": "Cardiologie"},
-    {"value": "Dermatologie"},
-    {"value": "Endocrinologie"},
-    {"value": "Gynécologie"},
-    {"value": "Hématologie"},
-    {"value": "Neurologie"},
-    {"value": "Ophtalmologie"},
-    {"value": "Pédiatrie"},
-    {"value": "Psychiatrie"},
-    {"value": "Urologie"}
+    {"value": "Cardiologue"},
+    {"value": "Dermatologue"},
+    {"value": "Endocrinologue"},
+    {"value": "Gynécologue"},
+    {"value": "Hématologue"},
+    {"value": "Neurologue"},
+    {"value": "Ophtalmologue"},
+    {"value": "Pédiatre"},
+    {"value": "Psychiatre"},
+    {"value": "Urologue"}
 ]

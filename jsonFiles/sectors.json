@@ -1,5 +1,5 @@
 [
-    {"value": 1, "description": "conventionné secteur 1"},
-    {"value": 2, "description": "conventionné secteur 2"},
-    {"value": 3, "description": "secteur 3"}   
+    {"value": 1, "description": "conventionné.e secteur 1"},
+    {"value": 2, "description": "conventionné.e secteur 2"},
+    {"value": 3, "description": "non convetionné.e secteur 3"}   
 ]
