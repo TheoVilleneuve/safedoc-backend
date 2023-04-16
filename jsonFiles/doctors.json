@@ -1,272 +1,340 @@
-[
-  {
-    "firstname": "John",
-    "lastname": "Doe",
-    "email": "johndoe@example.com",
-    "phone": "0612345678",
-    "address": "16 Rue Saint-Sabin, 75011 Paris",
-    "latitude": 48.857399,
-    "longitude": 2.369489,
-    "sector": {
-      "value": 1,
-      "description": "conventionné.e secteur 1"
-    },
-    "specialties": [
-      "Pulmonologue",
-      "Cardiologue"
-    ],
-    "languages": [
-      {
-        "value": "Français",
-        "translation": "Français"
-      },
-      {
-        "value": "English",
-        "translation": "Anglais"
-      }
-    ],
-    "tags": [
-      {
-        "name": "lesbienne-friendly",
-        "category": "friendliness",
-        "selected": 1
-      },
-      {
-        "name": "gay-friendly",
-        "category": "friendliness",
-        "selected": 1
-      },
-      {
-        "name": "accessibilite pmr",
-        "category": "accessibility",
-        "selected": 1
-      }
-    ],
-    "confidentiality": {
-      "value": 3,
-      "description": "no display"
+[{
+  "_id": {
+    "$oid": "64397357a1dc65ab3e2e7487"
+  },
+  "firstname": "Marie",
+  "lastname": "Dupont",
+  "email": "marie.dupont@example.com",
+  "phone": "06 12 34 56 78",
+  "address": "4 Rue de Belleville, 75020 Paris",
+  "latitude": 48.870616,
+  "longitude": 2.384068,
+  "sector": {
+    "value": 2,
+    "description": "conventionné.e secteur 2",
+    "_id": {
+      "$oid": "643c4ffb5c2fd97aba0ffc63"
     }
   },
-  {
-    "firstname": "Marie",
-    "lastname": "Dupont",
-    "email": "marie.dupont@example.com",
-    "phone": "06 12 34 56 78",
-    "address": "4 Rue de Belleville, 75020 Paris",
-    "latitude": 48.870616,
-    "longitude": 2.384068,
-    "sector": {
-      "value": 2,
-      "description": "conventionné.e secteur 2"
+  "specialties": [
+    "Dermatologue",
+    "Allergologue"
+  ],
+  "languages": [
+    {
+      "value": "Français",
+      "translation": "Français"
     },
-    "specialties": [
-      "Dermatologue",
-      "Allergologue"
-    ],
-    "languages": [
-      {
-        "value": "Français",
-        "translation": "Français"
-      },
-      {
-        "value": "Anglais",
-        "translation": "English"
-      }
-    ],
-    "tags": [
-      {
-        "name": "trans-friendly",
-        "category": "friendliness",
-        "selected": 1
-      },
-      {
-        "name": "non-binaire-friendly",
-        "category": "friendliness",
-        "selected": 1
-      },
-      {
-        "name": "accessibilité pmr",
-        "category": "accessibility",
-        "selected": 1
-      }
-    ],
-    "confidentiality": {
-      "value": 2,
-      "description": "only via mail"
+    {
+      "value": "Anglais",
+      "translation": "English"
     }
+  ],
+  "tags": [
+    {
+      "name": "trans-friendly",
+      "category": "friendliness",
+      "selected": 1
+    },
+    {
+      "name": "non-binaire-friendly",
+      "category": "friendliness",
+      "selected": 1
+    },
+    {
+      "name": "accessibilité pmr",
+      "category": "accessibility",
+      "selected": 1
+    }
+  ],
+  "confidentiality": {
+    "value": 0,
+    "description": "public",
+    "_id": {
+      "$oid": "643c4ffb5c2fd97aba0ffc69"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "64397357a1dc65ab3e2e7488"
   },
-  {
-    "firstname": "Jean",
-    "lastname": "Martin",
-    "email": "jean.martin@example.com",
-    "phone": "01 23 45 67 89",
-    "address": "2 Rue de la Convention, 94270 Le Kremlin-Bicêtre",
-    "latitude": 48.811023,
-    "longitude": 2.357765,
-    "sector": {
-      "value": 3,
-      "description": "non conventionné.e secteur 3"
-    },
-    "specialties": [
-      "Ophtalmologue",
-      "ORL"
-    ],
-    "languages": [
-      {
-        "value": "Français",
-        "translation": "Français"
-      },
-      {
-        "value": "Espagnol",
-        "translation": "Español"
-      }
-    ],
-    "tags": [
-      {
-        "name": "gay-friendly",
-        "category": "friendliness",
-        "selected": 1
-      },
-      {
-        "name": "lesbienne-friendly",
-        "category": "friendliness",
-        "selected": 1
-      },
-      {
-        "name": "trans-friendly",
-        "category": "friendliness",
-        "selected": 0
-      }
-    ],
-    "confidentiality": {
-      "value": 1,
-      "description": "only accessible to members"
-    }
+  "firstname": "Jean",
+  "lastname": "Martin",
+  "email": "jean.martin@example.com",
+  "phone": "01 23 45 67 89",
+  "address": "2 Rue de la Convention, 94270 Le Kremlin-Bicêtre",
+  "latitude": 48.811023,
+  "longitude": 2.357765,
+  "sector": {
+    "value": 3,
+    "description": "non conventionné.e secteur 3"
   },
-  {
-    "firstname": "Lucie",
-    "lastname": "Girard",
-    "email": "lucie.girard@example.com",
-    "phone": "06 78 90 12 34",
-    "address": "7 Rue du Faubourg Saint-Antoine, 75011 Paris",
-    "latitude": 48.852225,
-    "longitude": 2.373260,
-    "sector": {
-      "value": 1,
-      "description": "conventionné.e secteur 1"
+  "specialties": [
+    "Ophtalmologue",
+    "ORL"
+  ],
+  "languages": [
+    {
+      "value": "Français",
+      "translation": "Français"
     },
-    "specialties": [
-      "Gynécologue",
-      "Obstétricien"
-    ],
-    "languages": [
-      {
-        "value": "Français",
-        "translation": "Français"
-      },
-      {
-        "value": "Espagnol",
-        "translation": "Español"
-      }
-    ],
-    "tags": [
-      {
-        "name": "gay-friendly",
-        "category": "friendliness",
-        "selected": 1
-      },
-      {
-        "name": "lesbienne-friendly",
-        "category": "friendliness",
-        "selected": 1
-      },
-      {
-        "name": "trans-friendly",
-        "category": "friendliness",
-        "selected": 0
-      }
-    ],
-    "confidentiality": {
-      "value": 1,
-      "description": "only accessible to members"
+    {
+      "value": "Espagnol",
+      "translation": "Español"
     }
+  ],
+  "tags": [
+    {
+      "name": "gay-friendly",
+      "category": "friendliness",
+      "selected": 1
+    },
+    {
+      "name": "lesbienne-friendly",
+      "category": "friendliness",
+      "selected": 1
+    },
+    {
+      "name": "trans-friendly",
+      "category": "friendliness",
+      "selected": 0
+    }
+  ],
+  "confidentiality": {
+    "value": 1,
+    "description": "only accessible to members"
+  }
+},{
+  "_id": {
+    "$oid": "64397357a1dc65ab3e2e7489"
   },
-  {
-    "firstname": "Jeanne",
-    "lastname": "Dupont",
-    "email": "jeannedupont@example.com",
-    "phone": "0102030405",
-    "address": "12 Rue des Lilas, 75020 Paris",
-    "latitude": 48.8723557,
-    "longitude": 2.4049588,
-    "sector": {
-      "value": 2,
-      "description": "Chirurgie"
-    },
-    "specialties": ["orthopédiste", "Neurologue"],
-    "languages": [
-      { "value": "français", "translation": "French" },
-      { "value": "anglais", "translation": "English" }
-    ],
-    "tags": [
-      { "name": "LGBTQ+", "category": "Communauté", "selected": 1 },
-      { "name": "Santé mentale", "category": "Santé", "selected": 1 }
-    ],
-    "confidentiality": {
-      "value": 2,
-      "description": "only via mail"
-    }
+  "firstname": "Lucie",
+  "lastname": "Girard",
+  "email": "lucie.girard@example.com",
+  "phone": "06 78 90 12 34",
+  "address": "7 Rue du Faubourg Saint-Antoine, 75011 Paris",
+  "latitude": 48.852225,
+  "longitude": 2.37326,
+  "sector": {
+    "value": 1,
+    "description": "conventionné.e secteur 1"
   },
-  {
-    "firstname": "Lucas",
-    "lastname": "Martin",
-    "email": "lucasmartin@example.com",
-    "phone": "0607080910",
-    "address": "24 Rue des Rosiers, 75004 Paris",
-    "latitude": 48.8575315,
-    "longitude": 2.3589644,
-    "sector": {
-      "value": 3,
-      "description": "Gynécologie"
+  "specialties": [
+    "Gynécologue",
+    "Obstétricien"
+  ],
+  "languages": [
+    {
+      "value": "Français",
+      "translation": "Français"
     },
-    "specialties": ["Gynécologue"],
-    "languages": [
-      { "value": "français", "translation": "French" },
-      { "value": "espagnol", "translation": "Spanish" }
-    ],
-    "tags": [
-      { "name": "Transgenre", "category": "Communauté", "selected": 1 },
-      { "name": "Prévention", "category": "Santé", "selected": 1 }
-    ],
-    "confidentiality": {
-      "value": 1,
-      "description": "only accessible to members"
+    {
+      "value": "Espagnol",
+      "translation": "Español"
     }
+  ],
+  "tags": [
+    {
+      "name": "gay-friendly",
+      "category": "friendliness",
+      "selected": 1
+    },
+    {
+      "name": "lesbienne-friendly",
+      "category": "friendliness",
+      "selected": 1
+    },
+    {
+      "name": "trans-friendly",
+      "category": "friendliness",
+      "selected": 0
+    }
+  ],
+  "confidentiality": {
+    "value": 1,
+    "description": "only accessible to members"
+  }
+},{
+  "_id": {
+    "$oid": "64397357a1dc65ab3e2e748a"
   },
-  {
-    "firstname": "Sophie",
-    "lastname": "Leclerc",
-    "email": "sophieleclerc@example.com",
-    "phone": "0601020304",
-    "address": "57 Rue Saint-Antoine, 75004 Paris",
-    "latitude": 48.8543982,
-    "longitude": 2.3645821,
-    "sector": {
-      "value": 1,
-      "description": "Médecine générale"
+  "firstname": "Jeanne",
+  "lastname": "Dupont",
+  "email": "jeannedupont@example.com",
+  "phone": "0102030405",
+  "address": "12 Rue des Lilas, 75020 Paris",
+  "latitude": 48.8723557,
+  "longitude": 2.4049588,
+  "sector": {
+    "value": 2,
+    "description": "Chirurgie"
+  },
+  "specialties": [
+    "Chirurgie orthopédique",
+    "Chirurgie générale"
+  ],
+  "languages": [
+    {
+      "value": "français",
+      "translation": "French"
     },
-    "specialties": ["Médecine généraliste"],
-    "languages": [
-      { "value": "français", "translation": "French" },
-      { "value": "arabe", "translation": "Arabic" }
-    ],
-    "tags": [
-      { "name": "Non-binaire", "category": "Communauté", "selected": 1 },
-      { "name": "Hygiène", "category": "Santé", "selected": 1 }
-    ],
-    "confidentiality": {
-      "value": 0,
-      "description": "public"
+    {
+      "value": "anglais",
+      "translation": "English"
     }
-  }  
-]
+  ],
+  "tags": [
+    {
+      "name": "LGBTQ+",
+      "category": "Communauté",
+      "selected": 1
+    },
+    {
+      "name": "Santé mentale",
+      "category": "Santé",
+      "selected": 1
+    }
+  ],
+  "confidentiality": {
+    "value": 2,
+    "description": "only via mail"
+  }
+},{
+  "_id": {
+    "$oid": "64397357a1dc65ab3e2e7486"
+  },
+  "firstname": "John",
+  "lastname": "Doe",
+  "email": "johndoe@example.com",
+  "phone": "0612345678",
+  "address": "16 Rue Saint-Sabin, 75011 Paris",
+  "latitude": 48.857399,
+  "longitude": 2.369489,
+  "sector": {
+    "value": 1,
+    "description": "conventionné.e secteur 1"
+  },
+  "specialties": [
+    "Pulmonologue",
+    "Cardiologue"
+  ],
+  "languages": [
+    {
+      "value": "Français",
+      "translation": "Français"
+    },
+    {
+      "value": "English",
+      "translation": "Anglais"
+    }
+  ],
+  "tags": [
+    {
+      "name": "lesbienne-friendly",
+      "category": "friendliness",
+      "selected": 1
+    },
+    {
+      "name": "gay-friendly",
+      "category": "friendliness",
+      "selected": 1
+    },
+    {
+      "name": "accessibilite pmr",
+      "category": "accessibility",
+      "selected": 1
+    }
+  ],
+  "confidentiality": {
+    "value": 3,
+    "description": "no display"
+  }
+},{
+  "_id": {
+    "$oid": "64397357a1dc65ab3e2e748c"
+  },
+  "firstname": "Sophie",
+  "lastname": "Leclerc",
+  "email": "sophieleclerc@example.com",
+  "phone": "0601020304",
+  "address": "57 Rue Saint-Antoine, 75004 Paris",
+  "latitude": 48.8543982,
+  "longitude": 2.3645821,
+  "sector": {
+    "value": 1,
+    "description": "Médecine générale"
+  },
+  "specialties": [
+    "Médecine générale"
+  ],
+  "languages": [
+    {
+      "value": "français",
+      "translation": "French"
+    },
+    {
+      "value": "arabe",
+      "translation": "Arabic"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Non-binaire",
+      "category": "Communauté",
+      "selected": 1
+    },
+    {
+      "name": "Hygiène",
+      "category": "Santé",
+      "selected": 1
+    }
+  ],
+  "confidentiality": {
+    "value": 0,
+    "description": "public"
+  }
+},{
+  "_id": {
+    "$oid": "64397357a1dc65ab3e2e748b"
+  },
+  "firstname": "Lucas",
+  "lastname": "Martin",
+  "email": "lucasmartin@example.com",
+  "phone": "0607080910",
+  "address": "24 Rue des Rosiers, 75004 Paris",
+  "latitude": 48.8575315,
+  "longitude": 2.3589644,
+  "sector": {
+    "value": 3,
+    "description": "Gynécologie"
+  },
+  "specialties": [
+    "Gynécologie obstétrique"
+  ],
+  "languages": [
+    {
+      "value": "français",
+      "translation": "French"
+    },
+    {
+      "value": "espagnol",
+      "translation": "Spanish"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Transgenre",
+      "category": "Communauté",
+      "selected": 1
+    },
+    {
+      "name": "Prévention",
+      "category": "Santé",
+      "selected": 1
+    }
+  ],
+  "confidentiality": {
+    "value": 1,
+    "description": "only accessible to members"
+  }
+}]

@@ -1,10 +1,17 @@
 var express = require('express');
 var router = express.Router();
 
-
 const Doctor = require('../models/doctors');
+const Sector = require('../models/sectors');
+const Recommandation = require('../models/recommandations');
+const Specialty = require('../models/specialties');
+const Language = require('../models/languages');
+const Tag = require('../models/tags');
+const Confidentiality = require('../models/confidentialities');
+
 const LOCATION_API_KEY = process.env.LOCATION_API_KEY;
 const { checkBody } = require('../modules/checkBody');
+
 // GET /doctors
 
 router.get('/', async (req, res) => {
@@ -31,15 +38,15 @@ router.get('/search/:id', async (req, res) => {
     }
 });
 
-// POST /doctors/search
+// POST /doctors/search/city
 
 router.post('/search/city', async (req, res) => {
     try {
         const city = req.body.city;
-        const url = `https://us1.locationiq.com/v1/search?key=${LOCATION_API_KEY}&q=${city}&format=json`;        
+        const url = `https://us1.locationiq.com/v1/search?key=${LOCATION_API_KEY}&q=${city}&format=json`;
         const response = await fetch(url);
         const data = await response.json();
-        
+
         const filteredData = data.filter((item) => item.type === 'administrative');
         const doctors = [];
         for (let i = 0; i < filteredData.length; i++) {
@@ -95,7 +102,23 @@ router.post('/search', async (req, res) => {
 
 // POST /doctors/add
 
-router.post('/add', (req, res) => {
+// {
+//     "firstname": "Jean",
+//     "lastname": "Dupont",
+//     "email": "jean.dupont@example.com",
+//     "phone": "0123456789",
+//     "address": "123 rue des Champs",
+//     "latitude": 48.8566,
+//     "longitude": 2.3522,
+//     "sector": "64342bb4b977040780965768",
+//     "recommandations": ["614b9ad08c7dc41188c2b80d"],
+//     "specialties": ["64381ab951065b06079b8e0e", "64381ab951065b06079b8e15"],
+//     "languages": ["643425fcb977040780965745", "643425fcb977040780965746"],
+//     "tags": ["64342525b97704078096573e", "64342525b97704078096573f"],
+//     "confidentiality": "64342852b977040780965757"
+// }
+
+router.post('/add', async (req, res) => {
     // Check the mandatory fields
     if (!checkBody(req.body, ['firstname', 'lastname', 'email', 'phone', 'address'])) {
         res.json({ result: false, error: 'Missing or empty fields' });
@@ -114,13 +137,46 @@ router.post('/add', (req, res) => {
         return;
     }
 
-    // Check if the doctor has not already been added
-    Doctor.findOne({ firstname: req.body.firstname, lastname: req.body.lastname, email: req.body.email })
-        // CITY -> ADDRESS
-        .then(data => {
-            if (data) {
-                res.json({ result: false, error: 'Doctor already in database' })
-            } else {
+            try {
+                const [sector, recommandations, specialties, languages, tags, confidentiality] = await Promise.all([
+                    Sector.findOne({ _id: req.body.sector }),
+                    Recommandation.find({ _id: { $in: req.body.recommandations } }),
+                    Specialty.find({ _id: { $in: req.body.specialties } }),
+                    Language.find({ _id: { $in: req.body.languages } }),
+                    Tag.find({ _id: { $in: req.body.tags } }),
+                    Confidentiality.findOne({ _id: req.body.confidentiality }),
+                ]);
+
+                if (!sector) {
+                    res.json({ result: false, error: 'Sector not found' });
+                    return;
+                }
+
+                if (!recommandations) {
+                    res.json({ result: false, error: 'Recommandations not found' });
+                    return;
+                }
+
+                if (req.body.specialties.length !== specialties.length) {
+                    res.json({ result: false, error: 'One or more specialties not found' });
+                    return;
+                }
+
+                if (req.body.languages.length !== languages.length) {
+                    res.json({ result: false, error: 'One or more languages not found' });
+                    return;
+                }
+
+                if (req.body.tags.length !== tags.length) {
+                    res.json({ result: false, error: 'One or more tags not found' });
+                    return;
+                }
+
+                if (!confidentiality) {
+                    res.json({ result: false, error: 'Confidentiality not found' });
+                    return;
+                }
+
                 const newDoctor = new Doctor({
                     firstname: req.body.firstname,
                     lastname: req.body.lastname,
@@ -129,115 +185,107 @@ router.post('/add', (req, res) => {
                     address: req.body.address,
                     latitude: req.body.latitude,
                     longitude: req.body.longitude,
-                    sector: req.body.sector,
-                    // recommandations: req.body.recommandations
-                    specialties: req.body.specialties,
-                    languages: req.body.languages,
-                    tags: req.body.tags,
-                    confidentiality: req.body.confidentiality
-                    // location: {
-                    // address: {
-                    // number: req.body.phone,
-                    // typeOfRoute: req.body.typeOfRoute,
-                    // route: req.body.route,
-                    // zipCode: req.body.zipCode,
-                    // city: req.body.city,
-                    // department: req.body.department
-                    // },
-                    // coordinates: {
-                    // latitude: req.body.latitude,
-                    // longitude: req.body.longitude
-                    // }
-                    // }
+                    sector: sector._id,
+                    recommandations: recommandations.map((s) => s._id),
+                    specialties: specialties.map((s) => s._id),
+                    languages: languages.map((l) => l._id),
+                    tags: tags.map((t) => t._id),
+                    confidentiality: confidentiality._id,
                 });
+
                 // Add doctor to DB
                 newDoctor.save()
                     .then(data => {
-                        res.json({ result: true, doctor: data })
+                        // Retrieve the newly created doctor with its references populated
+                        Doctor.findById(data._id)
+                            .populate('sector')
+                            .populate('recommandations')
+                            .populate('specialties')
+                            .populate('languages')
+                            .populate('tags')
+                            .populate('confidentiality')
+                            .then(doctor => {
+                                res.json({ result: true, newDoctor: doctor });
+                            });
                     });
+
+            } catch (error) {
+                console.error(error);
+                res.json({ result: false, error: 'Server error' });
             }
-        })
-});
+        });
 
-// PUT /doctors/tags/:id
+    // PUT /doctors/tags/:id
 
-router.put('/tags/:id', async (req, res) => {
-    try {
-        const doctorId = req.params.id;
-        const tags = req.body.tags; // On récupère les tags depuis le corps de la requête
+    router.put('/tags/:id', async (req, res) => {
+        try {
+            const doctorId = req.params.id;
+            const tags = req.body.tags; // On récupère les tags depuis le corps de la requête
 
-        // On récupère le document doctor correspondant
-        const doctor = await Doctor.findById(doctorId);
+            // On récupère le document doctor correspondant
+            const doctor = await Doctor.findById(doctorId);
 
-        // On parcourt le tableau des tags
-        for (const tag of tags) {
-            const existingTagIndex = doctor.tags.findIndex((t) => t.name === tag.name); // On vérifie si le tag existe déjà dans le champ "tags"
+            // On parcourt le tableau des tags
+            for (const tag of tags) {
+                const existingTagIndex = doctor.tags.findIndex((t) => t.name === tag.name); // On vérifie si le tag existe déjà dans le champ "tags"
 
-            if (existingTagIndex !== -1) {
-                // Si le tag existe déjà, on met à jour son champ "selected"
-                doctor.tags[existingTagIndex].selected += 1;
-            } else {
-                // Si le tag n'existe pas, on l'ajoute avec un champ "selected" initialisé à 1
-                doctor.tags.push({ name: tag.name, selected: 1 });
+                if (existingTagIndex !== -1) {
+                    // Si le tag existe déjà, on met à jour son champ "selected"
+                    doctor.tags[existingTagIndex].selected += 1;
+                } else {
+                    // Si le tag n'existe pas, on l'ajoute avec un champ "selected" initialisé à 1
+                    doctor.tags.push({ name: tag.name, selected: 1 });
+                }
             }
+
+            // On met à jour le document doctor correspondant avec les tags modifiés
+            const updatedDoctor = await doctor.save();
+
+            // On renvoie l'id et les tags du document doctor mis à jour en réponse
+            res.json({ doctorId: doctorId, tags: updatedDoctor.tags });
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ message: "Server Error" });
         }
+    });
 
-        // On met à jour le document doctor correspondant avec les tags modifiés
-        const updatedDoctor = await doctor.save();
+    // PUT /doctors/confidentiality/:id
 
-        // On renvoie le document doctor mis à jour en réponse
-        res.json({ doctor: updatedDoctor });
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ message: "Server Error" });
-    }
-});
+    router.put('/confidentiality/:id', async (req, res) => {
+        try {
+            const doctorId = req.params.id;
+            const confidentialityValue = req.body.value; // On récupère la nouvelle valeur de confidentialité depuis le corps de la requête
+            const confidentialityDescription = req.body.description; // On récupère la nouvelle description de confidentialité depuis le corps de la requête
 
-// PUT /doctors/confidentiality/:id
+            // On récupère le document doctor correspondant
+            const doctor = await Doctor.findById(doctorId);
 
-router.put('/confidentiality/:id', async (req, res) => {
-    try {
-        const doctorId = req.params.id;
-        const tags = req.body.tags; // On récupère les tags depuis le corps de la requête
+            // On met à jour le niveau de confidentialité en fonction de la requête
+            doctor.confidentiality.value = confidentialityValue;
+            doctor.confidentiality.description = confidentialityDescription;
 
-        // On récupère le document doctor correspondant
-        const doctor = await Doctor.findById(doctorId);
+            // On met à jour le document doctor correspondant avec la nouvelle confidentialité
+            const updatedDoctor = await doctor.save();
 
-        // On parcourt le tableau des tags
-        for (const tag of tags) {
-            const existingTagIndex = doctor.tags.findIndex((t) => t.name === tag.name); // On vérifie si le tag existe déjà dans le champ "tags"
-
-            if (existingTagIndex !== -1) {
-                // Si le tag existe déjà, on met à jour son champ "selected"
-                doctor.tags[existingTagIndex].selected += 1;
-            } else {
-                // Si le tag n'existe pas, on l'ajoute avec un champ "selected" initialisé à 1
-                doctor.tags.push({ name: tag.name, selected: 1 });
-            }
+            // On renvoie l'id et la confidentialité du document doctor mis à jour en réponse
+            res.json({ doctorId: doctorId, confidentiality: updatedDoctor.confidentiality });
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ message: "Server Error" });
         }
+    });
 
-        // On met à jour le document doctor correspondant avec les tags modifiés
-        const updatedDoctor = await doctor.save();
+    // DELETE /doctors 
 
-        // On renvoie le document doctor mis à jour en réponse
-        res.json({ doctor: updatedDoctor });
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ message: "Server Error" });
-    }
-});
+    router.delete('/', (req, res) => {
+        Doctor.deleteMany({})
+            .then(data => {
+                if (data) {
+                    res.json({ result: true, message: "Collection doctors successfully deleted" });
+                } else {
+                    res.json({ result: false, error: "Failed to delete collection doctors" });
+                }
+            })
+    });
 
-// DELETE /doctors 
-
-router.delete('/', (req, res) => {
-    Doctor.deleteMany({})
-        .then(data => {
-            if (data) {
-                res.json({ result: true, message: "Collection doctors successfully deleted" });
-            } else {
-                res.json({ result: false, error: "Failed to delete collection doctors" });
-            }
-        })
-});
-
-module.exports = router;
+    module.exports = router;
