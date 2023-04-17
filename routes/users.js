@@ -36,6 +36,10 @@ router.get('/:token', async (req, res) => {
 // POST /users/signup/verify
 
 router.post('/signup/verify', async (req, res) => {
+  if (!checkBody(req.body, ['username', 'password', 'email'])) {
+    res.json({ result: false, error: 'Missing or empty fields' });
+    return;
+  }
   try {
 
     await User.findOne({ email: req.body.email})
