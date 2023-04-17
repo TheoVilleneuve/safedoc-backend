@@ -100,6 +100,26 @@ router.post('/search', async (req, res) => {
     }
 });
 
+router.post('/add/verify', async (req, res) => {
+    if (!checkBody(req.body, ['firstname', 'lastname', 'email'])) {
+        res.json({ result: false, error: 'Missing or empty fields' });
+        return;
+    }
+    try {
+
+        await Doctor.findOne({ firstname, lastname, email })
+            .then(async data => {
+                if (data) {
+                    res.json({ result: false, error: "doctor already in use" });
+                } else {
+                    res.json({ result: true, message: "no doctor found" });
+                }
+            })
+    } catch (error) {
+        res.status(500).json({ message: "Server error" })
+    }
+})
+
 // POST /doctors/add
 
 // {
@@ -137,155 +157,155 @@ router.post('/add', async (req, res) => {
         return;
     }
 
-            try {
-                const [sector, recommandations, specialties, languages, tags, confidentiality] = await Promise.all([
-                    Sector.findOne({ _id: req.body.sector }),
-                    Recommandation.find({ _id: { $in: req.body.recommandations } }),
-                    Specialty.find({ _id: { $in: req.body.specialties } }),
-                    Language.find({ _id: { $in: req.body.languages } }),
-                    Tag.find({ _id: { $in: req.body.tags } }),
-                    Confidentiality.findOne({ _id: req.body.confidentiality }),
-                ]);
+    try {
+        const [sector, recommandations, specialties, languages, tags, confidentiality] = await Promise.all([
+            Sector.findOne({ _id: req.body.sector }),
+            Recommandation.find({ _id: { $in: req.body.recommandations } }),
+            Specialty.find({ _id: { $in: req.body.specialties } }),
+            Language.find({ _id: { $in: req.body.languages } }),
+            Tag.find({ _id: { $in: req.body.tags } }),
+            // Confidentiality.findOne({ _id: req.body.confidentiality }),
+        ]);
 
-                if (!sector) {
-                    res.json({ result: false, error: 'Sector not found' });
-                    return;
-                }
+        if (!sector) {
+            res.json({ result: false, error: 'Sector not found' });
+            return;
+        }
 
-                if (!recommandations) {
-                    res.json({ result: false, error: 'Recommandations not found' });
-                    return;
-                }
+        if (!recommandations) {
+            res.json({ result: false, error: 'Recommandations not found' });
+            return;
+        }
 
-                if (req.body.specialties.length !== specialties.length) {
-                    res.json({ result: false, error: 'One or more specialties not found' });
-                    return;
-                }
+        if (req.body.specialties.length !== specialties.length) {
+            res.json({ result: false, error: 'One or more specialties not found' });
+            return;
+        }
 
-                if (req.body.languages.length !== languages.length) {
-                    res.json({ result: false, error: 'One or more languages not found' });
-                    return;
-                }
+        if (req.body.languages.length !== languages.length) {
+            res.json({ result: false, error: 'One or more languages not found' });
+            return;
+        }
 
-                if (req.body.tags.length !== tags.length) {
-                    res.json({ result: false, error: 'One or more tags not found' });
-                    return;
-                }
+        if (req.body.tags.length !== tags.length) {
+            res.json({ result: false, error: 'One or more tags not found' });
+            return;
+        }
 
-                if (!confidentiality) {
-                    res.json({ result: false, error: 'Confidentiality not found' });
-                    return;
-                }
+        // if (!confidentiality) {
+        //     res.json({ result: false, error: 'Confidentiality not found' });
+        //     return;
+        // }
 
-                const newDoctor = new Doctor({
-                    firstname: req.body.firstname,
-                    lastname: req.body.lastname,
-                    email: req.body.email,
-                    phone: req.body.phone,
-                    address: req.body.address,
-                    latitude: req.body.latitude,
-                    longitude: req.body.longitude,
-                    sector: sector._id,
-                    recommandations: recommandations.map((s) => s._id),
-                    specialties: specialties.map((s) => s._id),
-                    languages: languages.map((l) => l._id),
-                    tags: tags.map((t) => t._id),
-                    confidentiality: confidentiality._id,
-                });
-
-                // Add doctor to DB
-                newDoctor.save()
-                    .then(data => {
-                        // Retrieve the newly created doctor with its references populated
-                        Doctor.findById(data._id)
-                            .populate('sector')
-                            .populate('recommandations')
-                            .populate('specialties')
-                            .populate('languages')
-                            .populate('tags')
-                            .populate('confidentiality')
-                            .then(doctor => {
-                                res.json({ result: true, newDoctor: doctor });
-                            });
-                    });
-
-            } catch (error) {
-                console.error(error);
-                res.json({ result: false, error: 'Server error' });
-            }
+        const newDoctor = new Doctor({
+            firstname: req.body.firstname,
+            lastname: req.body.lastname,
+            email: req.body.email,
+            phone: req.body.phone,
+            address: req.body.address,
+            latitude: req.body.latitude,
+            longitude: req.body.longitude,
+            sector: sector._id,
+            recommandations: recommandations.map((s) => s._id),
+            specialties: specialties.map((s) => s._id),
+            languages: languages.map((l) => l._id),
+            tags: tags.map((t) => t._id),
+            confidentiality: "64342852b977040780965759"
         });
 
-    // PUT /doctors/tags/:id
-
-    router.put('/tags/:id', async (req, res) => {
-        try {
-            const doctorId = req.params.id;
-            const tags = req.body.tags; // On récupère les tags depuis le corps de la requête
-
-            // On récupère le document doctor correspondant
-            const doctor = await Doctor.findById(doctorId);
-
-            // On parcourt le tableau des tags
-            for (const tag of tags) {
-                const existingTagIndex = doctor.tags.findIndex((t) => t.name === tag.name); // On vérifie si le tag existe déjà dans le champ "tags"
-
-                if (existingTagIndex !== -1) {
-                    // Si le tag existe déjà, on met à jour son champ "selected"
-                    doctor.tags[existingTagIndex].selected += 1;
-                } else {
-                    // Si le tag n'existe pas, on l'ajoute avec un champ "selected" initialisé à 1
-                    doctor.tags.push({ name: tag.name, selected: 1 });
-                }
-            }
-
-            // On met à jour le document doctor correspondant avec les tags modifiés
-            const updatedDoctor = await doctor.save();
-
-            // On renvoie l'id et les tags du document doctor mis à jour en réponse
-            res.json({ doctorId: doctorId, tags: updatedDoctor.tags });
-        } catch (error) {
-            console.error(error);
-            res.status(500).json({ message: "Server Error" });
-        }
-    });
-
-    // PUT /doctors/confidentiality/:id
-
-    router.put('/confidentiality/:id', async (req, res) => {
-        try {
-            const doctorId = req.params.id;
-            const confidentialityValue = req.body.value; // On récupère la nouvelle valeur de confidentialité depuis le corps de la requête
-            const confidentialityDescription = req.body.description; // On récupère la nouvelle description de confidentialité depuis le corps de la requête
-
-            // On récupère le document doctor correspondant
-            const doctor = await Doctor.findById(doctorId);
-
-            // On met à jour le niveau de confidentialité en fonction de la requête
-            doctor.confidentiality.value = confidentialityValue;
-            doctor.confidentiality.description = confidentialityDescription;
-
-            // On met à jour le document doctor correspondant avec la nouvelle confidentialité
-            const updatedDoctor = await doctor.save();
-
-            // On renvoie l'id et la confidentialité du document doctor mis à jour en réponse
-            res.json({ doctorId: doctorId, confidentiality: updatedDoctor.confidentiality });
-        } catch (error) {
-            console.error(error);
-            res.status(500).json({ message: "Server Error" });
-        }
-    });
-
-    // DELETE /doctors 
-
-    router.delete('/', (req, res) => {
-        Doctor.deleteMany({})
+        // Add doctor to DB
+        newDoctor.save()
             .then(data => {
-                if (data) {
-                    res.json({ result: true, message: "Collection doctors successfully deleted" });
-                } else {
-                    res.json({ result: false, error: "Failed to delete collection doctors" });
-                }
-            })
-    });
+                // Retrieve the newly created doctor with its references populated
+                Doctor.findById(data._id)
+                    .populate('sector')
+                    .populate('recommandations')
+                    .populate('specialties')
+                    .populate('languages')
+                    .populate('tags')
+                    .populate('confidentiality')
+                    .then(doctor => {
+                        res.json({ result: true, newDoctor: doctor });
+                    });
+            });
 
-    module.exports = router;
+    } catch (error) {
+        console.error(error);
+        res.json({ result: false, error: 'Server error' });
+    }
+});
+
+// PUT /doctors/tags/:id
+
+router.put('/tags/:id', async (req, res) => {
+    try {
+        const doctorId = req.params.id;
+        const tags = req.body.tags; // On récupère les tags depuis le corps de la requête
+
+        // On récupère le document doctor correspondant
+        const doctor = await Doctor.findById(doctorId);
+
+        // On parcourt le tableau des tags
+        for (const tag of tags) {
+            const existingTagIndex = doctor.tags.findIndex((t) => t.name === tag.name); // On vérifie si le tag existe déjà dans le champ "tags"
+
+            if (existingTagIndex !== -1) {
+                // Si le tag existe déjà, on met à jour son champ "selected"
+                doctor.tags[existingTagIndex].selected += 1;
+            } else {
+                // Si le tag n'existe pas, on l'ajoute avec un champ "selected" initialisé à 1
+                doctor.tags.push({ name: tag.name, selected: 1 });
+            }
+        }
+
+        // On met à jour le document doctor correspondant avec les tags modifiés
+        const updatedDoctor = await doctor.save();
+
+        // On renvoie l'id et les tags du document doctor mis à jour en réponse
+        res.json({ doctorId: doctorId, tags: updatedDoctor.tags });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "Server Error" });
+    }
+});
+
+// PUT /doctors/confidentiality/:id
+
+router.put('/confidentiality/:id', async (req, res) => {
+    try {
+        const doctorId = req.params.id;
+        const confidentialityValue = req.body.value; // On récupère la nouvelle valeur de confidentialité depuis le corps de la requête
+        const confidentialityDescription = req.body.description; // On récupère la nouvelle description de confidentialité depuis le corps de la requête
+
+        // On récupère le document doctor correspondant
+        const doctor = await Doctor.findById(doctorId);
+
+        // On met à jour le niveau de confidentialité en fonction de la requête
+        doctor.confidentiality.value = confidentialityValue;
+        doctor.confidentiality.description = confidentialityDescription;
+
+        // On met à jour le document doctor correspondant avec la nouvelle confidentialité
+        const updatedDoctor = await doctor.save();
+
+        // On renvoie l'id et la confidentialité du document doctor mis à jour en réponse
+        res.json({ doctorId: doctorId, confidentiality: updatedDoctor.confidentiality });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "Server Error" });
+    }
+});
+
+// DELETE /doctors 
+
+router.delete('/', (req, res) => {
+    Doctor.deleteMany({})
+        .then(data => {
+            if (data) {
+                res.json({ result: true, message: "Collection doctors successfully deleted" });
+            } else {
+                res.json({ result: false, error: "Failed to delete collection doctors" });
+            }
+        })
+});
+
+module.exports = router;
