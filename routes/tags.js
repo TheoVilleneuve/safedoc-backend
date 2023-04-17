@@ -14,4 +14,19 @@ router.get('/', async (req, res) => {
     }
 });
 
+// POST /tags
+
+router.post('/', async (req, res) => {
+    try {
+        const { value, category } = req.body;
+        const newTag = new Tag({ value, category });
+
+        await newTag.save();
+
+        res.status(201).json({ success: true, tag: newTag });
+    } catch (error) {
+        res.status(500).json({ success: false, error: error.message });
+    }
+})
+
 module.exports = router;
