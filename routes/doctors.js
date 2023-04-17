@@ -55,6 +55,44 @@ router.post('/search/city', async (req, res) => {
 
 // POST /doctors/search
 
+router.post('/search', async (req, res) => {
+    try {
+        if (req.body.lastname && req.body.specialties) {
+            const doctors = await Doctor.find({
+                lastname: req.body.lastname,
+                specialties: req.body.specialties
+            });
+            if (doctors.length > 0) {
+                res.json({ result: true, doctors: doctors });
+            } else {
+                res.json({ result: false, error: "No doctor found" });
+            }
+        } else if (req.body.lastname) {
+            const doctors = await Doctor.find({
+                lastname: req.body.lastname
+            });
+            if (doctors.length > 0) {
+                res.json({ result: true, doctors: doctors });
+            } else {
+                res.json({ result: false, error: "No doctor found" });
+            }
+        } else if (req.body.specialties) {
+            const doctors = await Doctor.find({
+                specialties: req.body.specialties
+            });
+            if (doctors.length > 0) {
+                res.json({ result: true, doctors: doctors });
+            } else {
+                res.json({ result: false, error: "No doctor found" });
+            }
+        } else {
+            res.json({ result: false, error: "No search criteria provided" });
+        }
+    } catch (error) {
+        res.json({ error: "An error occurrend while searching for doctors" });
+    }
+});
+
 // {"specialties": "643d3f5e2559f4dee0c0a839"}
 
 // {"specialties": "643d3f5e2559f4dee0c0a839",
@@ -185,20 +223,27 @@ router.post('/add/verify', async (req, res) => {
 // POST /doctors/add
 
 // {
-//     "firstname": "Jean",
-//     "lastname": "Dupont",
-//     "email": "jean.dupont@example.com",
-//     "phone": "0123456789",
-//     "address": "123 rue des Champs",
-//     "latitude": 48.8566,
-//     "longitude": 2.3522,
-//     "sector": "64342bb4b977040780965768",
-//     "recommandations": ["614b9ad08c7dc41188c2b80d"],
-//     "specialties": ["643d3f5e2559f4dee0c0a839", "643d3fb42559f4dee0c0a83d"],
-//     "languages": ["643425fcb977040780965745", "643425fcb977040780965746"],
-//     "tags": ["643d3c38c615c64dde8acb21", "643d3c4fc615c64dde8acb25"],
-//     "confidentiality": "64342852b977040780965757"
-// }
+//     "firstname": "Sisi1",
+//     "lastname": "Leclerc1",
+//     "email": "sisi@example1.com",
+//     "phone": "0601020004",
+//     "address": "55 Rue du Faubourg Saint-Honoré, 75008 Paris",
+//     "latitude": 48.87169403367853,
+//     "longitude": 2.3630708418845616,
+//     "sector": {
+//       "value": 1,
+//       "description": "Conventionné.e secteur 1"
+//     },
+//     "specialties": [
+//       "Généraliste", "Dermatologue"
+//     ],
+//     "languages": [
+//       "français"
+//     ],
+//     "tags": [
+//       "LGBT-friendly", "PMR"
+//     ]
+//   }
 
 router.post('/add', async (req, res) => {
     // Check the mandatory fields
@@ -230,34 +275,43 @@ router.post('/add', async (req, res) => {
             // ]);
         const { firstname,
             lastname, 
-            email, phone, address, latitude, longitude, sector, 
+            email, 
+            phone, 
+            address, 
+            latitude, 
+            longitude, 
+            sector, 
             // recommandations, 
-            specialties, languages, tags, confidentiality } = req.body;
+            specialties, 
+            languages, 
+            tags, 
+            // confidentiality 
+            } = req.body;
 
-        // if (!sector) {
-        //     res.json({ result: false, error: 'Sector not found' });
-        //     return;
-        // }
+        if (!sector) {
+            res.json({ result: false, error: 'Sector not found' });
+            return;
+        }
 
         // if (!recommandations) {
         //     res.json({ result: false, error: 'Recommandations not found' });
         //     return;
         // }
 
-        // if (req.body.specialties.length !== specialties.length) {
-        //     res.json({ result: false, error: 'One or more specialties not found' });
-        //     return;
-        // }
+        if (req.body.specialties.length !== specialties.length) {
+            res.json({ result: false, error: 'One or more specialties not found' });
+            return;
+        }
 
-        // if (req.body.languages.length !== languages.length) {
-        //     res.json({ result: false, error: 'One or more languages not found' });
-        //     return;
-        // }
+        if (req.body.languages.length !== languages.length) {
+            res.json({ result: false, error: 'One or more languages not found' });
+            return;
+        }
 
-        // if (req.body.tags.length !== tags.length) {
-        //     res.json({ result: false, error: 'One or more tags not found' });
-        //     return;
-        // }
+        if (req.body.tags.length !== tags.length) {
+            res.json({ result: false, error: 'One or more tags not found' });
+            return;
+        }
 
         const newDoctor = new Doctor({
             firstname: firstname,
@@ -272,12 +326,9 @@ router.post('/add', async (req, res) => {
                 description: sector.description
             },
             // recommandations: recommandations.map((s) => s._id),
-            specialties: specialties.value,
-            languages: languages.value,
-            tags: {
-                value: tags.value,
-                category: tags.category
-            },
+            specialties: specialties,
+            languages: languages,
+            tags: tags,
             confidentiality: {
                 value: 3,
                 description: "no display"

@@ -5,19 +5,10 @@ const sectorSchema = mongoose.Schema({
     description: String
 });
 
-const specialtiesSchema = mongoose.Schema({
-    value: Number
-});
-
-const languagesSchema = mongoose.Schema({
-    value: String,
-    translation: String
-});
-
-const tagsSchema = mongoose.Schema({
-    value: String,
-    category: String
-});
+// const tagsSchema = mongoose.Schema({
+//     value: String,
+//     category: String
+// });
 
 const confidentialitySchema = mongoose.Schema({
     value: Number,
@@ -33,13 +24,13 @@ const doctorSchema = new mongoose.Schema({
     latitude: Number,
     longitude: Number,
     sector: sectorSchema,
-    recommandations: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'recommandations',
-    }],
-    specialties: [specialtiesSchema],
-    languages: [languagesSchema],
-    tags: [tagsSchema],
+    // recommandations: [{
+    //     type: mongoose.Schema.Types.ObjectId,
+    //     ref: 'recommandations',
+    // }],
+    specialties: [String],
+    languages: [String],
+    tags: [String],
     confidentiality: confidentialitySchema
 });
 
