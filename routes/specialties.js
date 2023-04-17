@@ -14,4 +14,20 @@ router.get('/', async (req, res) => {
     }
 });
 
+// POST /specialties
+
+router.post('/', async (req, res) => {
+    try {
+        const { value } = req.body;
+
+        const newSpeciality = new Speciality({ value });
+
+        await newSpeciality.save();
+
+        res.status(201).json({ success: true, speciality: newSpeciality });
+    } catch (error) {
+        res.status(500).json({ success: false, error: error.message });
+    }
+});
+
 module.exports = router;

@@ -62,41 +62,112 @@ router.post('/search/city', async (req, res) => {
 
 // POST /doctors/search
 
+// {"specialties": "643d3f5e2559f4dee0c0a839"}
+
+// {"specialties": "643d3f5e2559f4dee0c0a839",
+// "lastname": "Dupont"
+// }
+
+// {"lastname": "Dupont"}
+
+// router.post('/search', async (req, res) => {
+//     try {
+//         if (req.body.lastname && req.body.specialties) {
+
+//             Doctor.find({ lastname: req.body.lastname, specialties: req.body.specialties })
+//             .populate('sector')
+//             .populate('recommandations')
+//             .populate('specialties')
+//             .populate('languages')
+//             .populate('tags')
+//             .populate('confidentiality')
+//             .then(doctors => {
+//                 if (doctors.length > 0) {
+//                     res.json({ result: true, doctors: doctors });
+//                 } else {
+//                     res.json({ result: false, error: "No doctor found" });
+//                 }
+//             });
+
+//         } else if (req.body.lastname) {
+
+//             Doctor.find({ lastname: req.body.lastname })
+//                 .populate('sector')
+//                 .populate('recommandations')
+//                 .populate('specialties')
+//                 .populate('languages')
+//                 .populate('tags')
+//                 .populate('confidentiality')
+//                 .then(doctors => {
+//                     if (doctors.length > 0) {
+//                         res.json({ result: true, doctors: doctors });
+//                     } else {
+//                         res.json({ result: false, error: "No doctor found" });
+//                     }
+//                 });
+
+//         } else if (req.body.specialties) {
+
+//             Doctor.find({ specialties: req.body.specialties })
+//                 .populate('sector')
+//                 .populate('recommandations')
+//                 .populate('specialties')
+//                 .populate('languages')
+//                 .populate('tags')
+//                 .populate('confidentiality')
+//                 .then(doctors => {
+//                     if (doctors.length > 0) {
+//                         res.json({ result: true, doctors: doctors });
+//                     } else {
+//                         res.json({ result: false, error: "No doctor found" });
+//                     }
+//                 });
+
+//         } else {
+//             res.json({ result: false, error: "No search criteria provided" });
+//         }
+//     } catch (error) {
+//         res.json({ error: "An error occurrend while searching for doctors" });
+//     }
+// });
+
+const findDoctorsByCriteria = (req, res, searchCriteria) => {
+    Doctor.find(searchCriteria)
+        .populate('sector')
+        .populate('recommandations')
+        .populate('specialties')
+        .populate('languages')
+        .populate('tags')
+        .populate('confidentiality')
+        .then(doctors => {
+            if (hasResults(doctors)) {
+                res.json({ result: true, doctors: doctors });
+            } else {
+                res.json({ result: false, error: "No doctor found" });
+            }
+        })
+};
+
+const hasResults = (data) => {
+    return data && data.length > 0;
+};
+
 router.post('/search', async (req, res) => {
     try {
         if (req.body.lastname && req.body.specialties) {
-            const doctors = await Doctor.find({
+            findDoctorsByCriteria(req, res, {
                 lastname: req.body.lastname,
                 specialties: req.body.specialties,
             });
-            if (doctors.length > 0) {
-                res.json({ result: true, doctors: doctors });
-            } else {
-                res.json({ result: false, error: "No doctor found" });
-            }
         } else if (req.body.lastname) {
-            const doctors = await Doctor.find({
-                lastname: req.body.lastname
-            });
-            if (doctors.length > 0) {
-                res.json({ result: true, doctors: doctors });
-            } else {
-                res.json({ result: false, error: "No doctor found" });
-            }
+            findDoctorsByCriteria(req, res, { lastname: req.body.lastname });
         } else if (req.body.specialties) {
-            const doctors = await Doctor.find({
-                specialties: req.body.specialties
-            });
-            if (doctors.length > 0) {
-                res.json({ result: true, doctors: doctors });
-            } else {
-                res.json({ result: false, error: "No doctor found" });
-            }
+            findDoctorsByCriteria(req, res, { specialties: req.body.specialties });
         } else {
             res.json({ result: false, error: "No search criteria provided" });
         }
     } catch (error) {
-        res.json({ error: "An error occurrend while searching for doctors" });
+        res.json({ result: false, error: "An error occurred while searching for doctors" });
     }
 });
 
@@ -132,9 +203,9 @@ router.post('/add/verify', async (req, res) => {
 //     "longitude": 2.3522,
 //     "sector": "64342bb4b977040780965768",
 //     "recommandations": ["614b9ad08c7dc41188c2b80d"],
-//     "specialties": ["64381ab951065b06079b8e0e", "64381ab951065b06079b8e15"],
+//     "specialties": ["643d3f5e2559f4dee0c0a839", "643d3fb42559f4dee0c0a83d"],
 //     "languages": ["643425fcb977040780965745", "643425fcb977040780965746"],
-//     "tags": ["64342525b97704078096573e", "64342525b97704078096573f"],
+//     "tags": ["643d3c38c615c64dde8acb21", "643d3c4fc615c64dde8acb25"],
 //     "confidentiality": "64342852b977040780965757"
 // }
 

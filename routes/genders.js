@@ -14,4 +14,20 @@ router.get('/', async (req, res) => {
   }
 });
 
+// POST /genders
+
+router.post('/', async (req, res) => {
+  try {
+    const { value } = req.body;
+
+    const newGender = new Gender({ value });
+
+    await newGender.save();
+
+    res.status(201).json({ success: true, gender: newGender });
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+});
+
 module.exports = router;
