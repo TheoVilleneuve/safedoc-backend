@@ -1,0 +1,1031 @@
+[{
+  "_id": {
+    "$oid": "643d516651065b06079b8e95"
+  },
+  "firstname": "John",
+  "lastname": "Doe",
+  "email": "johndoe@example.com",
+  "phone": "0612345678",
+  "address": "16 Rue Saint-Sabin, 75011 Paris",
+  "latitude": 48.857399,
+  "longitude": 2.369489,
+  "sector": "64342bb4b97704078096576a",
+  "specialties": [
+    "643d3f5e2559f4dee0c0a839"
+  ],
+  "languages": [
+    "643425fcb977040780965745",
+    "643425fcb977040780965746"
+  ],
+  "tags": [
+    "643d3c4fc615c64dde8acb25",
+    "643d3c38c615c64dde8acb21"
+  ],
+  "confidentiality": "64342852b977040780965759"
+},{
+  "_id": {
+    "$oid": "643d516651065b06079b8e96"
+  },
+  "firstname": "Marie",
+  "lastname": "Dupont",
+  "email": "marie.dupont@example.com",
+  "phone": "06 12 34 56 78",
+  "address": "4 Rue de Belleville, 75020 Paris",
+  "latitude": 48.870616,
+  "longitude": 2.384068,
+  "sector": "64342bb4b977040780965768",
+  "specialties": [
+    "643d3fb42559f4dee0c0a83d"
+  ],
+  "languages": [
+    "643425fcb977040780965745",
+    "643425fcb977040780965746"
+  ],
+  "tags": [
+    "643d3bb1c615c64dde8acb1f",
+    "643d3c4fc615c64dde8acb25"
+  ],
+  "confidentiality": "64342852b977040780965759"
+},{
+  "_id": {
+    "$oid": "643d516651065b06079b8e97"
+  },
+  "firstname": "Jean",
+  "lastname": "Martin",
+  "email": "jean.martin@example.com",
+  "phone": "01 23 45 67 89",
+  "address": "2 Rue de la Convention, 94270 Le Kremlin-Bicêtre",
+  "latitude": 48.811023,
+  "longitude": 2.357765,
+  "sector": "64342bb4b97704078096576a",
+  "specialties": [
+    "643d3fb42559f4dee0c0a83d"
+  ],
+  "languages": [
+    "643425fcb977040780965745",
+    "643425fcb977040780965746"
+  ],
+  "tags": [
+    "643d3bb1c615c64dde8acb1f",
+    "643d3c38c615c64dde8acb21"
+  ],
+  "confidentiality": "64342852b977040780965759"
+},{
+  "_id": {
+    "$oid": "643d516651065b06079b8e98"
+  },
+  "firstname": "Lucie",
+  "lastname": "Girard",
+  "email": "lucie.girard@example.com",
+  "phone": "06 78 90 12 34",
+  "address": "7 Rue du Faubourg Saint-Antoine, 75011 Paris",
+  "latitude": 48.852225,
+  "longitude": 2.37326,
+  "sector": "64342bb4b977040780965768",
+  "specialties": [
+    "643d3fb42559f4dee0c0a83d"
+  ],
+  "languages": [
+    "643425fcb977040780965745",
+    "643425fcb977040780965746"
+  ],
+  "tags": [
+    "643d3bb1c615c64dde8acb1f",
+    "643d3c38c615c64dde8acb21"
+  ],
+  "confidentiality": "64342852b977040780965759"
+},{
+  "_id": {
+    "$oid": "643d516651065b06079b8e99"
+  },
+  "firstname": "Jeanne",
+  "lastname": "Dupont",
+  "email": "jeannedupont@example.com",
+  "phone": "0102030405",
+  "address": "12 Rue des Lilas, 75020 Paris",
+  "latitude": 48.8723557,
+  "longitude": 2.4049588,
+  "sector": "64342bb4b977040780965768",
+  "specialties": [
+    "643d3fb42559f4dee0c0a83d"
+  ],
+  "languages": [
+    "643425fcb977040780965745",
+    "643425fcb977040780965746"
+  ],
+  "tags": [
+    "643d3bb1c615c64dde8acb1f",
+    "643d3c38c615c64dde8acb21"
+  ],
+  "confidentiality": "64342852b977040780965759"
+},{
+  "_id": {
+    "$oid": "643d516651065b06079b8e9a"
+  },
+  "firstname": "Lucas",
+  "lastname": "Martin",
+  "email": "lucasmartin@example.com",
+  "phone": "0607080910",
+  "address": "24 Rue des Rosiers, 75004 Paris",
+  "latitude": 48.8575315,
+  "longitude": 2.3589644,
+  "sector": "64342bb4b977040780965768",
+  "specialties": [
+    "643d3fb42559f4dee0c0a83d"
+  ],
+  "languages": [
+    "643425fcb977040780965745",
+    "643425fcb977040780965746"
+  ],
+  "tags": [
+    "643d3bb1c615c64dde8acb1f",
+    "643d3c38c615c64dde8acb21"
+  ],
+  "confidentiality": "64342852b977040780965759"
+},{
+  "_id": {
+    "$oid": "643d516651065b06079b8e9b"
+  },
+  "firstname": "Sophie",
+  "lastname": "Leclerc",
+  "email": "sophieleclerc@example.com",
+  "phone": "0601020304",
+  "address": "25 rue de toulon, 94140 Alfortville",
+  "latitude": 48.79019410454139,
+  "longitude": 2.4245103157796786,
+  "sector": "64342bb4b977040780965768",
+  "specialties": [
+    "643d41492559f4dee0c0a853"
+  ],
+  "languages": [
+    "643425fcb977040780965745",
+    "643425fcb977040780965746"
+  ],
+  "tags": [
+    "643d3bb1c615c64dde8acb1f",
+    "643d3c38c615c64dde8acb21"
+  ],
+  "confidentiality": "64342852b977040780965759"
+},{
+  "_id": {
+    "$oid": "643d516651065b06079b8e9c"
+  },
+  "firstname": "Alex",
+  "lastname": "dumas",
+  "email": "dumas@example.com",
+  "phone": "0617347677",
+  "address": "16 Rue Saint-Sabin, 75011 Paris",
+  "latitude": 48.857399,
+  "longitude": 2.369489,
+  "sector": "64342bb4b97704078096576a",
+  "specialties": [
+    "643d3fb42559f4dee0c0a83d"
+  ],
+  "languages": [
+    "643425fcb977040780965745",
+    "643425fcb977040780965746"
+  ],
+  "tags": [
+    "643d3c54c615c64dde8acb27",
+    "643d3c38c615c64dde8acb21"
+  ],
+  "confidentiality": "64342852b977040780965759"
+},{
+  "_id": {
+    "$oid": "643d516651065b06079b8e9d"
+  },
+  "firstname": "Malik",
+  "lastname": "Chirac",
+  "email": "malik.chirac@example.com",
+  "phone": "06 13 34 54 68",
+  "address": "31 Grande Rue, 95290 L'Isle-Adam",
+  "latitude": 48.870616,
+  "longitude": 2.384068,
+  "sector": "64342bb4b977040780965768",
+  "specialties": [
+    "643d3f5e2559f4dee0c0a839"
+  ],
+  "languages": [
+    "643425fcb977040780965745",
+    "643425fcb977040780965746"
+  ],
+  "tags": [
+    "643d3c54c615c64dde8acb27",
+    "643d3c38c615c64dde8acb21"
+  ],
+  "confidentiality": "64342852b977040780965759"
+},{
+  "_id": {
+    "$oid": "643d516651065b06079b8e9e"
+  },
+  "firstname": "Jean-fabrice",
+  "lastname": "Martino",
+  "email": "martino@example.com",
+  "phone": "04 23 45 67 89",
+  "address": "2 Rue de la Convention, 94270 Le Kremlin-Bicêtre",
+  "latitude": 48.811023,
+  "longitude": 2.357765,
+  "sector": "64342bb4b977040780965768",
+  "specialties": [
+    "643d3fb42559f4dee0c0a83d"
+  ],
+  "languages": [
+    "643425fcb977040780965745",
+    "643425fcb977040780965746"
+  ],
+  "tags": [
+    "643d3bb1c615c64dde8acb1f",
+    "643d3c38c615c64dde8acb21"
+  ],
+  "confidentiality": "64342852b977040780965759"
+},{
+  "_id": {
+    "$oid": "643d516651065b06079b8e9f"
+  },
+  "firstname": "Sarah",
+  "lastname": "Smith",
+  "email": "smith@example.com",
+  "phone": "07 68 97 12 34",
+  "address": "7 Rue du Faubourg Saint-Antoine, 75011 Paris",
+  "latitude": 48.852225,
+  "longitude": 2.37326,
+  "sector": "64342bb4b977040780965768",
+  "specialties": [
+    "643d41092559f4dee0c0a84f"
+  ],
+  "languages": [
+    "643425fcb977040780965745",
+    "643425fcb977040780965746"
+  ],
+  "tags": [
+    "643d3c4fc615c64dde8acb25",
+    "643d3c38c615c64dde8acb21"
+  ],
+  "confidentiality": "64342852b977040780965759"
+},{
+  "_id": {
+    "$oid": "643d516651065b06079b8ea0"
+  },
+  "firstname": "Michel",
+  "lastname": "jackson",
+  "email": "michel@example.com",
+  "phone": "0103530405",
+  "address": "12 Rue des Lilas, 75020 Paris",
+  "latitude": 48.8723557,
+  "longitude": 2.4049588,
+  "sector": "64342bb4b977040780965768",
+  "specialties": [
+    "643d3fb42559f4dee0c0a83d"
+  ],
+  "languages": [
+    "643425fcb977040780965745",
+    "643425fcb977040780965746"
+  ],
+  "tags": [
+    "643d3bb1c615c64dde8acb1f",
+    "643d3c4fc615c64dde8acb25"
+  ],
+  "confidentiality": "64342852b977040780965759"
+},{
+  "_id": {
+    "$oid": "643d516651065b06079b8ea1"
+  },
+  "firstname": "Moussa",
+  "lastname": "Sow",
+  "email": "moussa@example.com",
+  "phone": "06070765910",
+  "address": "24 Rue des Rosiers, 75004 Paris",
+  "latitude": 48.8575315,
+  "longitude": 2.3589644,
+  "sector": "64342bb4b977040780965768",
+  "specialties": [
+    "643d3fb42559f4dee0c0a83d"
+  ],
+  "languages": [
+    "643425fcb977040780965745",
+    "643425fcb977040780965746"
+  ],
+  "tags": [
+    "643d3bb1c615c64dde8acb1f",
+    "643d3c38c615c64dde8acb21"
+  ],
+  "confidentiality": "64342852b977040780965759"
+},{
+  "_id": {
+    "$oid": "643d516651065b06079b8ea2"
+  },
+  "firstname": "Marie",
+  "lastname": "Chico",
+  "email": "chico@example.com",
+  "phone": "0601022304",
+  "address": "31 rue fernand pelloutier, 92110 Clichy",
+  "latitude": 48.8543982,
+  "longitude": 2.3645821,
+  "sector": "64342bb4b977040780965768",
+  "specialties": [
+    "643d3fb42559f4dee0c0a83d"
+  ],
+  "languages": [
+    "643425fcb977040780965745",
+    "643425fcb977040780965746"
+  ],
+  "tags": [
+    "643d3bb1c615c64dde8acb1f",
+    "643d3c38c615c64dde8acb21"
+  ],
+  "confidentiality": "64342852b977040780965759"
+},{
+  "_id": {
+    "$oid": "643d516651065b06079b8ea3"
+  },
+  "firstname": "William",
+  "lastname": "Darmin",
+  "email": "william@example.com",
+  "phone": "0612789678",
+  "address": "16 Rue Saint-Sabin, 75011 Paris",
+  "latitude": 48.857399,
+  "longitude": 2.369489,
+  "sector": "64342bb4b97704078096576a",
+  "specialties": [
+    "643d3fb42559f4dee0c0a83d"
+  ],
+  "languages": [
+    "643425fcb977040780965745",
+    "643425fcb977040780965746"
+  ],
+  "tags": [
+    "643d3bb1c615c64dde8acb1f",
+    "643d3c38c615c64dde8acb21"
+  ],
+  "confidentiality": "64342852b977040780965759"
+},{
+  "_id": {
+    "$oid": "643d516651065b06079b8ea4"
+  },
+  "firstname": "Marie-louise",
+  "lastname": "trintignant",
+  "email": "maie-louise@example.com",
+  "phone": "06 12 32 56 78",
+  "address": "4 Rue de Belleville, 75020 Paris",
+  "latitude": 48.870616,
+  "longitude": 2.384068,
+  "sector": "64342bb4b977040780965768",
+  "specialties": [
+    "643d3fb42559f4dee0c0a83d"
+  ],
+  "languages": [
+    "643425fcb977040780965745",
+    "643425fcb977040780965746"
+  ],
+  "tags": [
+    "643d3c54c615c64dde8acb27",
+    "643d3c38c615c64dde8acb21"
+  ],
+  "confidentiality": "64342852b977040780965759"
+},{
+  "_id": {
+    "$oid": "643d516651065b06079b8ea5"
+  },
+  "firstname": "sasha",
+  "lastname": "distel",
+  "email": "distel@example.com",
+  "phone": "01 63 65 67 89",
+  "address": "2bis Rue Maurice Denis, 78100 Saint-Germain-en-Laye",
+  "latitude": 48.811023,
+  "longitude": 2.357765,
+  "sector": "64342bb4b977040780965768",
+  "specialties": [
+    "643d3fb42559f4dee0c0a83d"
+  ],
+  "languages": [
+    "643425fcb977040780965745",
+    "643425fcb977040780965746"
+  ],
+  "tags": [
+    "643d3bb1c615c64dde8acb1f",
+    "643d3df1c615c64dde8acb31"
+  ],
+  "confidentiality": "64342852b977040780965759"
+},{
+  "_id": {
+    "$oid": "643d516651065b06079b8ea6"
+  },
+  "firstname": "kamal",
+  "lastname": "gaspard",
+  "email": "kamal.gaspard@example.com",
+  "phone": "06 78 20 42 34",
+  "address": "13 Rue Louis Braille, 77700 Coupvray",
+  "latitude": 48.852225,
+  "longitude": 2.37326,
+  "sector": "64342bb4b977040780965768",
+  "specialties": [
+    "643d41092559f4dee0c0a84f"
+  ],
+  "languages": [
+    "643425fcb977040780965745",
+    "643425fcb977040780965746"
+  ],
+  "tags": [
+    "643d3bb1c615c64dde8acb1f",
+    "643d3c38c615c64dde8acb21"
+  ],
+  "confidentiality": "64342852b977040780965759"
+},{
+  "_id": {
+    "$oid": "643d516651065b06079b8ea7"
+  },
+  "firstname": "Maurice",
+  "lastname": "jackou",
+  "email": "jackou@example.com",
+  "phone": "0102044405",
+  "address": "12 Rue des Lilas, 75020 Paris",
+  "latitude": 48.8723557,
+  "longitude": 2.4049588,
+  "sector": "64342bb4b977040780965768",
+  "specialties": [
+    "643d3fb42559f4dee0c0a83d"
+  ],
+  "languages": [
+    "643425fcb977040780965745",
+    "643425fcb977040780965746"
+  ],
+  "tags": [
+    "643d3df1c615c64dde8acb31",
+    "643d3c38c615c64dde8acb21"
+  ],
+  "confidentiality": "64342852b977040780965759"
+},{
+  "_id": {
+    "$oid": "643d516651065b06079b8ea8"
+  },
+  "firstname": "Simone",
+  "lastname": "Simon",
+  "email": "simone@example.com",
+  "phone": "0607087710",
+  "address": "17 Av. de la Ferté sous Jouarre, 77750 Saint-Cyr-sur-Morin",
+  "latitude": 48.8575315,
+  "longitude": 2.3589644,
+  "sector": "64342bb4b97704078096576a",
+  "specialties": [
+    "643d3fb42559f4dee0c0a83d"
+  ],
+  "languages": [
+    "643425fcb977040780965745",
+    "643425fcb977040780965746"
+  ],
+  "tags": [
+    "643d3bb1c615c64dde8acb1f",
+    "643d3c38c615c64dde8acb21"
+  ],
+  "confidentiality": "64342852b977040780965759"
+},{
+  "_id": {
+    "$oid": "643d516651065b06079b8ea9"
+  },
+  "firstname": "Michelle",
+  "lastname": "michou",
+  "email": "michou@example.com",
+  "phone": "0603330304",
+  "address": "136 Rue Lamarck, 75018 Paris",
+  "latitude": 48.8543982,
+  "longitude": 2.3645821,
+  "sector": "64342bb4b977040780965768",
+  "specialties": [
+    "643d3fb42559f4dee0c0a83d"
+  ],
+  "languages": [
+    "643425fcb977040780965745",
+    "643425fcb977040780965746"
+  ],
+  "tags": [
+    "643d3bb1c615c64dde8acb1f",
+    "643d3c38c615c64dde8acb21"
+  ],
+  "confidentiality": "64342852b977040780965759"
+},{
+  "_id": {
+    "$oid": "643d516651065b06079b8eaa"
+  },
+  "firstname": "vincent",
+  "lastname": "vince",
+  "email": "vince@example.com",
+  "phone": "0612445678",
+  "address": "16 Rue Saint-Sabin, 75011 Paris",
+  "latitude": 48.857399,
+  "longitude": 2.369489,
+  "sector": "64342bb4b97704078096576a",
+  "specialties": [
+    "643d3f5e2559f4dee0c0a839"
+  ],
+  "languages": [
+    "643425fcb977040780965745",
+    "643425fcb977040780965746"
+  ],
+  "tags": [
+    "643d3bb1c615c64dde8acb1f",
+    "643d3c38c615c64dde8acb21"
+  ],
+  "confidentiality": "64342852b977040780965759"
+},{
+  "_id": {
+    "$oid": "643d516651065b06079b8eab"
+  },
+  "firstname": "bo",
+  "lastname": "peterson",
+  "email": "bo@example.com",
+  "phone": "06 12 33 33 83",
+  "address": "28 Av. André Morizet, 92100 Boulogne-Billancourt",
+  "latitude": 48.870616,
+  "longitude": 2.384068,
+  "sector": "64342bb4b977040780965768",
+  "specialties": [
+    "643d3fb42559f4dee0c0a83d"
+  ],
+  "languages": [
+    "643425fcb977040780965745",
+    "643425fcb977040780965746"
+  ],
+  "tags": [
+    "643d3bb1c615c64dde8acb1f",
+    "643d3c38c615c64dde8acb21"
+  ],
+  "confidentiality": "64342852b977040780965759"
+},{
+  "_id": {
+    "$oid": "643d516651065b06079b8eac"
+  },
+  "firstname": "Ditte",
+  "lastname": "jensen",
+  "email": "ditte@example.com",
+  "phone": "02 22 45 67 89",
+  "address": "5 Rue Jean-Jacques Rousseau, 95160 Montmorency",
+  "latitude": 48.811023,
+  "longitude": 2.357765,
+  "sector": "64342bb4b977040780965768",
+  "specialties": [
+    "643d3fb42559f4dee0c0a83d"
+  ],
+  "languages": [
+    "643425fcb977040780965745",
+    "643425fcb977040780965746"
+  ],
+  "tags": [
+    "643d3bb1c615c64dde8acb1f",
+    "643d3c38c615c64dde8acb21"
+  ],
+  "confidentiality": "64342852b977040780965759"
+},{
+  "_id": {
+    "$oid": "643d516651065b06079b8ead"
+  },
+  "firstname": "Bjørn",
+  "lastname": "ska",
+  "email": "ska.bjørn@example.com",
+  "phone": "06 78 87 12 34",
+  "address": "10 Bd Montmartre, 75009 Paris",
+  "latitude": 48.852225,
+  "longitude": 2.37326,
+  "sector": "64342bb4b977040780965768",
+  "specialties": [
+    "643d3fb42559f4dee0c0a83d"
+  ],
+  "languages": [
+    "643425fcb977040780965745",
+    "643425fcb977040780965746"
+  ],
+  "tags": [
+    "643d3bb1c615c64dde8acb1f",
+    "643d3c38c615c64dde8acb21"
+  ],
+  "confidentiality": "64342852b977040780965759"
+},{
+  "_id": {
+    "$oid": "643d516651065b06079b8eae"
+  },
+  "firstname": "marcus",
+  "lastname": "cucu",
+  "email": "cucu@example.com",
+  "phone": "0133330405",
+  "address": "All. d'Honneur, 92330 Sceaux",
+  "latitude": 48.8723557,
+  "longitude": 2.4049588,
+  "sector": "64342bb4b97704078096576a",
+  "specialties": [
+    "643d3fb42559f4dee0c0a83d"
+  ],
+  "languages": [
+    "643425fcb977040780965745",
+    "643425fcb977040780965746"
+  ],
+  "tags": [
+    "643d3bb1c615c64dde8acb1f",
+    "643d3c38c615c64dde8acb21"
+  ],
+  "confidentiality": "64342852b977040780965759"
+},{
+  "_id": {
+    "$oid": "643d516651065b06079b8eaf"
+  },
+  "firstname": "Luc",
+  "lastname": "Martinelli",
+  "email": "luc@example.com",
+  "phone": "0607080000",
+  "address": "24 Rue des Rosiers, 75004 Paris",
+  "latitude": 48.8575315,
+  "longitude": 2.3589644,
+  "sector": "64342bb4b977040780965769",
+  "specialties": [
+    "643d3fb42559f4dee0c0a83d"
+  ],
+  "languages": [
+    "643425fcb977040780965745",
+    "643425fcb977040780965746"
+  ],
+  "tags": [
+    "643d3bb1c615c64dde8acb1f",
+    "643d3c38c615c64dde8acb21"
+  ],
+  "confidentiality": "64342852b977040780965759"
+},{
+  "_id": {
+    "$oid": "643d516651065b06079b8eb0"
+  },
+  "firstname": "kim",
+  "lastname": "kimmich",
+  "email": "kim@example.com",
+  "phone": "0601022204",
+  "address": "58 Rue du Dessous des Berges, 75013 Paris",
+  "latitude": 48.909421613454185,
+  "longitude": 2.3630708418845616,
+  "sector": "64342bb4b977040780965768",
+  "specialties": [
+    "643d3fb42559f4dee0c0a83d"
+  ],
+  "languages": [
+    "643425fcb977040780965745",
+    "643425fcb977040780965746"
+  ],
+  "tags": [
+    "643d3df1c615c64dde8acb31",
+    "643d3c38c615c64dde8acb21"
+  ],
+  "confidentiality": "64342852b977040780965759"
+},{
+  "_id": {
+    "$oid": "643d516651065b06079b8eb1"
+  },
+  "firstname": "samuel",
+  "lastname": "hilton",
+  "email": "samuel@example.com",
+  "phone": "0332345678",
+  "address": "16 Rue Saint-Sabin, 75011 Paris",
+  "latitude": 48.857399,
+  "longitude": 2.369489,
+  "sector": "64342bb4b977040780965768",
+  "specialties": [
+    "643d3fb42559f4dee0c0a83d"
+  ],
+  "languages": [
+    "643425fcb977040780965745",
+    "643425fcb977040780965746"
+  ],
+  "tags": [
+    "643d3bb1c615c64dde8acb1f",
+    "643d3c38c615c64dde8acb21"
+  ],
+  "confidentiality": "64342852b977040780965759"
+},{
+  "_id": {
+    "$oid": "643d516651065b06079b8eb2"
+  },
+  "firstname": "PARIS",
+  "lastname": "HILTON",
+  "email": "paris.hilton@example.com",
+  "phone": "06 12 34 65 55",
+  "address": "4 Rue de Belleville, 75020 Paris",
+  "latitude": 48.870616,
+  "longitude": 2.384068,
+  "sector": "64342bb4b977040780965768",
+  "specialties": [
+    "643d3fb42559f4dee0c0a83d"
+  ],
+  "languages": [
+    "643425fcb977040780965745",
+    "643425fcb977040780965746"
+  ],
+  "tags": [
+    "643d3bb1c615c64dde8acb1f",
+    "643d3c38c615c64dde8acb21"
+  ],
+  "confidentiality": "64342852b977040780965759"
+},{
+  "_id": {
+    "$oid": "643d516651065b06079b8eb3"
+  },
+  "firstname": "Alain",
+  "lastname": "Boumsong",
+  "email": "boumsong@example.com",
+  "phone": "04 23 45 67 89",
+  "address": "2 Rue de la Convention, 94270 Le Kremlin-Bicêtre",
+  "latitude": 48.811023,
+  "longitude": 2.357765,
+  "sector": "64342bb4b977040780965768",
+  "specialties": [
+    "643d3fb42559f4dee0c0a83d"
+  ],
+  "languages": [
+    "643425fcb977040780965745",
+    "643425fcb977040780965746"
+  ],
+  "tags": [
+    "643d3bb1c615c64dde8acb1f",
+    "643d3c38c615c64dde8acb21"
+  ],
+  "confidentiality": "64342852b977040780965759"
+},{
+  "_id": {
+    "$oid": "643d516651065b06079b8eb4"
+  },
+  "firstname": "skyler",
+  "lastname": "lolo",
+  "email": "skyler.lolo@example.com",
+  "phone": "06 78 90 12 34",
+  "address": "7 Rue du Faubourg Saint-Antoine, 75011 Paris",
+  "latitude": 48.852225,
+  "longitude": 2.37326,
+  "sector": "64342bb4b977040780965769",
+  "specialties": [
+    "643d3fb42559f4dee0c0a83d"
+  ],
+  "languages": [
+    "643425fcb977040780965745",
+    "643425fcb977040780965746"
+  ],
+  "tags": [
+    "643d3c47c615c64dde8acb23",
+    "643d3c38c615c64dde8acb21"
+  ],
+  "confidentiality": "64342852b977040780965759"
+},{
+  "_id": {
+    "$oid": "643d516651065b06079b8eb5"
+  },
+  "firstname": "Jeannie",
+  "lastname": "Boulot",
+  "email": "boulot@example.com",
+  "phone": "0102220405",
+  "address": "12 Rue des Lilas, 75020 Paris",
+  "latitude": 48.8723557,
+  "longitude": 2.4049588,
+  "sector": "64342bb4b977040780965768",
+  "specialties": [
+    "643d3fb42559f4dee0c0a83d",
+    "64381ab951065b06079b8e15"
+  ],
+  "languages": [
+    "643425fcb977040780965745",
+    "643425fcb977040780965746"
+  ],
+  "tags": [
+    "643d3df1c615c64dde8acb31",
+    "643d3c38c615c64dde8acb21"
+  ],
+  "confidentiality": "64342852b977040780965759"
+},{
+  "_id": {
+    "$oid": "643d516651065b06079b8eb6"
+  },
+  "firstname": "Thor",
+  "lastname": "ko",
+  "email": "ko@example.com",
+  "phone": "0607080440",
+  "address": "24 Rue des Rosiers, 75004 Paris",
+  "latitude": 48.8575315,
+  "longitude": 2.3589644,
+  "sector": "64342bb4b977040780965768",
+  "specialties": [
+    "643d3fb42559f4dee0c0a83d",
+    "64381ab951065b06079b8e15"
+  ],
+  "languages": [
+    "643425fcb977040780965745",
+    "643d3fe12559f4dee0c0a849"
+  ],
+  "tags": [
+    "643d3bb1c615c64dde8acb1f",
+    "643d3c38c615c64dde8acb21"
+  ],
+  "confidentiality": "64342852b977040780965759"
+},{
+  "_id": {
+    "$oid": "643d516651065b06079b8eb7"
+  },
+  "firstname": "Sophie",
+  "lastname": "Bextor",
+  "email": "sophiebextor@example.com",
+  "phone": "0601020334",
+  "address": "170 Rue St Charles, 75015 Paris",
+  "latitude": 48.863747757646394,
+  "longitude": 2.4446114120056888,
+  "sector": "64342bb4b977040780965768",
+  "specialties": [
+    "643d3fb42559f4dee0c0a83d",
+    "643d3fe12559f4dee0c0a849"
+  ],
+  "languages": [
+    "643425fcb977040780965745",
+    "643425fcb977040780965746"
+  ],
+  "tags": [
+    "643d3bb1c615c64dde8acb1f",
+    "643d3c38c615c64dde8acb21"
+  ],
+  "confidentiality": "64342852b977040780965759"
+},{
+  "_id": {
+    "$oid": "643d516651065b06079b8eb8"
+  },
+  "firstname": "Eminem",
+  "lastname": "Doe",
+  "email": "eminemdoe@example.com",
+  "phone": "0611345678",
+  "address": "16 Rue Saint-Sabin, 75011 Paris",
+  "latitude": 48.857399,
+  "longitude": 2.369489,
+  "sector": "64342bb4b977040780965768",
+  "specialties": [
+    "643d3fb42559f4dee0c0a83d"
+  ],
+  "languages": [
+    "643425fcb977040780965745",
+    "643425fcb977040780965746"
+  ],
+  "tags": [
+    "643d3bb1c615c64dde8acb1f",
+    "643d3c38c615c64dde8acb21"
+  ],
+  "confidentiality": "64342852b977040780965759"
+},{
+  "_id": {
+    "$oid": "643d516651065b06079b8eb9"
+  },
+  "firstname": "Marie-sophie",
+  "lastname": "skol",
+  "email": "marie.skol@example.com",
+  "phone": "06 12 00 56 78",
+  "address": "4 Rue de Belleville, 75020 Paris",
+  "latitude": 48.870616,
+  "longitude": 2.384068,
+  "sector": "64342bb4b977040780965768",
+  "specialties": [
+    "643d3fb42559f4dee0c0a83d"
+  ],
+  "languages": [
+    "643425fcb977040780965745",
+    "643425fcb977040780965746"
+  ],
+  "tags": [
+    "643d3bb1c615c64dde8acb1f",
+    "643d3c38c615c64dde8acb21"
+  ],
+  "confidentiality": "64342852b977040780965759"
+},{
+  "_id": {
+    "$oid": "643d516651065b06079b8eba"
+  },
+  "firstname": "Jacques",
+  "lastname": "Martin",
+  "email": "jacques.martin@example.com",
+  "phone": "01 99 45 67 89",
+  "address": "2 Rue de la Convention, 94270 Le Kremlin-Bicêtre",
+  "latitude": 48.811023,
+  "longitude": 2.357765,
+  "sector": "64342bb4b977040780965769",
+  "specialties": [
+    "643d3fb42559f4dee0c0a83d"
+  ],
+  "languages": [
+    "643425fcb977040780965745",
+    "643425fcb977040780965746"
+  ],
+  "tags": [
+    "643d3bb1c615c64dde8acb1f",
+    "643d3c38c615c64dde8acb21"
+  ],
+  "confidentiality": "64342852b977040780965759"
+},{
+  "_id": {
+    "$oid": "643d516651065b06079b8ebb"
+  },
+  "firstname": "Marco",
+  "lastname": "Dupont",
+  "email": "marcodupont@example.com",
+  "phone": "0000030405",
+  "address": "12 Rue des Lilas, 75020 Paris",
+  "latitude": 48.8723557,
+  "longitude": 2.4049588,
+  "sector": "64342bb4b977040780965768",
+  "specialties": [
+    "643d3fb42559f4dee0c0a83d"
+  ],
+  "languages": [
+    "643425fcb977040780965745",
+    "643425fcb977040780965746"
+  ],
+  "tags": [
+    "643d3bb1c615c64dde8acb1f",
+    "643d3c38c615c64dde8acb21"
+  ],
+  "confidentiality": "64342852b977040780965759"
+},{
+  "_id": {
+    "$oid": "643d516651065b06079b8ebc"
+  },
+  "firstname": "Johnny",
+  "lastname": "haliday",
+  "email": "johnny@example.com",
+  "phone": "0607011910",
+  "address": "24 Rue des Rosiers, 75004 Paris",
+  "latitude": 48.8575315,
+  "longitude": 2.3589644,
+  "sector": "64342bb4b977040780965768",
+  "specialties": [
+    "643d3fb42559f4dee0c0a83d"
+  ],
+  "languages": [
+    "643425fcb977040780965745",
+    "643425fcb977040780965746"
+  ],
+  "tags": [
+    "643d3bb1c615c64dde8acb1f",
+    "643d3c38c615c64dde8acb21"
+  ],
+  "confidentiality": "64342852b977040780965759"
+},{
+  "_id": {
+    "$oid": "643d516651065b06079b8ebd"
+  },
+  "firstname": "Sisi",
+  "lastname": "Leclerc",
+  "email": "sisi@example.com",
+  "phone": "0601020004",
+  "address": "55 Rue du Faubourg Saint-Honoré, 75008 Paris",
+  "latitude": 48.87169403367853,
+  "longitude": 2.3630708418845616,
+  "sector": "64342bb4b977040780965769",
+  "specialties": [
+    "643d3ff02559f4dee0c0a84d"
+  ],
+  "languages": [
+    "643425fcb977040780965745",
+    "643425fcb977040780965746"
+  ],
+  "tags": [
+    "643d3bb1c615c64dde8acb1f",
+    "643d3c38c615c64dde8acb21"
+  ],
+  "confidentiality": "64342852b977040780965759"
+},{
+  "_id": {
+    "$oid": "643d54444960aa4f0375b528"
+  },
+  "firstname": "Jean",
+  "lastname": "Dupont",
+  "email": "jean.dupont@example.com",
+  "phone": "0123456789",
+  "address": "123 rue des Champs",
+  "latitude": 48.8566,
+  "longitude": 2.3522,
+  "sector": {
+    "$oid": "64342bb4b977040780965768"
+  },
+  "recommandations": [],
+  "specialties": [
+    {
+      "$oid": "643d3f5e2559f4dee0c0a839"
+    },
+    {
+      "$oid": "643d3fb42559f4dee0c0a83d"
+    }
+  ],
+  "languages": [
+    {
+      "$oid": "643425fcb977040780965745"
+    },
+    {
+      "$oid": "643425fcb977040780965746"
+    }
+  ],
+  "tags": [
+    {
+      "$oid": "643d3c38c615c64dde8acb21"
+    },
+    {
+      "$oid": "643d3c4fc615c64dde8acb25"
+    }
+  ],
+  "confidentiality": {
+    "$oid": "64342852b977040780965759"
+  },
+  "__v": 0
+}]

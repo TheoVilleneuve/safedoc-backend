@@ -177,19 +177,17 @@ router.post('/add/verify', async (req, res) => {
         return;
     }
     try {
-
-        await Doctor.findOne({ firstname, lastname, email })
-            .then(async data => {
-                if (data) {
-                    res.json({ result: false, error: "doctor already in use" });
-                } else {
-                    res.json({ result: true, message: "no doctor found" });
-                }
-            })
+        const doctor = await Doctor.findOne({ email: req.body.email });
+        if (doctor) {
+            res.json({ result: false, error: "email already in use" });
+        } else {
+            res.json({ result: true, message: "no doctor found" });
+        }
     } catch (error) {
-        res.status(500).json({ message: "Server error" })
+        res.status(500).json({ message: "Server error" });
     }
-})
+});
+
 
 // POST /doctors/add
 
