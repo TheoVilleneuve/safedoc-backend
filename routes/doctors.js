@@ -2,7 +2,6 @@ var express = require('express');
 var router = express.Router();
 
 const Doctor = require('../models/doctors');
-const LOCATION_API_KEY = process.env.LOCATION_API_KEY;
 const { checkBody } = require('../modules/checkBody');
 
 // GET /doctors
@@ -36,21 +35,27 @@ router.get('/search/:id', async (req, res) => {
 router.post('/search/:address', async(req, res) => {
     try {
         const address = req.params.address;
-        const url = `https://api-adresse.data.gouv.fr/search/?q=${address}`;
+        const url = `https://api-adresse.data.gouv.fr/search/?q=${address}&limit=10`;
         const response = await fetch(url);
         const data = await response.json();
 
         if (data.features && data.features.length > 0) {
             const addresses = data.features.map(feature => feature.properties.label);
+            const coordinates = data.features.map(coordinate => coordinate.geometry.coordinates);
 
-            res.json({ result: true, addresses: addresses});
+            const results = [];
+            for (let i = 0; i < addresses.length; i++) {
+                results.push({address : addresses[i], coordinates: coordinates[i]});
+            }
+
+            res.json({ result: true, results: results});
 
         } else {
-            res.status(404).json({ error: "No results found for this city"});
+            res.status(404).json({ error: "No results found for this address"});
         }
     } catch (error) {
         console.error(error);
-        res.status(500).json({ error: "An error occurred while searching for this city"})
+        res.status(500).json({ error: "An error occurred while searching for this address"});
     }
 });
 
@@ -85,6 +90,24 @@ router.post('/search', async (req, res) => {
                 res.json({ result: true, doctors: doctors });
             } else {
                 res.json({ result: false, error: "No doctor found" });
+            }
+        } else if (req.body.latitude && req.body.longitude) {
+            const doctors = await Doctor.find({
+                location: {
+                    $near: {
+                        $geometry: {
+                            type: 'Point',
+                            coordinates: [req.body.latitude, req.body.longitude]
+                        },
+                        $maxDistance: 10000 
+                        // en mètres
+                    }
+                }
+            });
+            if (doctors.length > 0) {
+                res.json({ result: true, doctors: doctors});
+            } else {
+                res.json({ result: false, error: "No doctor found in this area" });
             }
         } else {
             res.json({ result: false, error: "No search criteria provided" });
