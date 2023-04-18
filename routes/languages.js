@@ -14,4 +14,20 @@ router.get('/', async (req, res) => {
     }
 });
 
+// POST /languages
+
+router.post('/', async (req, res) => {
+    try {
+        const { value, translation } = req.body;
+
+        const newLanguage = new Language({ value, translation });
+
+        await newLanguage.save();
+
+        res.status(201).json({ success: true, language: newLanguage });
+    } catch (error) {
+        res.status(500).json({ success: false, error: error.message });
+    }
+});
+
 module.exports = router;

@@ -14,4 +14,20 @@ router.get('/', async (req, res) => {
   }
 });
 
+// POST /orientations
+
+router.post('/', async (req, res) => {
+  try {
+    const { value } = req.body;
+
+    const newOrientation = new Orientation({ value });
+
+    await newOrientation.save();
+
+    res.status(201).json({ success: true, orientation: newOrientation });
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+});
+
 module.exports = router;

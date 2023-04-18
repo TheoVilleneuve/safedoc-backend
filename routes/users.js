@@ -109,6 +109,51 @@ router.post('/signup', (req, res) => {
   });
 });
 
+// router.post('/signup', async (req, res) => {
+//   if (!checkBody(req.body, ['username', 'password', 'email', ])) {
+//     res.json({ result: false, error: 'Missing or empty fields' });
+//     return;
+//   }
+
+//   try {
+//     const orientation = await Orientation.findById(req.body.orientation);
+//     const gender = await Gender.findById(req.body.gender);
+
+//     if (!orientation || !gender) {
+//       res.json({ result: false, error: 'Invalid orientation or gender' });
+//       return;
+//     }
+
+//     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+//     if (!emailRegex.test(req.body.email)) {
+//       res.json({ result: false, error: 'Invalid email format' });
+//       return;
+//     }
+
+//     const hash = bcrypt.hashSync(req.body.password, 10);
+
+//     const newUser = new User({
+//       username: req.body.username,
+//       password: hash,
+//       email: req.body.email,
+//       city: req.body.city,
+//       orientation: orientation,
+//       gender: gender,
+//       doctor: req.body.doctor,
+//       token: uid2(32),
+//       isAdmin: false
+//     });
+
+//     const newDoc = await newUser.save();
+
+//     res.json({ result: true, token: newDoc.token });
+//   } catch (error) {
+//     console.error(error);
+//     res.json({ result: false, error: 'Error saving user data' });
+//   }
+// });
+
+
 // POST /users/signin 
 
 router.post('/signin', (req, res) => {
