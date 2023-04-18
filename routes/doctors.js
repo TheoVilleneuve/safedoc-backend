@@ -30,8 +30,7 @@ router.get('/search/:id', async (req, res) => {
     }
 });
 
-// COMMENTAIRE
-// POST /doctors/search/:address
+// POST /doctors/search/address
 
 router.post('/search/address', async(req, res) => {
     try {
@@ -52,11 +51,13 @@ router.post('/search/address', async(req, res) => {
                 modifiedAddresses.push(modifiedAddress);
             }
 
-            const coordinates = data.features.map(coordinate => coordinate.geometry.coordinates);
+            const latitude = data.features.map(latitude => latitude.geometry.coordinates[1]);
+
+            const longitude = data.features.map(longitude => longitude.geometry.coordinates[0]);
 
             const results = [];
             for (let i = 0; i < addresses.length; i++) {
-                results.push({address : modifiedAddresses[i], coordinates: coordinates[i]});
+                results.push({address : modifiedAddresses[i], latitude: latitude[i], longitude: longitude[i]});
             }
 
             res.json({ result: true, results: results});
