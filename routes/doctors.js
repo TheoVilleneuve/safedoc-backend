@@ -31,27 +31,28 @@ router.get('/search/:id', async (req, res) => {
     }
 });
 
-// POST /doctors/search/city
+// POST /doctors/search/:address
 
-router.post('/search/city', async (req, res) => {
+router.post('/search/:address', async(req, res) => {
     try {
-        const city = req.body.city;
-        const url = `https://us1.locationiq.com/v1/search?key=${LOCATION_API_KEY}&q=${city}&format=json`;
+        const address = req.params.address;
+        const url = `https://api-adresse.data.gouv.fr/search/?q=${address}`;
         const response = await fetch(url);
         const data = await response.json();
 
-        const filteredData = data.filter((item) => item.type === 'administrative');
-        const cities = [];
-        for (let i = 0; i < filteredData.length; i++) {
-            const { lat, lon, display_name: name } = filteredData[i];
-            const infos = { latitude: lat, longitude: lon, name };
-            cities.push(infos);
+        if (data.features && data.features.length > 0) {
+            const addresses = data.features.map(feature => feature.properties.label);
+
+            res.json({ result: true, addresses: addresses});
+
+        } else {
+            res.status(404).json({ error: "No results found for this city"});
         }
-        res.json({ result: true, cities: cities });
     } catch (error) {
-        res.json({ error: "An error occurred while searching for location" });
+        console.error(error);
+        res.status(500).json({ error: "An error occurred while searching for this city"})
     }
-})
+});
 
 // POST /doctors/search
 
@@ -93,114 +94,7 @@ router.post('/search', async (req, res) => {
     }
 });
 
-// {"specialties": "643d3f5e2559f4dee0c0a839"}
-
-// {"specialties": "643d3f5e2559f4dee0c0a839",
-// "lastname": "Dupont"
-// }
-
-// {"lastname": "Dupont"}
-
-// router.post('/search', async (req, res) => {
-//     try {
-//         if (req.body.lastname && req.body.specialties) {
-
-//             Doctor.find({ lastname: req.body.lastname, specialties: req.body.specialties })
-//             .populate('sector')
-//             .populate('recommandations')
-//             .populate('specialties')
-//             .populate('languages')
-//             .populate('tags')
-//             .populate('confidentiality')
-//             .then(doctors => {
-//                 if (doctors.length > 0) {
-//                     res.json({ result: true, doctors: doctors });
-//                 } else {
-//                     res.json({ result: false, error: "No doctor found" });
-//                 }
-//             });
-
-//         } else if (req.body.lastname) {
-
-//             Doctor.find({ lastname: req.body.lastname })
-//                 .populate('sector')
-//                 .populate('recommandations')
-//                 .populate('specialties')
-//                 .populate('languages')
-//                 .populate('tags')
-//                 .populate('confidentiality')
-//                 .then(doctors => {
-//                     if (doctors.length > 0) {
-//                         res.json({ result: true, doctors: doctors });
-//                     } else {
-//                         res.json({ result: false, error: "No doctor found" });
-//                     }
-//                 });
-
-//         } else if (req.body.specialties) {
-
-//             Doctor.find({ specialties: req.body.specialties })
-//                 .populate('sector')
-//                 .populate('recommandations')
-//                 .populate('specialties')
-//                 .populate('languages')
-//                 .populate('tags')
-//                 .populate('confidentiality')
-//                 .then(doctors => {
-//                     if (doctors.length > 0) {
-//                         res.json({ result: true, doctors: doctors });
-//                     } else {
-//                         res.json({ result: false, error: "No doctor found" });
-//                     }
-//                 });
-
-//         } else {
-//             res.json({ result: false, error: "No search criteria provided" });
-//         }
-//     } catch (error) {
-//         res.json({ error: "An error occurrend while searching for doctors" });
-//     }
-// });
-
-// const findDoctorsByCriteria = (req, res, searchCriteria) => {
-//     Doctor.find(searchCriteria)
-//         .populate('sector')
-//         .populate('recommandations')
-//         .populate('specialties')
-//         .populate('languages')
-//         .populate('tags')
-//         .populate('confidentiality')
-//         .then(doctors => {
-//             if (hasResults(doctors)) {
-//                 res.json({ result: true, doctors: doctors });
-//             } else {
-//                 res.json({ result: false, error: "No doctor found" });
-//             }
-//         })
-// };
-
-// const hasResults = (data) => {
-//     return data && data.length > 0;
-// };
-
-// router.post('/search', async (req, res) => {
-//     try {
-//         if (req.body.lastname && req.body.specialties) {
-//             findDoctorsByCriteria(req, res, {
-//                 lastname: req.body.lastname,
-//                 specialties: req.body.specialties,
-//             });
-//         } else if (req.body.lastname) {
-//             findDoctorsByCriteria(req, res, { lastname: req.body.lastname });
-//         } else if (req.body.specialties) {
-//             findDoctorsByCriteria(req, res, { specialties: req.body.specialties });
-//         } else {
-//             res.json({ result: false, error: "No search criteria provided" });
-//         }
-//     } catch (error) {
-//         res.json({ result: false, error: "An error occurred while searching for doctors" });
-//     }
-// });
+// POST /doctors/add/verify
 
 router.post('/add/verify', async (req, res) => {
     if (!checkBody(req.body, ['firstname', 'lastname', 'email'])) {
@@ -265,14 +159,7 @@ router.post('/add', async (req, res) => {
     }
 
     try {
-        // const [sector, recommandations, specialties, languages, tags, confidentiality] = await Promise.all([
-        //     Sector.findOne({ _id: req.body.sector }),
-        //     Recommandation.find({ _id: { $in: req.body.recommandations } }),
-        //     Specialty.find({ _id: { $in: req.body.specialties } }),
-        //     Language.find({ _id: { $in: req.body.languages } }),
-        //     Tag.find({ _id: { $in: req.body.tags } }),
-            // Confidentiality.findOne({ _id: req.body.confidentiality }),
-            // ]);
+
         const { firstname,
             lastname, 
             email, 
@@ -352,9 +239,8 @@ router.post('/add', async (req, res) => {
 router.put('/tags/:id', async (req, res) => {
     try {
         const doctorId = req.params.id;
-        const tags = req.body.tags; // On récupère les tags depuis le corps de la requête
+        const tags = req.body.tags; 
 
-        // On récupère le document doctor correspondant
         const doctor = await Doctor.findById(doctorId);
 
         // On parcourt le tableau des tags
