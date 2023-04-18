@@ -5,11 +5,6 @@ const sectorSchema = mongoose.Schema({
     description: String
 });
 
-// const tagsSchema = mongoose.Schema({
-//     value: String,
-//     category: String
-// });
-
 const confidentialitySchema = mongoose.Schema({
     value: Number,
     description: String
