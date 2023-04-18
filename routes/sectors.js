@@ -14,4 +14,20 @@ router.get('/', async (req, res) => {
     }
 });
 
+// POST /sectors
+
+router.post('/', async (req, res) => {
+    try {
+        const { value, description } = req.body;
+
+        const newSector = new Sector({ value, description });
+
+        await newSector.save();
+
+        res.status(201).json({ success: true, sector: newSector });
+    } catch (error) {
+        res.status(500).json({ success: false, error: error.message });
+    }
+});
+
 module.exports = router;

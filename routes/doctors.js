@@ -32,20 +32,30 @@ router.get('/search/:id', async (req, res) => {
 
 // POST /doctors/search/:address
 
-router.post('/search/:address', async(req, res) => {
+router.post('/search/address', async(req, res) => {
     try {
-        const address = req.params.address;
-        const url = `https://api-adresse.data.gouv.fr/search/?q=${address}&limit=10`;
+        const address = req.body.address;
+        const url = `https://api-adresse.data.gouv.fr/search/?q=${address}&limit=5`;
         const response = await fetch(url);
         const data = await response.json();
 
         if (data.features && data.features.length > 0) {
+
             const addresses = data.features.map(feature => feature.properties.label);
+            const modifiedAddresses = [];
+
+            for (const address of addresses) {
+                const addressArray = address.split(" ");
+                const modifiedAddressArray = [addressArray.slice(0, -2).join(" "), addressArray.slice(-2).join(" ")];
+                const modifiedAddress = modifiedAddressArray.join(", ");
+                modifiedAddresses.push(modifiedAddress);
+            }
+
             const coordinates = data.features.map(coordinate => coordinate.geometry.coordinates);
 
             const results = [];
             for (let i = 0; i < addresses.length; i++) {
-                results.push({address : addresses[i], coordinates: coordinates[i]});
+                results.push({address : modifiedAddresses[i], coordinates: coordinates[i]});
             }
 
             res.json({ result: true, results: results});
@@ -90,24 +100,6 @@ router.post('/search', async (req, res) => {
                 res.json({ result: true, doctors: doctors });
             } else {
                 res.json({ result: false, error: "No doctor found" });
-            }
-        } else if (req.body.latitude && req.body.longitude) {
-            const doctors = await Doctor.find({
-                location: {
-                    $near: {
-                        $geometry: {
-                            type: 'Point',
-                            coordinates: [req.body.latitude, req.body.longitude]
-                        },
-                        $maxDistance: 10000 
-                        // en mètres
-                    }
-                }
-            });
-            if (doctors.length > 0) {
-                res.json({ result: true, doctors: doctors});
-            } else {
-                res.json({ result: false, error: "No doctor found in this area" });
             }
         } else {
             res.json({ result: false, error: "No search criteria provided" });
