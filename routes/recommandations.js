@@ -8,7 +8,7 @@ const Recommandation = require('../models/recommandations');
 router.get('/', async (req, res) => {
     try {
         const recommandations = await Recommandation.find();
-        res.json({ result: true, recommandations: recommandations });
+        res.json({ result: true, length: recommandations.length, recommandations: recommandations });
     } catch (error) {
         res.json({ result: false, error: "An error occurred while retrieving recommandations" });
     }

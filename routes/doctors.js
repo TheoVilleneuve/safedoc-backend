@@ -9,7 +9,7 @@ const { checkBody } = require('../modules/checkBody');
 router.get('/', async (req, res) => {
     try {
         const doctors = await Doctor.find();
-        res.json({ result: true, doctors: doctors });
+        res.json({ result: true, length: doctors.length, doctors: doctors });
     } catch (error) {
         res.json({ result: false, error: "An error occurred while retrieving doctors" });
     }

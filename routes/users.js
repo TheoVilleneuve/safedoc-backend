@@ -12,7 +12,7 @@ const bcrypt = require('bcrypt');
 router.get('/', async (req, res) => {
   try {
     const users = await User.find();
-    res.json({ result: true, users: users });
+    res.json({ result: true, length: users.length, users: users });
   } catch (error) {
     res.json({ result: false, error: "An error occurred while retrieving users" });
   }

@@ -8,7 +8,7 @@ const Language = require('../models/languages');
 router.get('/', async (req, res) => {
     try {
         const languages = await Language.find();
-        res.json({ result: true, languages: languages });
+        res.json({ result: true, length: languages.length, languages: languages });
     } catch (error) {
         res.json({ result: false, error: "An error occurred while retrieving languages" });
     }

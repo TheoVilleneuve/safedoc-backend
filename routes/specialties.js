@@ -8,7 +8,7 @@ const Speciality = require('../models/specialties');
 router.get('/', async (req, res) => {
     try {
         const specialties = await Speciality.find();
-        res.json({ result: true, specialties: specialties });
+        res.json({ result: true, length: specialties.length, specialties: specialties });
     } catch (error) {
         res.json({ result: false, error: "An error occurred while retrieving specialties" });
     }

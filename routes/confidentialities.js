@@ -8,7 +8,7 @@ const Confidentiality = require('../models/confidentialities');
 router.get('/', async (req, res) => {
     try {
         const confidentialities = await Confidentiality.find();
-        res.json({ result: true, confidentialities: confidentialities });
+        res.json({ result: true, length: confidentialities.length, confidentialities: confidentialities });
     } catch (error) {
         res.json({ result: false, error: "An error occurred while retrieving confidentialities" });
     }

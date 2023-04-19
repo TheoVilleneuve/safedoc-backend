@@ -8,7 +8,7 @@ const Orientation = require('../models/orientations');
 router.get('/', async (req, res) => {
   try {
       const orientations = await Orientation.find();
-      res.json({ result: true, orientations: orientations });
+      res.json({ result: true, length: orientations.length, orientations: orientations });
   } catch (error) {
       res.json({ result: false, error: "An error occurred while retrieving orientations" });
   }

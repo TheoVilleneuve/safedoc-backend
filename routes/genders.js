@@ -8,7 +8,7 @@ const Gender = require('../models/genders');
 router.get('/', async (req, res) => {
   try {
     const genders = await Gender.find();
-    res.json({ result: true, genders: genders });
+    res.json({ result: true, length: genders.length, genders: genders });
   } catch (error) {
     res.json({result: false, error: "An error occurred while retrieving genders" });
   }

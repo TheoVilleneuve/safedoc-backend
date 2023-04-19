@@ -8,7 +8,7 @@ const Sector = require('../models/sectors');
 router.get('/', async (req, res) => {
     try {
         const sectors = await Sector.find();
-        res.json({ result: true, sectors: sectors });
+        res.json({ result: true, length: sectors.length, sectors: sectors });
     } catch (error) {
         res.json({ result: false, error: "An error occurred while retrieving sectors" });
     }
