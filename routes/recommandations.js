@@ -14,16 +14,15 @@ router.get('/', async (req, res) => {
     }
 });
 
-
-// Recommandation /doctors 
+// DELETE /recommandations 
 
 router.delete('/', (req, res) => {
-    Doctor.deleteMany({})
+    Recommandation.deleteMany({})
         .then(data => {
             if (data) {
-                res.json({ result: true, message: "Recommandation collection successfully deleted" });
+                res.json({ result: true, message: "Recommandations collection successfully deleted" });
             } else {
-                res.json({ result: false, error: "Failed to delete collection Recommandation" });
+                res.json({ result: false, error: "Failed to delete collection Recommandations" });
             }
         })
 });

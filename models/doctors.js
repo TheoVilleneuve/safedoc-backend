@@ -19,10 +19,6 @@ const doctorSchema = new mongoose.Schema({
     latitude: Number,
     longitude: Number,
     sector: sectorSchema,
-    // recommandations: [{
-    //     type: mongoose.Schema.Types.ObjectId,
-    //     ref: 'recommandations',
-    // }],
     specialties: [String],
     languages: [String],
     tags: [String],
