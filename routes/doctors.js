@@ -323,36 +323,75 @@ router.post('/add', async (req, res) => {
 
 // PUT /doctors/tags/:id
 
+// router.put('/tags/:id', async (req, res) => {
+//     try {
+//         const doctorId = req.params.id;
+//         const tags = req.body.tags;
+
+//         const doctor = await Doctor.findById(doctorId);
+
+//         for (const tag of tags) {
+
+//             // const existingTag = 
+//         }
+
+
+//         // // On parcourt le tableau des tags
+//         // for (const tag of tags) {
+//         //     const existingTagIndex = doctor.tags.findIndex((t) => t.name === tag.name); // On vérifie si le tag existe déjà dans le champ "tags"
+
+//         //     if (existingTagIndex !== -1) {
+//         //         // Si le tag existe déjà, on met à jour son champ "selected"
+//         //         doctor.tags[existingTagIndex].selected += 1;
+//         //     } else {
+//         //         // Si le tag n'existe pas, on l'ajoute avec un champ "selected" initialisé à 1
+//         //         doctor.tags.push({ name: tag.name, selected: 1 });
+//         //     }
+//         // }
+
+//         // On met à jour le document doctor correspondant avec les tags modifiés
+//         const updatedDoctor = await doctor.save();
+
+//         // On renvoie l'id et les tags du document doctor mis à jour en réponse
+//         res.json({ doctorId: doctorId, tags: updatedDoctor.tags });
+//     } catch (error) {
+//         console.error(error);
+//         res.status(500).json({ message: "Server Error" });
+//     }
+// });
+
 router.put('/tags/:id', async (req, res) => {
+    const { tags } = req.body;
+    const { id } = req.params;
+
     try {
-        const doctorId = req.params.id;
-        const tags = req.body.tags;
+        const doctor = await Doctor.findById(id);
 
-        const doctor = await Doctor.findById(doctorId);
-
-        // On parcourt le tableau des tags
-        for (const tag of tags) {
-            const existingTagIndex = doctor.tags.findIndex((t) => t.name === tag.name); // On vérifie si le tag existe déjà dans le champ "tags"
-
-            if (existingTagIndex !== -1) {
-                // Si le tag existe déjà, on met à jour son champ "selected"
-                doctor.tags[existingTagIndex].selected += 1;
-            } else {
-                // Si le tag n'existe pas, on l'ajoute avec un champ "selected" initialisé à 1
-                doctor.tags.push({ name: tag.name, selected: 1 });
-            }
+        if (!doctor) {
+            return res.status(404).json({ message: 'Doctor not found' });
         }
 
-        // On met à jour le document doctor correspondant avec les tags modifiés
-        const updatedDoctor = await doctor.save();
+        if (Array.isArray(tags)) {
+                for (const tag of tags) {
+                    if (!doctor.tags.includes(tag)) {
+                        doctor.tags.push(tag);
+                    }
+                };
+        } else {
+            if (!doctor.tags.includes(tags)) {
+                doctor.tags.push(tags);
+            }
+        }
+                
+        await doctor.save();
 
-        // On renvoie l'id et les tags du document doctor mis à jour en réponse
-        res.json({ doctorId: doctorId, tags: updatedDoctor.tags });
+        res.json({result: true, updatedDoctor: doctor});
     } catch (error) {
-        console.error(error);
-        res.status(500).json({ message: "Server Error" });
+        console.error(error.message);
+        res.status(500).json({ message: 'Server error' });
     }
 });
+
 
 // PUT /doctors/confidentiality/:id
 

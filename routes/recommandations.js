@@ -2,7 +2,8 @@ const express = require('express');
 const router = express.Router();
 const Recommandation = require('../models/recommandations');
 
-// Get all recommendations
+// Get / recommendations
+
 router.get('/', async (req, res) => {
   try {
     const recommandations = await Recommandation.find();
@@ -12,7 +13,8 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Delete all recommendations
+// Delete / recommendations
+
 router.delete('/', async (req, res) => {
   try {
     const deleted = await Recommandation.deleteMany({});
