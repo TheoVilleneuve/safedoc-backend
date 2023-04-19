@@ -1,31 +1,29 @@
-var express = require('express');
-var router = express.Router();
-
+const express = require('express');
+const router = express.Router();
 const Recommandation = require('../models/recommandations');
 
-// GET /recommandations
-
+// Get all recommendations
 router.get('/', async (req, res) => {
-    try {
-        const recommandations = await Recommandation.find();
-        res.json({ result: true, length: recommandations.length, recommandations: recommandations });
-    } catch (error) {
-        res.json({ result: false, error: "An error occurred while retrieving recommandations" });
-    }
+  try {
+    const recommandations = await Recommandation.find();
+    res.json({ result: true, length: recommandations.length, recommandations: recommandations });
+  } catch (error) {
+    res.json({ result: false, error: 'An error occurred while retrieving recommendations' });
+  }
 });
 
-
-// Recommandation /doctors 
-
-router.delete('/', (req, res) => {
-    Doctor.deleteMany({})
-        .then(data => {
-            if (data) {
-                res.json({ result: true, message: "Recommandation collection successfully deleted" });
-            } else {
-                res.json({ result: false, error: "Failed to delete collection Recommandation" });
-            }
-        })
+// Delete all recommendations
+router.delete('/', async (req, res) => {
+  try {
+    const deleted = await Recommandation.deleteMany({});
+    if (deleted) {
+      res.json({ result: true, message: 'Recommendation collection successfully deleted' });
+    } else {
+      res.json({ result: false, error: 'Failed to delete collection Recommendation' });
+    }
+  } catch (error) {
+    res.json({ result: false, error: 'An error occurred while deleting recommendations' });
+  }
 });
 
 module.exports = router;
