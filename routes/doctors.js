@@ -32,7 +32,7 @@ router.get('/search/:id', async (req, res) => {
 
 // POST /doctors/search/address
 
-router.post('/search/address', async(req, res) => {
+router.post('/search/address', async (req, res) => {
     try {
         const address = req.body.address;
         const url = `https://api-adresse.data.gouv.fr/search/?q=${address}&limit=5`;
@@ -57,59 +57,129 @@ router.post('/search/address', async(req, res) => {
 
             const results = [];
             for (let i = 0; i < addresses.length; i++) {
-                results.push({address : modifiedAddresses[i], latitude: latitude[i], longitude: longitude[i]});
+                results.push({ address: modifiedAddresses[i], latitude: latitude[i], longitude: longitude[i] });
             }
 
-            res.json({ result: true, results: results});
+            res.json({ result: true, results: results });
 
         } else {
-            res.status(404).json({ error: "No results found for this address"});
+            res.status(404).json({ error: "No results found for this address" });
         }
     } catch (error) {
         console.error(error);
-        res.status(500).json({ error: "An error occurred while searching for this address"});
+        res.status(500).json({ error: "An error occurred while searching for this address" });
     }
 });
 
 // POST /doctors/search
 
+// router.post('/search', async (req, res) => {
+//     try {
+
+//         const lastname = req.body.lastname;
+//         const specialties = req.body.specialties;
+//         const department = req.body.department;
+
+//         if (lastname && specialties && department) {
+//             const doctors = await Doctor.find({
+//                 lastname: lastname,
+//                 specialties: specialties
+//             });
+//             if (doctors.length > 0) {
+//                 res.json({ result: true, length: doctors.length + " résultats trouvés", doctors: doctors });
+//             } else {
+//                 res.json({ result: false, error: "No doctor found" });
+//             }
+//         } else if (lastname && specialties) {
+//             const doctors = await Doctor.find({
+//                 lastname: lastname
+//             });
+//             if (doctors.length > 0) {
+//                 res.json({ result: true, length: doctors.length + " résultats trouvés", doctors: doctors });
+//             } else {
+//                 res.json({ result: false, error: "No doctor found" });
+//             }
+//         } else if (specialties && department) {
+//             const doctors = await Doctor.find({
+//                 specialties: specialties
+//             });
+//             if (doctors.length > 0) {
+//                 res.json({ result: true, length: doctors.length + " résultats trouvés", doctors: doctors });
+//             } else {
+//                 res.json({ result: false, error: "No doctor found" });
+//             }
+//         } else if (lastname && department) {
+//             const doctors = await Doctor.find({
+//                 lastname: lastname,
+//                 address : { $regex: new RegExp(`\\b${department}\\d{3}\\b`, 'i') }
+//             });
+//             if (doctors.length > 0) {
+//                 res.json({ result: true, length: doctors.length + " résultats trouvés", doctors: doctors });
+//             } else {
+//                 res.json({ result: false, error: "No doctor found" });
+//             }
+//         } else if (lastname) {
+//             const doctors = await Doctor.find({
+//                 lastname: lastname,
+//             });
+//             if (doctors.length > 0) {
+//                 res.json({ result: true, length: doctors.length + " résultats trouvés", doctors: doctors });
+//             } else {
+//                 res.json({ result: false, error: "No doctor found" });
+//             }
+//         } else if (specialties) {
+//             const doctors = await Doctor.find({
+//                 specialties: specialties
+//             });
+//             if (doctors.length > 0) {
+//                 res.json({ result: true, length: doctors.length + " résultats trouvés", doctors: doctors });
+//             } else {
+//                 res.json({ result: false, error: "No doctor found" });
+//             }
+//         } else if (department) {
+//             const doctors = await Doctor.find({
+//                 address : { $regex: new RegExp(`\\b${department}\\d{3}\\b`, 'i') }
+//             });
+//             if (doctors.length > 0) {
+//                 res.json({ result: true, length: doctors.length + " résultats trouvés", doctors: doctors });
+//             } else {
+//                 res.json({ result: false, error: "No doctor found" });
+//             }
+//         } else {
+//             res.json({ result: false, error: "No search criteria provided" });
+//         }
+//     } catch (error) {
+//         res.json({ error: "An error occurrend while searching for doctors" });
+//     }
+// });
+
 router.post('/search', async (req, res) => {
     try {
-        if (req.body.lastname && req.body.specialties) {
-            const doctors = await Doctor.find({
-                lastname: req.body.lastname,
-                specialties: req.body.specialties
-            });
-            if (doctors.length > 0) {
-                res.json({ result: true, doctors: doctors });
-            } else {
-                res.json({ result: false, error: "No doctor found" });
-            }
-        } else if (req.body.lastname) {
-            const doctors = await Doctor.find({
-                lastname: req.body.lastname
-            });
-            if (doctors.length > 0) {
-                res.json({ result: true, doctors: doctors });
-            } else {
-                res.json({ result: false, error: "No doctor found" });
-            }
-        } else if (req.body.specialties) {
-            const doctors = await Doctor.find({
-                specialties: req.body.specialties
-            });
-            if (doctors.length > 0) {
-                res.json({ result: true, doctors: doctors });
-            } else {
-                res.json({ result: false, error: "No doctor found" });
-            }
+        const { lastname, specialties, department } = req.body;
+        const query = {};
+
+        if (lastname) {
+            query.lastname = lastname;
+        }
+        if (specialties) {
+            query.specialties = specialties;
+        }
+        if (department) {
+            query.address = { $regex: new RegExp(`\\b${department}\\d{3}\\b`, 'i') };
+        }
+
+        const doctors = await Doctor.find(query);
+
+        if (doctors.length > 0) {
+            res.json({ result: true, length: doctors.length + " résultats trouvés", doctors: doctors });
         } else {
-            res.json({ result: false, error: "No search criteria provided" });
+            res.json({ result: false, error: "No doctor found" });
         }
     } catch (error) {
-        res.json({ error: "An error occurrend while searching for doctors" });
+        res.json({ error: "An error occurred while searching for doctors" });
     }
 });
+
 
 // POST /doctors/add/verify
 
@@ -178,19 +248,19 @@ router.post('/add', async (req, res) => {
     try {
 
         const { firstname,
-            lastname, 
-            email, 
-            phone, 
-            address, 
-            latitude, 
-            longitude, 
-            sector, 
+            lastname,
+            email,
+            phone,
+            address,
+            latitude,
+            longitude,
+            sector,
             // recommandations, 
-            specialties, 
-            languages, 
-            tags, 
+            specialties,
+            languages,
+            tags,
             // confidentiality 
-            } = req.body;
+        } = req.body;
 
         if (!sector) {
             res.json({ result: false, error: 'Sector not found' });
@@ -242,8 +312,8 @@ router.post('/add', async (req, res) => {
         // Add doctor to DB
         newDoctor.save()
             .then(doctor => {
-                        res.json({ result: true, newDoctor: doctor });
-                    });
+                res.json({ result: true, newDoctor: doctor });
+            });
 
     } catch (error) {
         console.error(error);
@@ -256,7 +326,7 @@ router.post('/add', async (req, res) => {
 router.put('/tags/:id', async (req, res) => {
     try {
         const doctorId = req.params.id;
-        const tags = req.body.tags; 
+        const tags = req.body.tags;
 
         const doctor = await Doctor.findById(doctorId);
 
