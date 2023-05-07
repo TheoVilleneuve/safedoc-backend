@@ -12,7 +12,7 @@ var doctorsRouter = require('./routes/doctors');
 var gendersRouter = require('./routes/genders');
 var languagesRouter = require('./routes/languages');
 var orientationsRouter = require('./routes/orientations');
-var recommandationsRouter = require('./routes/recommandations');
+var recommandationsRouter = require('./routes/recommendations');
 var sectorsRouter = require('./routes/sectors');
 var specialtiesRouter = require('./routes/specialties');
 var tagsRouter = require('./routes/tags');
@@ -38,6 +38,5 @@ app.use('/sectors', sectorsRouter);
 app.use('/specialties', specialtiesRouter);
 app.use('/tags', tagsRouter);
 app.use('/users', usersRouter);
-
 
 module.exports = app;

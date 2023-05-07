@@ -1,5 +1,19 @@
-[
-    {"value": 1, "description": "conventionné.e secteur 1"},
-    {"value": 2, "description": "conventionné.e secteur 2"},
-    {"value": 3, "description": "non convetionné.e secteur 3"}   
-]
+[{
+  "_id": {
+    "$oid": "64342bb4b977040780965768"
+  },
+  "value": 1,
+  "description": "Conventionné.e secteur 1"
+},{
+  "_id": {
+    "$oid": "64342bb4b977040780965769"
+  },
+  "value": 2,
+  "description": "Conventionné.e secteur 2"
+},{
+  "_id": {
+    "$oid": "64342bb4b97704078096576a"
+  },
+  "value": 3,
+  "description": "Non conventionné.e secteur 3"
+}]
