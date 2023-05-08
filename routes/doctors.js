@@ -52,7 +52,6 @@ router.post('/search/address', async (req, res) => {
             }
 
             const latitude = data.features.map(latitude => latitude.geometry.coordinates[1]);
-
             const longitude = data.features.map(longitude => longitude.geometry.coordinates[0]);
 
             const results = [];
@@ -119,18 +118,16 @@ router.post('/add/verify', async (req, res) => {
     }
 });
 
-// POST / doctors/ add
+// POST /doctors/add
 
 router.post('/add', async (req, res) => {
-    // Check the mandatory fields
     if (!checkBody(req.body, ['firstname', 'lastname', 'email', 'phone', 'address'])) {
         res.json({ result: false, error: 'Missing or empty fields' });
         return;
     }
 
-    // Check if the email and phone fields have valid syntax using regex
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // a simple email regex
-    const phoneRegex = /^\d{10}$/; // a simple phone regex that checks for 10 digits
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const phoneRegex = /^\d{10}$/;
     if (!emailRegex.test(req.body.email)) {
         res.json({ result: false, error: 'Invalid email format' });
         return;
@@ -141,7 +138,6 @@ router.post('/add', async (req, res) => {
     }
 
     try {
-
         const { firstname,
             lastname,
             email,
@@ -196,7 +192,6 @@ router.post('/add', async (req, res) => {
             }
         });
 
-        // Add doctor to DB
         newDoctor.save()
             .then(doctor => {
                 res.json({ result: true, newDoctor: doctor });
@@ -247,20 +242,16 @@ router.put('/tags/:id', async (req, res) => {
 router.put('/confidentiality/:id', async (req, res) => {
     try {
         const doctorId = req.params.id;
-        const confidentialityValue = req.body.value; // On récupère la nouvelle valeur de confidentialité depuis le corps de la requête
-        const confidentialityDescription = req.body.description; // On récupère la nouvelle description de confidentialité depuis le corps de la requête
+        const confidentialityValue = req.body.value;
+        const confidentialityDescription = req.body.description;
 
-        // On récupère le document doctor correspondant
         const doctor = await Doctor.findById(doctorId);
 
-        // On met à jour le niveau de confidentialité en fonction de la requête
         doctor.confidentiality.value = confidentialityValue;
         doctor.confidentiality.description = confidentialityDescription;
 
-        // On met à jour le document doctor correspondant avec la nouvelle confidentialité
         const updatedDoctor = await doctor.save();
 
-        // On renvoie l'id et la confidentialité du document doctor mis à jour en réponse
         res.json({ doctorId: doctorId, confidentiality: updatedDoctor.confidentiality });
     } catch (error) {
         console.error(error);
