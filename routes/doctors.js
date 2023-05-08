@@ -73,86 +73,6 @@ router.post('/search/address', async (req, res) => {
 
 // POST /doctors/search
 
-// router.post('/search', async (req, res) => {
-//     try {
-
-//         const lastname = req.body.lastname;
-//         const specialties = req.body.specialties;
-//         const department = req.body.department;
-
-//         if (lastname && specialties && department) {
-//             const doctors = await Doctor.find({
-//                 lastname: lastname,
-//                 specialties: specialties
-//             });
-//             if (doctors.length > 0) {
-//                 res.json({ result: true, length: doctors.length + " résultats trouvés", doctors: doctors });
-//             } else {
-//                 res.json({ result: false, error: "No doctor found" });
-//             }
-//         } else if (lastname && specialties) {
-//             const doctors = await Doctor.find({
-//                 lastname: lastname
-//             });
-//             if (doctors.length > 0) {
-//                 res.json({ result: true, length: doctors.length + " résultats trouvés", doctors: doctors });
-//             } else {
-//                 res.json({ result: false, error: "No doctor found" });
-//             }
-//         } else if (specialties && department) {
-//             const doctors = await Doctor.find({
-//                 specialties: specialties
-//             });
-//             if (doctors.length > 0) {
-//                 res.json({ result: true, length: doctors.length + " résultats trouvés", doctors: doctors });
-//             } else {
-//                 res.json({ result: false, error: "No doctor found" });
-//             }
-//         } else if (lastname && department) {
-//             const doctors = await Doctor.find({
-//                 lastname: lastname,
-//                 address : { $regex: new RegExp(`\\b${department}\\d{3}\\b`, 'i') }
-//             });
-//             if (doctors.length > 0) {
-//                 res.json({ result: true, length: doctors.length + " résultats trouvés", doctors: doctors });
-//             } else {
-//                 res.json({ result: false, error: "No doctor found" });
-//             }
-//         } else if (lastname) {
-//             const doctors = await Doctor.find({
-//                 lastname: lastname,
-//             });
-//             if (doctors.length > 0) {
-//                 res.json({ result: true, length: doctors.length + " résultats trouvés", doctors: doctors });
-//             } else {
-//                 res.json({ result: false, error: "No doctor found" });
-//             }
-//         } else if (specialties) {
-//             const doctors = await Doctor.find({
-//                 specialties: specialties
-//             });
-//             if (doctors.length > 0) {
-//                 res.json({ result: true, length: doctors.length + " résultats trouvés", doctors: doctors });
-//             } else {
-//                 res.json({ result: false, error: "No doctor found" });
-//             }
-//         } else if (department) {
-//             const doctors = await Doctor.find({
-//                 address : { $regex: new RegExp(`\\b${department}\\d{3}\\b`, 'i') }
-//             });
-//             if (doctors.length > 0) {
-//                 res.json({ result: true, length: doctors.length + " résultats trouvés", doctors: doctors });
-//             } else {
-//                 res.json({ result: false, error: "No doctor found" });
-//             }
-//         } else {
-//             res.json({ result: false, error: "No search criteria provided" });
-//         }
-//     } catch (error) {
-//         res.json({ error: "An error occurrend while searching for doctors" });
-//     }
-// });
-
 router.post('/search', async (req, res) => {
     try {
         const { lastname, specialties, department } = req.body;
@@ -180,7 +100,6 @@ router.post('/search', async (req, res) => {
     }
 });
 
-
 // POST /doctors/add/verify
 
 router.post('/add/verify', async (req, res) => {
@@ -200,31 +119,7 @@ router.post('/add/verify', async (req, res) => {
     }
 });
 
-
-// POST /doctors/add
-
-// {
-//     "firstname": "Sisi1",
-//     "lastname": "Leclerc1",
-//     "email": "sisi@example1.com",
-//     "phone": "0601020004",
-//     "address": "55 Rue du Faubourg Saint-Honoré, 75008 Paris",
-//     "latitude": 48.87169403367853,
-//     "longitude": 2.3630708418845616,
-//     "sector": {
-//       "value": 1,
-//       "description": "Conventionné.e secteur 1"
-//     },
-//     "specialties": [
-//       "Généraliste", "Dermatologue"
-//     ],
-//     "languages": [
-//       "français"
-//     ],
-//     "tags": [
-//       "LGBT-friendly", "PMR"
-//     ]
-//   }
+// POST / doctors/ add
 
 router.post('/add', async (req, res) => {
     // Check the mandatory fields
@@ -255,22 +150,15 @@ router.post('/add', async (req, res) => {
             latitude,
             longitude,
             sector,
-            // recommandations, 
             specialties,
             languages,
             tags,
-            // confidentiality 
         } = req.body;
 
         if (!sector) {
             res.json({ result: false, error: 'Sector not found' });
             return;
         }
-
-        // if (!recommandations) {
-        //     res.json({ result: false, error: 'Recommandations not found' });
-        //     return;
-        // }
 
         if (req.body.specialties.length !== specialties.length) {
             res.json({ result: false, error: 'One or more specialties not found' });
@@ -299,7 +187,6 @@ router.post('/add', async (req, res) => {
                 value: sector.value,
                 description: sector.description
             },
-            // recommandations: recommandations.map((s) => s._id),
             specialties: specialties,
             languages: languages,
             tags: tags,
@@ -323,43 +210,6 @@ router.post('/add', async (req, res) => {
 
 // PUT /doctors/tags/:id
 
-// router.put('/tags/:id', async (req, res) => {
-//     try {
-//         const doctorId = req.params.id;
-//         const tags = req.body.tags;
-
-//         const doctor = await Doctor.findById(doctorId);
-
-//         for (const tag of tags) {
-
-//             // const existingTag = 
-//         }
-
-
-//         // // On parcourt le tableau des tags
-//         // for (const tag of tags) {
-//         //     const existingTagIndex = doctor.tags.findIndex((t) => t.name === tag.name); // On vérifie si le tag existe déjà dans le champ "tags"
-
-//         //     if (existingTagIndex !== -1) {
-//         //         // Si le tag existe déjà, on met à jour son champ "selected"
-//         //         doctor.tags[existingTagIndex].selected += 1;
-//         //     } else {
-//         //         // Si le tag n'existe pas, on l'ajoute avec un champ "selected" initialisé à 1
-//         //         doctor.tags.push({ name: tag.name, selected: 1 });
-//         //     }
-//         // }
-
-//         // On met à jour le document doctor correspondant avec les tags modifiés
-//         const updatedDoctor = await doctor.save();
-
-//         // On renvoie l'id et les tags du document doctor mis à jour en réponse
-//         res.json({ doctorId: doctorId, tags: updatedDoctor.tags });
-//     } catch (error) {
-//         console.error(error);
-//         res.status(500).json({ message: "Server Error" });
-//     }
-// });
-
 router.put('/tags/:id', async (req, res) => {
     const { tags } = req.body;
     const { id } = req.params;
@@ -372,26 +222,25 @@ router.put('/tags/:id', async (req, res) => {
         }
 
         if (Array.isArray(tags)) {
-                for (const tag of tags) {
-                    if (!doctor.tags.includes(tag)) {
-                        doctor.tags.push(tag);
-                    }
-                };
+            for (const tag of tags) {
+                if (!doctor.tags.includes(tag)) {
+                    doctor.tags.push(tag);
+                }
+            };
         } else {
             if (!doctor.tags.includes(tags)) {
                 doctor.tags.push(tags);
             }
         }
-                
+
         await doctor.save();
 
-        res.json({result: true, updatedDoctor: doctor});
+        res.json({ result: true, updatedDoctor: doctor });
     } catch (error) {
         console.error(error.message);
         res.status(500).json({ message: 'Server error' });
     }
 });
-
 
 // PUT /doctors/confidentiality/:id
 
