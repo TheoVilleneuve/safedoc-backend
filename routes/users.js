@@ -95,9 +95,9 @@ router.post('/signup', async (req, res) => {
         isAdmin: false
       });
 
-       await newUser.save();
+      await newUser.save();
 
-      res.json({ result: true, token: newDoc.token });
+      res.json({ result: true, token: newUser.token });
     } else {
       // User already exists in database
       res.json({ result: false, error: 'User already exists' });
@@ -140,15 +140,15 @@ router.post('/signin', (req, res) => {
 // DELETE /users 
 
 router.delete('/', async (res) => {
- try{
-  await User.deleteMany({})
-    .then(data => {
-      if (data) {
-        res.json({ result: true, message: "Collection users successfully deleted" });
-      } else {
-        res.json({ result: false, error: "Failed to delete collection users" });
-      }
-    })
+  try {
+    await User.deleteMany({})
+      .then(data => {
+        if (data) {
+          res.json({ result: true, message: "Collection users successfully deleted" });
+        } else {
+          res.json({ result: false, error: "Failed to delete collection users" });
+        }
+      })
   } catch (error) {
     res.json({ result: false, error: "An error occurred while deleting the user collection" });
   }
