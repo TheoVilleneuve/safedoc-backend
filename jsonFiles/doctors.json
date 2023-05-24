@@ -340,43 +340,6 @@
   "__v": 0
 },{
   "_id": {
-    "$oid": "643e8ef28fd907a0a0c18c5e"
-  },
-  "firstname": "Marie",
-  "lastname": "Leclerc",
-  "email": "sisi@example1.com",
-  "phone": "0601020004",
-  "address": "55 Rue du Faubourg Saint-Honoré, 75008 Paris",
-  "latitude": 48.87169403367853,
-  "longitude": 2.3630708418845616,
-  "sector": {
-    "value": 1,
-    "description": "Conventionné.e secteur 1",
-    "_id": {
-      "$oid": "643e8ef28fd907a0a0c18c5f"
-    }
-  },
-  "specialties": [
-    "Généraliste",
-    "Dermatologue"
-  ],
-  "languages": [
-    "français"
-  ],
-  "tags": [
-    "LGBT-friendly",
-    "Accessibilité PMR"
-  ],
-  "confidentiality": {
-    "value": 3,
-    "description": "no display",
-    "_id": {
-      "$oid": "643e8ef28fd907a0a0c18c60"
-    }
-  },
-  "__v": 0
-},{
-  "_id": {
     "$oid": "643e90018fd907a0a0c18c62"
   },
   "firstname": "Thomas",
@@ -593,7 +556,8 @@
     "Suivi-Prep",
     "TDS-Friendly",
     "Tiers-Payant",
-    "Gay-Friendly"
+    "Gay-Friendly",
+    "Parcours De Transition"
   ],
   "confidentiality": {
     "value": 3,
@@ -602,7 +566,7 @@
       "$oid": "64410276ce6c6dc232a87be3"
     }
   },
-  "__v": 2
+  "__v": 3
 },{
   "_id": {
     "$oid": "64410fd198d54eab8c690dac"
@@ -667,7 +631,9 @@
   "tags": [
     "Accessibilité PMR",
     "Tiers-Payant",
-    "Sensibilité violence"
+    "Sensibilité violence",
+    "IVG-Safe",
+    "Parcours De Transition"
   ],
   "confidentiality": {
     "value": 3,
@@ -676,7 +642,7 @@
       "$oid": "6441338194567c6542c677ab"
     }
   },
-  "__v": 0
+  "__v": 1
 },{
   "_id": {
     "$oid": "644159f257e258aecb7c8de2"
@@ -750,6 +716,157 @@
     "description": "no display",
     "_id": {
       "$oid": "64419381e7f621769edef4e2"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6458c591927ac77d73fa22da"
+  },
+  "firstname": "Jean",
+  "lastname": "Michel",
+  "email": "J.michel@gmail.com",
+  "phone": "0466231679",
+  "address": "15 Rue Nationale, 59800 Lille",
+  "latitude": 50.63671,
+  "longitude": 3.062132,
+  "sector": {
+    "value": 2,
+    "description": "Conventionné.e secteur 2",
+    "_id": {
+      "$oid": "6458c591927ac77d73fa22db"
+    }
+  },
+  "specialties": [
+    "Dentiste"
+  ],
+  "languages": [
+    "français"
+  ],
+  "tags": [
+    "Accessibilité PMR",
+    "Gay-Friendly",
+    "TDS-Friendly"
+  ],
+  "confidentiality": {
+    "value": 3,
+    "description": "no display",
+    "_id": {
+      "$oid": "6458c591927ac77d73fa22dc"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645915b9179ca819fdb0a70b"
+  },
+  "firstname": "Julien",
+  "lastname": "Dominguez",
+  "email": "J@gmail.com",
+  "phone": "0452136521",
+  "address": "36 Rue Nationale, 59800 Lille",
+  "latitude": 50.636658,
+  "longitude": 3.061391,
+  "sector": {
+    "value": 2,
+    "description": "Conventionné.e secteur 2",
+    "_id": {
+      "$oid": "645915b9179ca819fdb0a70c"
+    }
+  },
+  "specialties": [
+    "Généraliste",
+    "Gynécologue"
+  ],
+  "languages": [
+    "français"
+  ],
+  "tags": [
+    "Suivi VIH",
+    "Suivi-Prep",
+    "Tiers-Payant",
+    "Trans-Friendly"
+  ],
+  "confidentiality": {
+    "value": 3,
+    "description": "no display",
+    "_id": {
+      "$oid": "645915b9179ca819fdb0a70d"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6459235fee237d1d4cca5356"
+  },
+  "firstname": "Nicolas",
+  "lastname": "Migot",
+  "email": "nicolasmigot@gmail.com",
+  "phone": "0682285121",
+  "address": "36 Rue Louis Blanc, 75010 Paris",
+  "latitude": 48.881452,
+  "longitude": 2.364696,
+  "sector": {
+    "value": 3,
+    "description": "Non conventionné.e secteur 3",
+    "_id": {
+      "$oid": "6459235fee237d1d4cca5357"
+    }
+  },
+  "specialties": [
+    "Généraliste"
+  ],
+  "languages": [
+    "français",
+    "english"
+  ],
+  "tags": [
+    "Accessibilité PMR",
+    "Lesbienne-Friendly",
+    "Tiers-Payant"
+  ],
+  "confidentiality": {
+    "value": 3,
+    "description": "no display",
+    "_id": {
+      "$oid": "6459235fee237d1d4cca5358"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6463a528061240f03a3c9d64"
+  },
+  "firstname": "Nicolas",
+  "lastname": "Migot",
+  "email": "Nico@gmail.com",
+  "phone": "0682252381",
+  "address": "505 Route de Chenavy, 74330 Sillingy",
+  "latitude": 45.939926,
+  "longitude": 6.034748,
+  "sector": {
+    "value": 2,
+    "description": "Conventionné.e secteur 2",
+    "_id": {
+      "$oid": "6463a528061240f03a3c9d65"
+    }
+  },
+  "specialties": [
+    "Addictologue"
+  ],
+  "languages": [
+    "français"
+  ],
+  "tags": [
+    "Trans-Friendly",
+    "Lesbienne-Friendly",
+    "Gay-Friendly"
+  ],
+  "confidentiality": {
+    "value": 3,
+    "description": "no display",
+    "_id": {
+      "$oid": "6463a528061240f03a3c9d66"
     }
   },
   "__v": 0

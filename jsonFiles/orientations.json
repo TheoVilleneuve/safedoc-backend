@@ -1,18 +1,8 @@
 [{
   "_id": {
-    "$oid": "643428257499ce6ad9ba0fe0"
-  },
-  "value": "En questionnement"
-},{
-  "_id": {
     "$oid": "643428257499ce6ad9ba0fd8"
   },
   "value": "Gay"
-},{
-  "_id": {
-    "$oid": "643428257499ce6ad9ba0fdc"
-  },
-  "value": "Asexuel.le"
 },{
   "_id": {
     "$oid": "643428257499ce6ad9ba0fd9"
@@ -30,6 +20,11 @@
   "value": "Bisexuel.le"
 },{
   "_id": {
+    "$oid": "643428257499ce6ad9ba0fdc"
+  },
+  "value": "Asexuel.le"
+},{
+  "_id": {
     "$oid": "643428257499ce6ad9ba0fdd"
   },
   "value": "Hétérosexuel.le"
@@ -43,4 +38,9 @@
     "$oid": "643428257499ce6ad9ba0fdf"
   },
   "value": "Je ne souhaite pas me définir"
+},{
+  "_id": {
+    "$oid": "643428257499ce6ad9ba0fe0"
+  },
+  "value": "En questionnement"
 }]

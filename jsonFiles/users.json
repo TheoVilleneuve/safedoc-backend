@@ -214,18 +214,6 @@
   "__v": 0
 },{
   "_id": {
-    "$oid": "6441017beed82d0fe9a38d89"
-  },
-  "username": "JulienD",
-  "password": "$2b$10$OfH2GbAx4I3wR7DpO//rkeg1BH2I/ElKw.IWb08n7Vme9xj4a4OVO",
-  "email": "jujud@gmail.com",
-  "orientation": "Je ne souhaite pas me défnir",
-  "gender": "Je ne me reconnais dans aucune catégorie",
-  "token": "sMGAY67SGjdLXx8Oy0ysPpF-7fUISNjs",
-  "isAdmin": false,
-  "__v": 0
-},{
-  "_id": {
     "$oid": "644124622479c53dd75cabcb"
   },
   "username": "Jugu",
@@ -316,6 +304,98 @@
   "orientation": "Lesbienne",
   "gender": "Femme cisgenre",
   "token": "jJsaGz4yxttcFoOYb51Na9GQ4yXKhIcI",
+  "isAdmin": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6458deb70187d1c3988bd0d0"
+  },
+  "username": "Gere",
+  "password": "$2b$10$wXjkLx548CZ.AqLei11YfeFsiJGKN8b4zNGZ3WDDZ3JmAlWg3e67.",
+  "email": "F@glail.com",
+  "orientation": "Je ne me reconnais dans aucune catégorie",
+  "gender": "Personne intersexe",
+  "token": "DdcVrmBmu63LIHXvi8dE0HN7xtLx8iG0",
+  "isAdmin": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6458eeb8a524f358eac60380"
+  },
+  "username": "GigiD",
+  "password": "$2b$10$1SKzYYzkgGLHgvMxLNzPN.t9SOwsQCOhDO./SgXTD6z7IZtFqq.M6",
+  "email": "Gigi@gmail.com",
+  "orientation": "Asexuel.le",
+  "gender": "Personne non-binaire",
+  "token": "iOYvcMJnuvz7wmLovgKOMfC-YWyjhAM4",
+  "isAdmin": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6458ef6949ec8afb0255a2b5"
+  },
+  "username": "JujuDo",
+  "password": "$2b$10$Cr8kXkH4i4AlPD21lrVZeu4K8lrFCNt6/kg/5KL38INCK.VPCFIhO",
+  "email": "juju@gmail.com",
+  "orientation": "Lesbienne",
+  "gender": "Femme cisgenre",
+  "token": "TfLgJea0r-15YwgivoSe4ST0hLliL7F0",
+  "isAdmin": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64592310108c6e9ad3c098d2"
+  },
+  "username": "Julien_Doming",
+  "password": "$2b$10$EqvDzUxrEzD2hivgfup8kubl9PtlMpdaVCaUJt/1obsCMAdpfLdIq",
+  "email": "juliendoming@gmail.com",
+  "orientation": "Je ne souhaite pas me définir",
+  "gender": "Homme cisgenre",
+  "token": "ReSsDU0GLWpbc8zbVt6wFLtIWiCvYtvZ",
+  "isAdmin": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6468a58b556f5e33650d6f75"
+  },
+  "username": "tit-mam",
+  "password": "$2b$10$/Id.7JdEvO8u7LtAEyPnIOAlQTfdETiLVbVOaxNSTRdt7X.ZJZFXi",
+  "email": "Titmam@gmail.com",
+  "orientation": "Je ne souhaite pas me définir",
+  "gender": "Femme cisgenre",
+  "token": "Jm2qim3akXzs4iPVaaEq3U-Rvw9CDhWW",
+  "isAdmin": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6468a5cf556f5e33650d6f83"
+  },
+  "username": "koko",
+  "password": "$2b$10$YE64J.hi7d9X1xenQkJsVegSgi1PJUQ6vL1P40vu1kCGVLqbMQ4Mu",
+  "email": "Koko@gmail.com",
+  "token": "Hc_ANqBRnqR--86BWStetOLXXe9jM6k_",
+  "isAdmin": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6468a706556f5e33650d6f88"
+  },
+  "username": "Riri",
+  "password": "$2b$10$BLvs0Z5w2DS1eUyZcdzZzeUPP8hYKI04RcaEuS2J4h8Ek4vTh0dMW",
+  "email": "riri@gmail.com",
+  "token": "zXHhD7IzQ1I_tQYVNkuOTKtnBfvNk6uS",
+  "isAdmin": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6468a7f9556f5e33650d6f95"
+  },
+  "username": "lala",
+  "password": "$2b$10$5Npz79erkstRv1M/D95Cs.DvzHwC/b3gxSomE4/0gyOxdDTkVofa.",
+  "email": "Lala@gmail.com",
+  "orientation": "Asexuel.le",
+  "gender": "Personne non-binaire",
+  "token": "G8vjpd-BpsKeXUIT7DTLbTEgDR5JaL6X",
   "isAdmin": false,
   "__v": 0
 }]
